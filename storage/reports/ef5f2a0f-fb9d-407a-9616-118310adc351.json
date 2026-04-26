@@ -1,0 +1,599 @@
+{
+  "overview": {
+    "summary": "Automated data discovery, profiling, quality, and RAID report",
+    "score": {
+      "quality_score": 100.0,
+      "risk_penalty": 0,
+      "final_score": 100.0
+    }
+  },
+  "ingestion": {
+    "source_type": "postgresql",
+    "database": "Scan_db",
+    "tables_scanned": [
+      "public.customers",
+      "public.orders"
+    ],
+    "num_tables": 2,
+    "owners": [
+      "postgres"
+    ],
+    "rows_sampled": {
+      "public.customers": 2,
+      "public.orders": 2
+    }
+  },
+  "workflow": [
+    "source_inventory",
+    "profiling",
+    "data_quality",
+    "data_findings",
+    "raid",
+    "aggregator"
+  ],
+  "source_inventory": {
+    "source_type": "postgresql",
+    "database": "Scan_db",
+    "tables": [
+      {
+        "schema": "public",
+        "table": "customers",
+        "qualified_name": "public.customers",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "customer_name",
+            "type": "TEXT",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "email",
+            "type": "TEXT",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "created_date",
+            "type": "DATE",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "customer_id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "name": "customers_email_key",
+            "columns": [
+              "email"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "schema": "public",
+        "table": "orders",
+        "qualified_name": "public.orders",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "order_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "customer_id",
+            "type": "INTEGER",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_date",
+            "type": "DATE",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_amount",
+            "type": "NUMERIC",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_status",
+            "type": "TEXT",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "order_id"
+        ],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ]
+  },
+  "schema_analysis": "{\"summary\":\"ok\"}",
+  "data_summary": {
+    "public.customers": {
+      "row_count": 2,
+      "sample_size": 2,
+      "column_count": 4,
+      "null_count": 0,
+      "null_count_by_column": {
+        "customer_id": 0,
+        "customer_name": 0,
+        "email": 0,
+        "created_date": 0
+      },
+      "null_percentage": {
+        "customer_id": 0.0,
+        "customer_name": 0.0,
+        "email": 0.0,
+        "created_date": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "customer_id": 2,
+        "customer_name": 2,
+        "email": 2,
+        "created_date": 2
+      },
+      "data_types": {
+        "customer_id": "int64",
+        "customer_name": "object",
+        "email": "object",
+        "created_date": "object"
+      },
+      "numeric_stats": {
+        "customer_id": {
+          "count": 2.0,
+          "mean": 1.5,
+          "std": 0.7071067811865476,
+          "min": 1.0,
+          "25%": 1.25,
+          "50%": 1.5,
+          "75%": 1.75,
+          "max": 2.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "public.orders": {
+      "row_count": 2,
+      "sample_size": 2,
+      "column_count": 5,
+      "null_count": 0,
+      "null_count_by_column": {
+        "order_id": 0,
+        "customer_id": 0,
+        "order_date": 0,
+        "order_amount": 0,
+        "order_status": 0
+      },
+      "null_percentage": {
+        "order_id": 0.0,
+        "customer_id": 0.0,
+        "order_date": 0.0,
+        "order_amount": 0.0,
+        "order_status": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "order_id": 2,
+        "customer_id": 2,
+        "order_date": 2,
+        "order_amount": 2,
+        "order_status": 2
+      },
+      "data_types": {
+        "order_id": "int64",
+        "customer_id": "int64",
+        "order_date": "object",
+        "order_amount": "float64",
+        "order_status": "object"
+      },
+      "numeric_stats": {
+        "order_id": {
+          "count": 2.0,
+          "mean": 101.5,
+          "std": 0.7071067811865476,
+          "min": 101.0,
+          "25%": 101.25,
+          "50%": 101.5,
+          "75%": 101.75,
+          "max": 102.0
+        },
+        "customer_id": {
+          "count": 2.0,
+          "mean": 1.5,
+          "std": 0.7071067811865476,
+          "min": 1.0,
+          "25%": 1.25,
+          "50%": 1.5,
+          "75%": 1.75,
+          "max": 2.0
+        },
+        "order_amount": {
+          "count": 2.0,
+          "mean": 400.0,
+          "std": 141.4213562373095,
+          "min": 300.0,
+          "25%": 350.0,
+          "50%": 400.0,
+          "75%": 450.0,
+          "max": 500.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    }
+  },
+  "data_quality": {
+    "summary": "ok",
+    "quality_dimensions": {
+      "completeness": "ok",
+      "uniqueness": "ok",
+      "consistency": "ok",
+      "accuracy": "ok",
+      "integrity": "ok"
+    },
+    "table_wise_issues": [],
+    "overall_score": 100,
+    "recommendations": []
+  },
+  "data_findings": {
+    "summary": "ok",
+    "quality_dimensions": {
+      "completeness": "ok",
+      "uniqueness": "ok",
+      "consistency": "ok",
+      "accuracy": "ok",
+      "integrity": "ok"
+    },
+    "table_wise_issues": [],
+    "overall_score": 100,
+    "recommendations": []
+  },
+  "risks": {
+    "summary": "ok",
+    "quality_dimensions": {
+      "completeness": "ok",
+      "uniqueness": "ok",
+      "consistency": "ok",
+      "accuracy": "ok",
+      "integrity": "ok"
+    },
+    "table_wise_issues": [],
+    "overall_score": 100,
+    "recommendations": []
+  },
+  "csdiasr": {
+    "context": "Data-only discovery, profiling, quality, RAID, and recommendations scan",
+    "source_inventory": {
+      "source_type": "postgresql",
+      "database": "Scan_db",
+      "tables": [
+        {
+          "schema": "public",
+          "table": "customers",
+          "qualified_name": "public.customers",
+          "owner": "postgres",
+          "columns": [
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "customer_name",
+              "type": "TEXT",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "email",
+              "type": "TEXT",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "created_date",
+              "type": "DATE",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "customer_id"
+          ],
+          "foreign_keys": [],
+          "indexes": [
+            {
+              "name": "customers_email_key",
+              "columns": [
+                "email"
+              ],
+              "unique": true
+            }
+          ]
+        },
+        {
+          "schema": "public",
+          "table": "orders",
+          "qualified_name": "public.orders",
+          "owner": "postgres",
+          "columns": [
+            {
+              "name": "order_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_date",
+              "type": "DATE",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_amount",
+              "type": "NUMERIC",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_status",
+              "type": "TEXT",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "order_id"
+          ],
+          "foreign_keys": [],
+          "indexes": []
+        }
+      ]
+    },
+    "schema": {
+      "public.customers": [
+        "customer_id",
+        "customer_name",
+        "email",
+        "created_date"
+      ],
+      "public.orders": [
+        "order_id",
+        "customer_id",
+        "order_date",
+        "order_amount",
+        "order_status"
+      ]
+    },
+    "data": {
+      "public.customers": {
+        "row_count": 2,
+        "sample_size": 2,
+        "column_count": 4,
+        "null_count": 0,
+        "null_count_by_column": {
+          "customer_id": 0,
+          "customer_name": 0,
+          "email": 0,
+          "created_date": 0
+        },
+        "null_percentage": {
+          "customer_id": 0.0,
+          "customer_name": 0.0,
+          "email": 0.0,
+          "created_date": 0.0
+        },
+        "duplicate_count": 0,
+        "duplicate_ratio": 0.0,
+        "unique_counts": {
+          "customer_id": 2,
+          "customer_name": 2,
+          "email": 2,
+          "created_date": 2
+        },
+        "data_types": {
+          "customer_id": "int64",
+          "customer_name": "object",
+          "email": "object",
+          "created_date": "object"
+        },
+        "numeric_stats": {
+          "customer_id": {
+            "count": 2.0,
+            "mean": 1.5,
+            "std": 0.7071067811865476,
+            "min": 1.0,
+            "25%": 1.25,
+            "50%": 1.5,
+            "75%": 1.75,
+            "max": 2.0
+          }
+        },
+        "high_null_columns": [],
+        "issues": []
+      },
+      "public.orders": {
+        "row_count": 2,
+        "sample_size": 2,
+        "column_count": 5,
+        "null_count": 0,
+        "null_count_by_column": {
+          "order_id": 0,
+          "customer_id": 0,
+          "order_date": 0,
+          "order_amount": 0,
+          "order_status": 0
+        },
+        "null_percentage": {
+          "order_id": 0.0,
+          "customer_id": 0.0,
+          "order_date": 0.0,
+          "order_amount": 0.0,
+          "order_status": 0.0
+        },
+        "duplicate_count": 0,
+        "duplicate_ratio": 0.0,
+        "unique_counts": {
+          "order_id": 2,
+          "customer_id": 2,
+          "order_date": 2,
+          "order_amount": 2,
+          "order_status": 2
+        },
+        "data_types": {
+          "order_id": "int64",
+          "customer_id": "int64",
+          "order_date": "object",
+          "order_amount": "float64",
+          "order_status": "object"
+        },
+        "numeric_stats": {
+          "order_id": {
+            "count": 2.0,
+            "mean": 101.5,
+            "std": 0.7071067811865476,
+            "min": 101.0,
+            "25%": 101.25,
+            "50%": 101.5,
+            "75%": 101.75,
+            "max": 102.0
+          },
+          "customer_id": {
+            "count": 2.0,
+            "mean": 1.5,
+            "std": 0.7071067811865476,
+            "min": 1.0,
+            "25%": 1.25,
+            "50%": 1.5,
+            "75%": 1.75,
+            "max": 2.0
+          },
+          "order_amount": {
+            "count": 2.0,
+            "mean": 400.0,
+            "std": 141.4213562373095,
+            "min": 300.0,
+            "25%": 350.0,
+            "50%": 400.0,
+            "75%": 450.0,
+            "max": 500.0
+          }
+        },
+        "high_null_columns": [],
+        "issues": []
+      }
+    },
+    "insights": {
+      "data_findings": {
+        "summary": "ok",
+        "quality_dimensions": {
+          "completeness": "ok",
+          "uniqueness": "ok",
+          "consistency": "ok",
+          "accuracy": "ok",
+          "integrity": "ok"
+        },
+        "table_wise_issues": [],
+        "overall_score": 100,
+        "recommendations": []
+      },
+      "profiling_insights": "ok"
+    },
+    "analysis": {
+      "schema_analysis": "{\"summary\":\"ok\"}",
+      "quality_report": {
+        "summary": "ok",
+        "quality_dimensions": {
+          "completeness": "ok",
+          "uniqueness": "ok",
+          "consistency": "ok",
+          "accuracy": "ok",
+          "integrity": "ok"
+        },
+        "table_wise_issues": [],
+        "overall_score": 100,
+        "recommendations": []
+      }
+    },
+    "score": {
+      "quality_score": 100.0,
+      "risk_penalty": 0,
+      "final_score": 100.0
+    },
+    "risks": {
+      "summary": "ok",
+      "quality_dimensions": {
+        "completeness": "ok",
+        "uniqueness": "ok",
+        "consistency": "ok",
+        "accuracy": "ok",
+        "integrity": "ok"
+      },
+      "table_wise_issues": [],
+      "overall_score": 100,
+      "recommendations": []
+    }
+  },
+  "changes": {
+    "new_tables": [
+      "public.orders",
+      "public.customers"
+    ],
+    "removed_tables": [
+      "orders",
+      "customers"
+    ],
+    "score_change": {
+      "previous": 68.57,
+      "current": 100.0
+    }
+  },
+  "recommendations": []
+}

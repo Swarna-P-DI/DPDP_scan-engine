@@ -1,0 +1,27 @@
+{
+  "run_id": "76cfb80b-6aca-4376-a1da-bd2580966d1b",
+  "timestamp": "2026-04-24T11:07:43.901056",
+  "data": {
+    "schema": {
+      "customers": [
+        "customer_id",
+        "customer_name",
+        "email",
+        "created_date"
+      ],
+      "orders": [
+        "order_id",
+        "customer_id",
+        "order_date",
+        "order_amount",
+        "order_status"
+      ]
+    },
+    "scores": {
+      "coverage_score": 47.62,
+      "adjusted_coverage": 47.62,
+      "quality_score": 100.0,
+      "final_score": 68.57
+    }
+  }
+}

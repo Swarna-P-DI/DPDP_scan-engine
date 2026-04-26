@@ -1,0 +1,112 @@
+{
+  "overview": {
+    "summary": "Automated scan report",
+    "score": {
+      "coverage_score": 47.62,
+      "adjusted_coverage": 47.62,
+      "quality_score": 100.0,
+      "final_score": 68.57
+    }
+  },
+  "ingestion": {
+    "num_documents": 2,
+    "document_sizes": [
+      2000,
+      196
+    ],
+    "tables_scanned": [
+      "customers",
+      "orders"
+    ],
+    "num_tables": 2,
+    "rows_sampled": {
+      "customers": 2,
+      "orders": 2
+    }
+  },
+  "workflow": [
+    "document",
+    "data",
+    "profiling",
+    "mapping",
+    "gap_analysis",
+    "raid",
+    "aggregator"
+  ],
+  "data_summary": {
+    "customers": {
+      "row_count": 2,
+      "null_count": 0,
+      "issues": []
+    },
+    "orders": {
+      "row_count": 2,
+      "null_count": 0,
+      "issues": []
+    }
+  },
+  "requirement_analysis": "Here is the improved validation result:\n\n[\n  {\n    \"requirement\": '\"functional_requirements\": [',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No functional requirements defined; cannot validate',\n    \"fix\": 'Define functional requirements for data validation'\n  },\n  {\n    \"requirement\": '\"The system shall store customer orders.\"',\n    \"status\": 'PARTIAL',\n    \"reason\": 'Cannot validate without specific order format',\n    \"fix\": 'Specify order format (e.g., JSON, CSV)'\n  },\n  {\n    \"requirement\": '\"Each order must include: order_id, customer_id, order_date, order_amount, order_status.\"',\n    \"status\": 'PARTIAL',\n    \"reason\": 'Missing validation constraint for order status',\n    \"fix\": 'Add CHECK (order_status IN (\"CREATED\", \"SHIPPED\", \"DELIVERED\", \"CANCELLED\"))'\n  },\n  {\n    \"requirement\": '\"The system shall not allow NULL values for: order_id, customer_id, order_date.\"',\n    \"status\": 'PARTIAL',\n    \"reason\": 'No specific data type defined',\n    \"fix\": 'Specify data types (e.g., integer, date) and use NOT NULL constraint'\n  },\n  {\n    \"requirement\": '\"order_status must be one of: \\'CREATED\\', \\'SHIPPED\\', \\'DELIVERED\\', \\'CANCELLED\\'.\"',\n    \"status\": 'KNOWN',\n    \"reason\": 'Valid order status values defined',\n    \"fix\": None\n  },\n  {\n    \"requirement\": '\"The system shall generate: Monthly revenue report, Total orders per customer, Order status distribution.\"',\n    \"status\": 'PARTIAL',\n    \"reason\": 'No specific query or view defined for aggregation',\n    \"fix\": 'Create a view or aggregate query to compute these metrics'\n  },\n  {\n    \"requirement\": '\"non_functional_requirements\": [',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No non-functional requirements defined; cannot validate',\n    \"fix\": 'Define non-functional requirements for data validation'\n  },\n  {\n    \"requirement\": '\"order_amount must be greater than 0\"',\n    \"status\": 'KNOWN',\n    \"reason\": 'Valid order amount range defined',\n    \"fix\": None\n  },\n  {\n    \"requirement\": '\"email must follow standard email format\"',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No specific email format defined; cannot validate',\n    \"fix\": 'Define a regular expression for valid email formats'\n  },\n  {\n    \"requirement\": '\"order_date cannot be in the future\"',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No specific date range defined; cannot validate',\n    \"fix\": 'Define a date range constraint to prevent future dates'\n  },\n  {\n    \"requirement\": '\"order_status must match predefined values\"',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No specific order status values defined; cannot validate',\n    \"fix\": 'Define valid order status values and use IN operator'\n  },\n  {\n    \"requirement\": '\"entities\": {',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No entity definitions provided; cannot validate',\n    \"fix\": 'Define entities (e.g., Orders, Customers) with relevant attributes'\n  },\n  {\n    \"requirement\": '\"Orders\": [\"order_id\", \"customer_id\", \"order_date\", \"order_amount\", \"order_status\"]',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No specific order format defined; cannot validate',\n    \"fix\": 'Specify order format (e.g., JSON, CSV)'\n  },\n  {\n    \"requirement\": '\"Customers\": [\"customer_id\", \"customer_name\", \"email\", \"created_date\"]',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No specific customer format defined; cannot validate',\n    \"fix\": 'Specify customer format (e.g., JSON, CSV)'\n  },\n  {\n    \"requirement\": '\"business_rules\": [',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No business rules defined; cannot validate',\n    \"fix\": 'Define business rules for data validation'\n  },\n  {\n    \"requirement\": '\"One customer can have multiple orders (1:N relationship)\"',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No specific database schema defined; cannot validate',\n    \"fix\": 'Define a relational database schema with the correct relationships'\n  },\n  {\n    \"requirement\": '\"Orders.customer_id \u2192 Customers.customer_id\"',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No specific foreign key constraint defined; cannot validate',\n    \"fix\": 'Create a foreign key constraint to enforce this relationship'\n  },\n  {\n    \"requirement\": '\"analytical_requirements\": [',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No analytical requirements defined; cannot validate',\n    \"fix\": 'Define analytical requirements for data validation'\n  },\n  {\n    \"requirement\": '\"Monthly revenue report\"',\n    \"status\": 'PARTIAL',\n    \"reason\": 'Can compute but no aggregated structure',\n    \"fix\": 'Create a view or aggregation query to compute this metric'\n  },\n  {\n    \"requirement\": '\"Total orders per customer\"',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No specific query or view defined for aggregation',\n    \"fix\": 'Create a view or aggregate query to compute this metric'\n  },\n  {\n    \"requirement\": '\"Order status distribution\"',\n    \"status\": 'UNKNOWN',\n    \"reason\": 'No specific query or view defined for aggregation',\n    \"fix\": 'Create a view or aggregate query to compute this metric'\n  }\n]\n\nI made the following changes:\n\n1. Reformatted the output to match the specified format.\n2. Provided clear and concise reasons for each requirement's status.\n3. Offered actionable fixes for each requirement's status.\n\nNote that some requirements have unknown statuses because they lack specific definitions or constraints. These requirements require further analysis and definition before validation can be performed.",
+  "gap_analysis": {
+    "raw_output": "Here is the evaluation of whether current data can satisfy requirements:\n\n{\n  \"coverage\": \"Partial\",\n  \"gaps\": [\n    {\n      \"type\": \"analytical\",\n      \"description\": \"Monthly revenue report, Total orders per customer, Order status distribution do not map to specific schema elements.\",\n      \"requirement\": \"The system shall generate: Monthly revenue report, Total orders per customer, Order status distribution.\"\n    }\n  ],\n  \"data_issues\": [],\n  \"impact\": [\"Data analysis capabilities are limited due to lack of analytical requirements mapping\"],\n  \"recommendations\": [\n    {\n      \"action\": \"Create analytical views or calculations\",\n      \"type\": \"transformation\"\n    },\n    {\n      \"action\": \"Map analytical requirements to specific schema elements\",\n      \"type\": \"schema_change\"\n    }\n  ]\n}\n\nNote: The current data covers most of the functional and non-functional requirements, but lacks direct mapping for analytical requirements. The recommendations are focused on addressing this gap to enable more comprehensive data analysis capabilities.",
+    "error": "Invalid JSON from LLM"
+  },
+  "risks": "Based on the requirements and gap analysis, I've identified some potential risks:\n\n**Risks**\n{\n  \"risks\": [\n    {\n      \"description\": \"Lack of direct mapping for analytical requirements may lead to incomplete or inaccurate data analysis\",\n      \"probability\": \"High\",\n      \"impact\": \"Data analysis capabilities are limited due to lack of analytical requirements mapping\"\n    },\n    {\n      \"description\": \"Insufficient data coverage for order_status distribution requirement may lead to incorrect business insights\",\n      \"probability\": \"Medium\",\n      \"impact\": \"Order status distribution reports may not accurately reflect the current state of orders\"\n    }\n  ]\n}\n\n**Assumptions**\n{\n  \"assumptions\": [\n    {\n      \"description\": \"The system's analytical capabilities are assumed to be sufficient for generating monthly revenue report, Total orders per customer, and Order status distribution\",\n      \"probability\": \"High\",\n      \"impact\": \"Inadequate analytical capabilities may lead to incomplete or inaccurate data analysis\"\n    }\n  ]\n}\n\n**Issues**\n{\n  \"issues\": [\n    {\n      \"description\": \"The system's ability to generate monthly revenue report, Total orders per customer, and Order status distribution is not well-defined\",\n      \"probability\": \"High\",\n      \"impact\": \"Inadequate analytical capabilities may lead to incomplete or inaccurate data analysis\"\n    }\n  ]\n}\n\n**Dependencies**\n{\n  \"dependencies\": [\n    {\n      \"description\": \"The system's analytical requirements are dependent on the availability of specific schema elements for mapping\",\n      \"probability\": \"High\",\n      \"impact\": \"Inability to map analytical requirements may lead to incomplete or inaccurate data analysis\"\n    }\n  ]\n}\n\nNote: These risks, assumptions, issues, and dependencies are identified based on the provided requirements, gap analysis, and profiling. The probabilities and impacts are subjective estimates and may vary depending on the specific context and environment.",
+  "csdiasr": {
+    "context": "Here are the extracted structured requirements in JSON format:\n\n```\n{\n  \"functional_requirements\": [\n    \"The system shall store customer orders.\",\n    \"Each order must include: order_id, customer_id, order_date, order_amount, order_status.\",\n    \"The system shall not allow NULL values for: order_id, customer_id, order_date.\",\n    \"order_status must be one of: 'CREATED', 'SHIPPED', 'DELIVERED', 'CANCELLED'.\",\n    \"The system shall generate: Monthly revenue report, Total orders per customer, Order status distribution.\"\n  ],\n  \"non_functional_requirements\": [\n    \"order_amount must be greater than 0\",\n    \"email must follow standard email format\",\n    \"order_date cannot be in the future\",\n    \"order_status must match predefined values\"\n  ],\n  \"entities\": {\n    \"Orders\": [\"order_id\", \"customer_id\", \"order_date\", \"order_amount\", \"order_status\"],\n    \"Customers\": [\"customer_id\", \"customer_name\", \"email\", \"created_date\"]\n  },\n  \"business_rules\": [\n    \"One customer can have multiple orders (1:N relationship)\",\n    \"Orders.customer_id \u2192 Customers.customer_id\"\n  ],\n  \"analytical_requirements\": [\n    \"Monthly revenue report\",\n    \"Total orders per customer\",\n    \"Order status distribution\"\n  ]\n}\n```",
+    "schema": {
+      "customers": [
+        "customer_id",
+        "customer_name",
+        "email",
+        "created_date"
+      ],
+      "orders": [
+        "order_id",
+        "customer_id",
+        "order_date",
+        "order_amount",
+        "order_status"
+      ]
+    },
+    "data": {
+      "customers": {
+        "row_count": 2,
+        "null_count": 0,
+        "issues": []
+      },
+      "orders": {
+        "row_count": 2,
+        "null_count": 0,
+        "issues": []
+      }
+    },
+    "insights": {
+      "gap_analysis": {
+        "raw_output": "Here is the evaluation of whether current data can satisfy requirements:\n\n{\n  \"coverage\": \"Partial\",\n  \"gaps\": [\n    {\n      \"type\": \"analytical\",\n      \"description\": \"Monthly revenue report, Total orders per customer, Order status distribution do not map to specific schema elements.\",\n      \"requirement\": \"The system shall generate: Monthly revenue report, Total orders per customer, Order status distribution.\"\n    }\n  ],\n  \"data_issues\": [],\n  \"impact\": [\"Data analysis capabilities are limited due to lack of analytical requirements mapping\"],\n  \"recommendations\": [\n    {\n      \"action\": \"Create analytical views or calculations\",\n      \"type\": \"transformation\"\n    },\n    {\n      \"action\": \"Map analytical requirements to specific schema elements\",\n      \"type\": \"schema_change\"\n    }\n  ]\n}\n\nNote: The current data covers most of the functional and non-functional requirements, but lacks direct mapping for analytical requirements. The recommendations are focused on addressing this gap to enable more comprehensive data analysis capabilities.",
+        "error": "Invalid JSON from LLM"
+      },
+      "profiling_insights": "Based on the profiling results, here is my analysis:\n\n{\n  \"summary\": \"The dataset consists of two tables: customers and orders. Both tables have a row count of 2 and no null values.\",\n  \"issues\": [\n    {\n      \"table\": \"None\",\n      \"issue\": \"No issues found in either table\",\n      \"severity\": \"low\"\n    }\n  ],\n  \"recommendations\": [\"The dataset is clean with no obvious errors or inconsistencies. Further analysis may be needed to ensure data quality.\"]\n}\n\nNote: Since there are no issues detected, the only recommendation is to continue evaluating the dataset for potential problems."
+    },
+    "analysis": {
+      "mapping": "Here is the mapping of requirements to existing schema:\n\n[\n  {\n    \"requirement\": \"The system shall store customer orders.\",\n    \"mapping\": [\n      {\"table\": \"orders\", \"column\": \"*\"}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  },\n  {\n    \"requirement\": \"Each order must include: order_id, customer_id, order_date, order_amount, order_status.\",\n    \"mapping\": [\n      {\"table\": \"orders\", \"column\": [\"order_id\", \"customer_id\", \"order_date\", \"order_amount\", \"order_status\"]}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  },\n  {\n    \"requirement\": \"The system shall not allow NULL values for: order_id, customer_id, order_date.\",\n    \"mapping\": [\n      {\"table\": \"orders\", \"column\": [\"order_id\", \"customer_id\", \"order_date\"]}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  },\n  {\n    \"requirement\": \"order_status must be one of: 'CREATED', 'SHIPPED', 'DELIVERED', 'CANCELLED'.\",\n    \"mapping\": [\n      {\"table\": \"orders\", \"column\": \"order_status\"}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  },\n  {\n    \"requirement\": \"The system shall generate: Monthly revenue report, Total orders per customer, Order status distribution.\",\n    \"mapping\": [\n      {\"table\": \"\", \"column\": [\"Monthly revenue report\", \"Total orders per customer\", \"Order status distribution\"]}\n    ],\n    \"status\": \"PARTIALLY_MAPPED\",\n    \"confidence\": \"medium\",\n    \"notes\": \"These requirements do not map to specific schema elements, but are relevant for data analysis\"\n  },\n  {\n    \"requirement\": \"order_amount must be greater than 0\",\n    \"mapping\": [\n      {\"table\": \"orders\", \"column\": \"order_amount\"}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  },\n  {\n    \"requirement\": \"email must follow standard email format\",\n    \"mapping\": [\n      {\"table\": \"customers\", \"column\": \"email\"}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  },\n  {\n    \"requirement\": \"order_date cannot be in the future\",\n    \"mapping\": [\n      {\"table\": \"orders\", \"column\": \"order_date\"}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  },\n  {\n    \"requirement\": \"order_status must match predefined values\",\n    \"mapping\": [\n      {\"table\": \"orders\", \"column\": \"order_status\"}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  }\n]\n\nNote: The analytical requirements do not map directly to schema elements, but are relevant for data analysis.",
+      "traceability": null,
+      "validation": null
+    },
+    "score": {
+      "coverage_score": 47.62,
+      "adjusted_coverage": 47.62,
+      "quality_score": 100.0,
+      "final_score": 68.57
+    },
+    "risks": "Based on the requirements and gap analysis, I've identified some potential risks:\n\n**Risks**\n{\n  \"risks\": [\n    {\n      \"description\": \"Lack of direct mapping for analytical requirements may lead to incomplete or inaccurate data analysis\",\n      \"probability\": \"High\",\n      \"impact\": \"Data analysis capabilities are limited due to lack of analytical requirements mapping\"\n    },\n    {\n      \"description\": \"Insufficient data coverage for order_status distribution requirement may lead to incorrect business insights\",\n      \"probability\": \"Medium\",\n      \"impact\": \"Order status distribution reports may not accurately reflect the current state of orders\"\n    }\n  ]\n}\n\n**Assumptions**\n{\n  \"assumptions\": [\n    {\n      \"description\": \"The system's analytical capabilities are assumed to be sufficient for generating monthly revenue report, Total orders per customer, and Order status distribution\",\n      \"probability\": \"High\",\n      \"impact\": \"Inadequate analytical capabilities may lead to incomplete or inaccurate data analysis\"\n    }\n  ]\n}\n\n**Issues**\n{\n  \"issues\": [\n    {\n      \"description\": \"The system's ability to generate monthly revenue report, Total orders per customer, and Order status distribution is not well-defined\",\n      \"probability\": \"High\",\n      \"impact\": \"Inadequate analytical capabilities may lead to incomplete or inaccurate data analysis\"\n    }\n  ]\n}\n\n**Dependencies**\n{\n  \"dependencies\": [\n    {\n      \"description\": \"The system's analytical requirements are dependent on the availability of specific schema elements for mapping\",\n      \"probability\": \"High\",\n      \"impact\": \"Inability to map analytical requirements may lead to incomplete or inaccurate data analysis\"\n    }\n  ]\n}\n\nNote: These risks, assumptions, issues, and dependencies are identified based on the provided requirements, gap analysis, and profiling. The probabilities and impacts are subjective estimates and may vary depending on the specific context and environment."
+  },
+  "changes": {
+    "message": "No previous run"
+  },
+  "recommendations": {
+    "coverage_score": 47.62,
+    "adjusted_coverage": 47.62,
+    "quality_score": 100.0,
+    "final_score": 68.57
+  }
+}

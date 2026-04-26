@@ -1,0 +1,291 @@
+{
+  "overview": {
+    "summary": "Automated scan report",
+    "score": {
+      "coverage_score": 50.0,
+      "adjusted_coverage": 50.0,
+      "quality_score": 100.0,
+      "final_score": 70.0
+    }
+  },
+  "ingestion": {
+    "num_documents": 2,
+    "document_sizes": [
+      2000,
+      196
+    ],
+    "tables_scanned": [
+      "customers",
+      "orders"
+    ],
+    "num_tables": 2,
+    "rows_sampled": {
+      "customers": 2,
+      "orders": 2
+    }
+  },
+  "workflow": [
+    "document",
+    "data",
+    "profiling",
+    "mapping",
+    "gap_analysis",
+    "raid",
+    "aggregator"
+  ],
+  "data_summary": {
+    "customers": {
+      "row_count": 2,
+      "column_count": 4,
+      "null_count": 0,
+      "null_percentage": {
+        "customer_id": 0.0,
+        "customer_name": 0.0,
+        "email": 0.0,
+        "created_date": 0.0
+      },
+      "duplicate_count": 0,
+      "unique_counts": {
+        "customer_id": 2,
+        "customer_name": 2,
+        "email": 2,
+        "created_date": 2
+      },
+      "data_types": {
+        "customer_id": "int64",
+        "customer_name": "object",
+        "email": "object",
+        "created_date": "object"
+      },
+      "numeric_stats": {
+        "customer_id": {
+          "count": 2.0,
+          "mean": 1.5,
+          "std": 0.7071067811865476,
+          "min": 1.0,
+          "25%": 1.25,
+          "50%": 1.5,
+          "75%": 1.75,
+          "max": 2.0
+        }
+      },
+      "issues": []
+    },
+    "orders": {
+      "row_count": 2,
+      "column_count": 5,
+      "null_count": 0,
+      "null_percentage": {
+        "order_id": 0.0,
+        "customer_id": 0.0,
+        "order_date": 0.0,
+        "order_amount": 0.0,
+        "order_status": 0.0
+      },
+      "duplicate_count": 0,
+      "unique_counts": {
+        "order_id": 2,
+        "customer_id": 2,
+        "order_date": 2,
+        "order_amount": 2,
+        "order_status": 2
+      },
+      "data_types": {
+        "order_id": "int64",
+        "customer_id": "int64",
+        "order_date": "object",
+        "order_amount": "float64",
+        "order_status": "object"
+      },
+      "numeric_stats": {
+        "order_id": {
+          "count": 2.0,
+          "mean": 101.5,
+          "std": 0.7071067811865476,
+          "min": 101.0,
+          "25%": 101.25,
+          "50%": 101.5,
+          "75%": 101.75,
+          "max": 102.0
+        },
+        "customer_id": {
+          "count": 2.0,
+          "mean": 1.5,
+          "std": 0.7071067811865476,
+          "min": 1.0,
+          "25%": 1.25,
+          "50%": 1.5,
+          "75%": 1.75,
+          "max": 2.0
+        },
+        "order_amount": {
+          "count": 2.0,
+          "mean": 400.0,
+          "std": 141.4213562373095,
+          "min": 300.0,
+          "25%": 350.0,
+          "50%": 400.0,
+          "75%": 450.0,
+          "max": 500.0
+        }
+      },
+      "issues": []
+    }
+  },
+  "requirement_analysis": "Here is the improved validation results:\n\n[\n  {\n    \"requirement\": \"Based on the provided documents, I extracted the following structured requirements:\",\n    \"status\": \"OK\",\n    \"reason\": \"Well-defined requirement\",\n    \"fix\": \"\"\n  },\n  {\n    \"requirement\": \"\\\"functional_requirements\\\": [\",\n    \"status\": \"PARTIAL\",\n    \"reason\": \"Can compute but no aggregated structure\",\n    \"fix\": \"Create view or aggregation query\"\n  },\n  {\n    \"requirement\": \"\\\"The system shall store customer orders.\\\"\",\n    \"status\": \"OK\",\n    \"reason\": \"Well-defined requirement\",\n    \"fix\": \"\"\n  },\n  {\n    \"requirement\": \"\\\"Each order must include: order_id, customer_id, order_date, order_amount, order_status.\\\"\",\n    \"status\": \"OK\",\n    \"reason\": \"Well-defined requirement\",\n    \"fix\": \"\"\n  },\n  {\n    \"requirement\": \"\\\"The system shall not allow NULL values for: order_id, customer_id, order_date.\\\"\",\n    \"status\": \"OK\",\n    \"reason\": \"Well-defined requirement\",\n    \"fix\": \"\"\n  },\n  {\n    \"requirement\": \"\\\"order_status must be one of: 'CREATED', 'SHIPPED', 'DELIVERED', 'CANCELLED'\\\"\",\n    \"status\": \"OK\",\n    \"reason\": \"Well-defined requirement\",\n    \"fix\": \"\"\n  },\n  {\n    \"requirement\": \"\\\"The system shall generate: Monthly revenue report, Total orders per customer, Order status distribution.\\\"\",\n    \"status\": \"PARTIAL\",\n    \"reason\": \"Can compute but no aggregated structure\",\n    \"fix\": \"Create view or aggregation query\"\n  },\n  {\n    \"requirement\": \"\\\"Monthly revenue is calculated as: SUM(order_amount) grouped by month(order_date).\\\"\",\n    \"status\": \"PARTIAL\",\n    \"reason\": \"Can compute but no aggregated structure\",\n    \"fix\": \"Create view or aggregation query\"\n  },\n  {\n    \"requirement\": \"\\\"non_functional_requirements\\\": [\",\n    \"status\": \"OK\",\n    \"reason\": \"Well-defined requirement\",\n    \"fix\": \"\"\n  },\n  {\n    \"requirement\": \"\\\"order_amount must be greater than 0\\\"\",\n    \"status\": \"PARTIAL\",\n    \"reason\": \"No validation constraint present\",\n    \"fix\": \"Add CHECK (order_amount > 0)\"\n  },\n  {\n    \"requirement\": \"\\\"email must follow standard email format\\\"\",\n    \"status\": \"UNKNOWN\",\n    \"reason\": \"No rule defined\",\n    \"fix\": \"\"\n  },\n  {\n    \"requirement\": \"\\\"order_date cannot be in the future\\\"\",\n    \"status\": \"UNKNOWN\",\n    \"reason\": \"No rule defined\",\n    \"fix\": \"\"\n  },\n  {\n    \"requirement\": \"\\\"order_status must match predefined values\\\"\"\n ",
+  "gap_analysis": {
+    "raw_output": "Based on the provided schema and profiling information, I've evaluated whether the current data can satisfy the requirements. Here's my assessment:\n\n{\n  \"coverage\": \"Partial\",\n  \"gaps\": [\n    {\n      \"type\": \"schema\",\n      \"description\": \"The 'Customers' table does not include email or created_date.\",\n      \"requirement\": \"entities: Customers\"\n    },\n    {\n      \"type\": \"data\",\n      \"description\": \"There are no data points for email, customer_name, or created_date in the 'customers' table.\",\n      \"requirement\": \"non-functional_requirements: email must follow standard email format\"\n    }\n  ],\n  \"data_issues\": [\n    \"The 'orders' table does not have a column to store the predefined values for order_status (CREATED, SHIPPED, DELIVERED, CANCELLED).\",\n    \"There are no data points for 'Monthly revenue report', 'Total orders per customer', or 'Order status distribution'.\"\n  ],\n  \"impact\": [\n    \"The lack of email and created_date columns in the 'customers' table may impact the ability to enforce standard email formats.\",\n    \"The absence of predefined values for order_status may lead to data inconsistencies.\"\n  ],\n  \"recommendations\": [\n    {\n      \"action\": \"Add email and created_date columns to the 'Customers' table\",\n      \"type\": \"schema_change\"\n    },\n    {\n      \"action\": \"Modify the 'orders' table to include a column for predefined order_status values (CREATED, SHIPPED, DELIVERED, CANCELLED)\",\n      \"type\": \"schema_change\"\n    }\n  ]\n}\n\nPlease note that this assessment focuses on the current data and schema. If you'd like me to map non-functional requirements, business rules, or analytical requirements as well, I can do so!",
+    "error": "Invalid JSON from LLM"
+  },
+  "risks": "**RAID Analysis**\n\n**Risks:**\n\n1. **Data Limitation:** The current data does not include email or created_date columns in the Customers table, which may impact the ability to enforce standard email formats and customer identification.\n\nRisk Level: High\nImpact: Unable to enforce standard email formats, leading to potential security risks.\nProbability: 90%\n\n2. **Requirement Infeasibility:** The system is required to generate monthly revenue reports, but there are no data points for this in the Orders table.\n\nRisk Level: Medium\nImpact: Unable to provide accurate and timely financial reporting.\nProbability: 80%\n\n3. **Missing Constraints:** The predefined values for order_status (CREATED, SHIPPED, DELIVERED, CANCELLED) are missing in the Orders table, which may lead to data inconsistencies.\n\nRisk Level: High\nImpact: Data integrity issues, leading to potential errors in reporting and decision-making.\nProbability: 95%\n\n4. **System Dependency:** The system relies on email addresses for customer identification, but there is no data point for email in the Customers table.\n\nRisk Level: Medium\nImpact: Unable to accurately identify customers, leading to potential errors in reporting and decision-making.\nProbability: 75%\n\n**Assumptions:**\n\n1. The current schema and profiling information are accurate representations of the system's data and requirements.\n2. The required functionality and business rules will remain unchanged.\n\n**Issues:**\n\n1. **Type:** Data\n**Description:** There are no data points for email, customer_name, or created_date in the Customers table.\n**Impact:** Unable to enforce standard email formats and customer identification.\n\n2. **Type:** Schema\n**Description:** The Orders table does not include a column for predefined order_status values (CREATED, SHIPPED, DELIVERED, CANCELLED).\n**Impact:** Data inconsistencies and potential errors in reporting and decision-making.\n\n3. **Type:** Requirement\n**Description:** There are no data points for the required Monthly revenue report, Total orders per customer, or Order status distribution.\n**Impact:** Unable to provide accurate and timely financial reporting.\n\n4. **Type:** System Dependency\n**Description:** The system relies on email addresses for customer identification, but there is no data point for email in the Customers table.\n**Impact:** Unable to accurately identify customers, leading to potential errors in reporting and decision-making.\n\n**Dependencies:**\n\n1. The system's ability to generate monthly revenue reports depends on accurate and complete data in the Orders table.\n2. The system's ability to provide total orders per customer depends on accurate and complete data in the Customers table.\n3. The system's ability to report order status distribution depends on predefined order_status values being accurately captured.\n\nPlease note that this RAID analysis is based on the provided schema, profiling information, and requirements. It assumes that the current state of the system will remain unchanged unless specific actions are taken.",
+  "csdiasr": {
+    "context": "Based on the provided documents, I extracted the following structured requirements:\n\n```\n{\n  \"functional_requirements\": [\n    \"The system shall store customer orders.\",\n    \"Each order must include: order_id, customer_id, order_date, order_amount, order_status.\",\n    \"The system shall not allow NULL values for: order_id, customer_id, order_date.\",\n    \"order_status must be one of: 'CREATED', 'SHIPPED', 'DELIVERED', 'CANCELLED'.\",\n    \"The system shall generate: Monthly revenue report, Total orders per customer, Order status distribution.\",\n    \"Monthly revenue is calculated as: SUM(order_amount) grouped by month(order_date).\"\n  ],\n  \"non_functional_requirements\": [\n    \"order_amount must be greater than 0\",\n    \"email must follow standard email format\",\n    \"order_date cannot be in the future\",\n    \"order_status must match predefined values\"\n  ],\n  \"entities\": {\n    \"Orders\": [\"order_id\", \"customer_id\", \"order_date\", \"order_amount\", \"order_status\"],\n    \"Customers\": [\"customer_id\", \"customer_name\", \"email\", \"created_date\"]\n  },\n  \"business_rules\": [\n    \"One customer can have multiple orders (1:N relationship)\"\n  ],\n  \"analytical_requirements\": [\n    \"Reports should show total revenue per month\"\n  ]\n}\n```",
+    "schema": {
+      "customers": [
+        "customer_id",
+        "customer_name",
+        "email",
+        "created_date"
+      ],
+      "orders": [
+        "order_id",
+        "customer_id",
+        "order_date",
+        "order_amount",
+        "order_status"
+      ]
+    },
+    "data": {
+      "customers": {
+        "row_count": 2,
+        "column_count": 4,
+        "null_count": 0,
+        "null_percentage": {
+          "customer_id": 0.0,
+          "customer_name": 0.0,
+          "email": 0.0,
+          "created_date": 0.0
+        },
+        "duplicate_count": 0,
+        "unique_counts": {
+          "customer_id": 2,
+          "customer_name": 2,
+          "email": 2,
+          "created_date": 2
+        },
+        "data_types": {
+          "customer_id": "int64",
+          "customer_name": "object",
+          "email": "object",
+          "created_date": "object"
+        },
+        "numeric_stats": {
+          "customer_id": {
+            "count": 2.0,
+            "mean": 1.5,
+            "std": 0.7071067811865476,
+            "min": 1.0,
+            "25%": 1.25,
+            "50%": 1.5,
+            "75%": 1.75,
+            "max": 2.0
+          }
+        },
+        "issues": []
+      },
+      "orders": {
+        "row_count": 2,
+        "column_count": 5,
+        "null_count": 0,
+        "null_percentage": {
+          "order_id": 0.0,
+          "customer_id": 0.0,
+          "order_date": 0.0,
+          "order_amount": 0.0,
+          "order_status": 0.0
+        },
+        "duplicate_count": 0,
+        "unique_counts": {
+          "order_id": 2,
+          "customer_id": 2,
+          "order_date": 2,
+          "order_amount": 2,
+          "order_status": 2
+        },
+        "data_types": {
+          "order_id": "int64",
+          "customer_id": "int64",
+          "order_date": "object",
+          "order_amount": "float64",
+          "order_status": "object"
+        },
+        "numeric_stats": {
+          "order_id": {
+            "count": 2.0,
+            "mean": 101.5,
+            "std": 0.7071067811865476,
+            "min": 101.0,
+            "25%": 101.25,
+            "50%": 101.5,
+            "75%": 101.75,
+            "max": 102.0
+          },
+          "customer_id": {
+            "count": 2.0,
+            "mean": 1.5,
+            "std": 0.7071067811865476,
+            "min": 1.0,
+            "25%": 1.25,
+            "50%": 1.5,
+            "75%": 1.75,
+            "max": 2.0
+          },
+          "order_amount": {
+            "count": 2.0,
+            "mean": 400.0,
+            "std": 141.4213562373095,
+            "min": 300.0,
+            "25%": 350.0,
+            "50%": 400.0,
+            "75%": 450.0,
+            "max": 500.0
+          }
+        },
+        "issues": []
+      }
+    },
+    "insights": {
+      "gap_analysis": {
+        "raw_output": "Based on the provided schema and profiling information, I've evaluated whether the current data can satisfy the requirements. Here's my assessment:\n\n{\n  \"coverage\": \"Partial\",\n  \"gaps\": [\n    {\n      \"type\": \"schema\",\n      \"description\": \"The 'Customers' table does not include email or created_date.\",\n      \"requirement\": \"entities: Customers\"\n    },\n    {\n      \"type\": \"data\",\n      \"description\": \"There are no data points for email, customer_name, or created_date in the 'customers' table.\",\n      \"requirement\": \"non-functional_requirements: email must follow standard email format\"\n    }\n  ],\n  \"data_issues\": [\n    \"The 'orders' table does not have a column to store the predefined values for order_status (CREATED, SHIPPED, DELIVERED, CANCELLED).\",\n    \"There are no data points for 'Monthly revenue report', 'Total orders per customer', or 'Order status distribution'.\"\n  ],\n  \"impact\": [\n    \"The lack of email and created_date columns in the 'customers' table may impact the ability to enforce standard email formats.\",\n    \"The absence of predefined values for order_status may lead to data inconsistencies.\"\n  ],\n  \"recommendations\": [\n    {\n      \"action\": \"Add email and created_date columns to the 'Customers' table\",\n      \"type\": \"schema_change\"\n    },\n    {\n      \"action\": \"Modify the 'orders' table to include a column for predefined order_status values (CREATED, SHIPPED, DELIVERED, CANCELLED)\",\n      \"type\": \"schema_change\"\n    }\n  ]\n}\n\nPlease note that this assessment focuses on the current data and schema. If you'd like me to map non-functional requirements, business rules, or analytical requirements as well, I can do so!",
+        "error": "Invalid JSON from LLM"
+      },
+      "profiling_insights": null
+    },
+    "analysis": {
+      "mapping": "Based on the provided requirements and schema, I've mapped the functional requirements to the existing schema. Here's the output:\n\n[\n  {\n    \"requirement\": \"The system shall store customer orders.\",\n    \"mapping\": [\n      {\"table\": \"orders\", \"column\": \"*\"}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  },\n  {\n    \"requirement\": \"Each order must include: order_id, customer_id, order_date, order_amount, order_status.\",\n    \"mapping\": [\n      {\"table\": \"orders\", \"column\": [\"order_id\", \"customer_id\", \"order_date\", \"order_amount\", \"order_status\"]}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  },\n  {\n    \"requirement\": \"The system shall not allow NULL values for: order_id, customer_id, order_date.\",\n    \"mapping\": [\n      {\"table\": \"orders\", \"column\": [\"order_id\", \"customer_id\", \"order_date\"]}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  },\n  {\n    \"requirement\": \"order_status must be one of: 'CREATED', 'SHIPPED', 'DELIVERED', 'CANCELLED'.\",\n    \"mapping\": [\n      {\"table\": \"orders\", \"column\": \"order_status\"}\n    ],\n    \"status\": \"FULLY_MAPPED\",\n    \"confidence\": \"high\",\n    \"notes\": \"\"\n  }\n]\n\nLet me know if you'd like me to map the non-functional requirements, business rules, or analytical requirements as well!",
+      "traceability": null,
+      "validation": null
+    },
+    "score": {
+      "coverage_score": 50.0,
+      "adjusted_coverage": 50.0,
+      "quality_score": 100.0,
+      "final_score": 70.0
+    },
+    "risks": "**RAID Analysis**\n\n**Risks:**\n\n1. **Data Limitation:** The current data does not include email or created_date columns in the Customers table, which may impact the ability to enforce standard email formats and customer identification.\n\nRisk Level: High\nImpact: Unable to enforce standard email formats, leading to potential security risks.\nProbability: 90%\n\n2. **Requirement Infeasibility:** The system is required to generate monthly revenue reports, but there are no data points for this in the Orders table.\n\nRisk Level: Medium\nImpact: Unable to provide accurate and timely financial reporting.\nProbability: 80%\n\n3. **Missing Constraints:** The predefined values for order_status (CREATED, SHIPPED, DELIVERED, CANCELLED) are missing in the Orders table, which may lead to data inconsistencies.\n\nRisk Level: High\nImpact: Data integrity issues, leading to potential errors in reporting and decision-making.\nProbability: 95%\n\n4. **System Dependency:** The system relies on email addresses for customer identification, but there is no data point for email in the Customers table.\n\nRisk Level: Medium\nImpact: Unable to accurately identify customers, leading to potential errors in reporting and decision-making.\nProbability: 75%\n\n**Assumptions:**\n\n1. The current schema and profiling information are accurate representations of the system's data and requirements.\n2. The required functionality and business rules will remain unchanged.\n\n**Issues:**\n\n1. **Type:** Data\n**Description:** There are no data points for email, customer_name, or created_date in the Customers table.\n**Impact:** Unable to enforce standard email formats and customer identification.\n\n2. **Type:** Schema\n**Description:** The Orders table does not include a column for predefined order_status values (CREATED, SHIPPED, DELIVERED, CANCELLED).\n**Impact:** Data inconsistencies and potential errors in reporting and decision-making.\n\n3. **Type:** Requirement\n**Description:** There are no data points for the required Monthly revenue report, Total orders per customer, or Order status distribution.\n**Impact:** Unable to provide accurate and timely financial reporting.\n\n4. **Type:** System Dependency\n**Description:** The system relies on email addresses for customer identification, but there is no data point for email in the Customers table.\n**Impact:** Unable to accurately identify customers, leading to potential errors in reporting and decision-making.\n\n**Dependencies:**\n\n1. The system's ability to generate monthly revenue reports depends on accurate and complete data in the Orders table.\n2. The system's ability to provide total orders per customer depends on accurate and complete data in the Customers table.\n3. The system's ability to report order status distribution depends on predefined order_status values being accurately captured.\n\nPlease note that this RAID analysis is based on the provided schema, profiling information, and requirements. It assumes that the current state of the system will remain unchanged unless specific actions are taken."
+  },
+  "changes": {
+    "new_tables": [],
+    "removed_tables": [],
+    "score_change": {
+      "previous": 68.57,
+      "current": 70.0
+    }
+  },
+  "recommendations": {
+    "coverage_score": 50.0,
+    "adjusted_coverage": 50.0,
+    "quality_score": 100.0,
+    "final_score": 70.0
+  }
+}

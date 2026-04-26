@@ -1,0 +1,5401 @@
+{
+  "overview": {
+    "summary": "DPDP-aware data discovery, profiling, quality, and RAID report",
+    "run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd",
+    "scores": {
+      "quality_score": 96.68,
+      "risk_penalty": 80,
+      "final_score": 16.68,
+      "score_drivers": [
+        {
+          "factor": "metadata_completeness",
+          "severity": "medium",
+          "penalty": 5,
+          "detail": "dpdp_poor_quality.customer_imports has no primary key"
+        },
+        {
+          "factor": "metadata_completeness",
+          "severity": "medium",
+          "penalty": 5,
+          "detail": "dpdp_poor_quality.payment_imports has no primary key"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_clean.customers.full_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_clean.customers.email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "dpdp_masked.masked_customers.masked_email is EMAIL with masking_status=PARTIALLY_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "dpdp_masked.masked_customers.masked_phone is PHONE with masking_status=PARTIALLY_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "dpdp_masked.communication_preferences.masked_contact is PHONE with masking_status=PARTIALLY_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_no_relationships.product_catalog.product_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_pii_exposure.customer_profiles.full_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_pii_exposure.customer_profiles.email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_pii_exposure.customer_profiles.phone_number is PHONE with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_pii_exposure.support_tickets.requester_email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_poor_quality.customer_imports.full_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_poor_quality.customer_imports.email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_poor_quality.customer_imports.phone_number is PHONE with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_poor_quality.payment_imports.customer_email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "public.customers.customer_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "public.customers.email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "full_name has 33.33% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "email has 33.33% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "phone_number has 33.33% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "city has 66.67% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "1 duplicate sampled rows found"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "email contains invalid email formats"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "customer_email has 20.0% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "amount has 20.0% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "status has 20.0% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "1 duplicate sampled rows found"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "customer_email contains invalid email formats"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "amount contains negative values"
+        }
+      ],
+      "score_components": {
+        "data_quality": 96.68,
+        "metadata_penalty": 10,
+        "pii_masking_penalty": 219,
+        "sample_sufficiency_penalty": 104,
+        "findings_penalty": 42
+      }
+    }
+  },
+  "ingestion": {
+    "source_type": "postgresql",
+    "database": "Scan_db",
+    "tables_scanned": [
+      "dpdp_clean.customers",
+      "dpdp_clean.orders",
+      "dpdp_masked.masked_customers",
+      "dpdp_masked.communication_preferences",
+      "dpdp_no_relationships.branch_targets",
+      "dpdp_no_relationships.product_catalog",
+      "dpdp_no_relationships.weather_observations",
+      "dpdp_pii_exposure.customer_profiles",
+      "dpdp_pii_exposure.support_tickets",
+      "dpdp_poor_quality.customer_imports",
+      "dpdp_poor_quality.payment_imports",
+      "public.customers",
+      "public.orders"
+    ],
+    "num_tables": 13,
+    "owners": [
+      "postgres"
+    ],
+    "rows_sampled": {
+      "dpdp_clean.customers": 4,
+      "dpdp_clean.orders": 4,
+      "dpdp_masked.masked_customers": 4,
+      "dpdp_masked.communication_preferences": 4,
+      "dpdp_no_relationships.branch_targets": 3,
+      "dpdp_no_relationships.product_catalog": 3,
+      "dpdp_no_relationships.weather_observations": 3,
+      "dpdp_pii_exposure.customer_profiles": 4,
+      "dpdp_pii_exposure.support_tickets": 4,
+      "dpdp_poor_quality.customer_imports": 6,
+      "dpdp_poor_quality.payment_imports": 5,
+      "public.customers": 2,
+      "public.orders": 2
+    }
+  },
+  "workflow": [
+    "source_inventory",
+    "profiling",
+    "pii_detection",
+    "classification",
+    "data_quality",
+    "data_findings",
+    "raid",
+    "aggregator"
+  ],
+  "source_inventory": {
+    "source_type": "postgresql",
+    "database": "Scan_db",
+    "tables": [
+      {
+        "schema": "dpdp_clean",
+        "table": "customers",
+        "qualified_name": "dpdp_clean.customers",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "full_name",
+            "type": "VARCHAR(120)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "email",
+            "type": "VARCHAR(160)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "city",
+            "type": "VARCHAR(80)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "consent_status",
+            "type": "VARCHAR(20)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "created_at",
+            "type": "DATE",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "customer_id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "name": "customers_email_key",
+            "columns": [
+              "email"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "schema": "dpdp_clean",
+        "table": "orders",
+        "qualified_name": "dpdp_clean.orders",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "order_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "customer_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_total",
+            "type": "NUMERIC(10, 2)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_status",
+            "type": "VARCHAR(30)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_date",
+            "type": "DATE",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "order_id"
+        ],
+        "foreign_keys": [
+          {
+            "columns": [
+              "customer_id"
+            ],
+            "referred_schema": "dpdp_clean",
+            "referred_table": "customers",
+            "referred_columns": [
+              "customer_id"
+            ]
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "schema": "dpdp_masked",
+        "table": "masked_customers",
+        "qualified_name": "dpdp_masked.masked_customers",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "customer_alias",
+            "type": "VARCHAR(120)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "masked_email",
+            "type": "VARCHAR(160)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "masked_phone",
+            "type": "VARCHAR(20)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "city",
+            "type": "VARCHAR(80)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "consent_status",
+            "type": "VARCHAR(20)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "customer_id"
+        ],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "schema": "dpdp_masked",
+        "table": "communication_preferences",
+        "qualified_name": "dpdp_masked.communication_preferences",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "preference_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "customer_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "channel",
+            "type": "VARCHAR(30)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "masked_contact",
+            "type": "VARCHAR(160)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "preference_id"
+        ],
+        "foreign_keys": [
+          {
+            "columns": [
+              "customer_id"
+            ],
+            "referred_schema": "dpdp_masked",
+            "referred_table": "masked_customers",
+            "referred_columns": [
+              "customer_id"
+            ]
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "schema": "dpdp_no_relationships",
+        "table": "branch_targets",
+        "qualified_name": "dpdp_no_relationships.branch_targets",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "branch_code",
+            "type": "VARCHAR(20)",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "region",
+            "type": "VARCHAR(80)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "quarterly_target",
+            "type": "NUMERIC(12, 2)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "branch_code"
+        ],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "schema": "dpdp_no_relationships",
+        "table": "product_catalog",
+        "qualified_name": "dpdp_no_relationships.product_catalog",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "sku",
+            "type": "VARCHAR(40)",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "product_name",
+            "type": "VARCHAR(120)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "category",
+            "type": "VARCHAR(80)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "active_flag",
+            "type": "BOOLEAN",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "sku"
+        ],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "schema": "dpdp_no_relationships",
+        "table": "weather_observations",
+        "qualified_name": "dpdp_no_relationships.weather_observations",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "station_code",
+            "type": "VARCHAR(40)",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "observed_on",
+            "type": "DATE",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "temperature_c",
+            "type": "NUMERIC(5, 2)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "rainfall_mm",
+            "type": "NUMERIC(6, 2)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "station_code"
+        ],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "schema": "dpdp_pii_exposure",
+        "table": "customer_profiles",
+        "qualified_name": "dpdp_pii_exposure.customer_profiles",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "profile_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "full_name",
+            "type": "VARCHAR(120)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "email",
+            "type": "VARCHAR(160)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "phone_number",
+            "type": "VARCHAR(20)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "address_line",
+            "type": "VARCHAR(240)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "consent_status",
+            "type": "VARCHAR(20)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "profile_id"
+        ],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "schema": "dpdp_pii_exposure",
+        "table": "support_tickets",
+        "qualified_name": "dpdp_pii_exposure.support_tickets",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "ticket_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "profile_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "requester_email",
+            "type": "VARCHAR(160)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "issue_summary",
+            "type": "VARCHAR(240)",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "ticket_id"
+        ],
+        "foreign_keys": [
+          {
+            "columns": [
+              "profile_id"
+            ],
+            "referred_schema": "dpdp_pii_exposure",
+            "referred_table": "customer_profiles",
+            "referred_columns": [
+              "profile_id"
+            ]
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "schema": "dpdp_poor_quality",
+        "table": "customer_imports",
+        "qualified_name": "dpdp_poor_quality.customer_imports",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "import_id",
+            "type": "INTEGER",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "full_name",
+            "type": "VARCHAR(120)",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "email",
+            "type": "VARCHAR(160)",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "phone_number",
+            "type": "VARCHAR(20)",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "birth_date",
+            "type": "VARCHAR(30)",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "city",
+            "type": "VARCHAR(80)",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "loaded_at",
+            "type": "DATE",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "schema": "dpdp_poor_quality",
+        "table": "payment_imports",
+        "qualified_name": "dpdp_poor_quality.payment_imports",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "payment_ref",
+            "type": "VARCHAR(40)",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "customer_email",
+            "type": "VARCHAR(160)",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "amount",
+            "type": "NUMERIC(10, 2)",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "payment_date",
+            "type": "VARCHAR(30)",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "status",
+            "type": "VARCHAR(30)",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "schema": "public",
+        "table": "customers",
+        "qualified_name": "public.customers",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "customer_name",
+            "type": "TEXT",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "email",
+            "type": "TEXT",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "created_date",
+            "type": "DATE",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "customer_id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "name": "customers_email_key",
+            "columns": [
+              "email"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "schema": "public",
+        "table": "orders",
+        "qualified_name": "public.orders",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "order_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "customer_id",
+            "type": "INTEGER",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_date",
+            "type": "DATE",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_amount",
+            "type": "NUMERIC",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_status",
+            "type": "TEXT",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "order_id"
+        ],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ]
+  },
+  "schema_analysis": {
+    "tables": [
+      {
+        "name": "dpdp_clean.customers",
+        "description": "dpdp_clean.customers contains 6 columns.",
+        "columns": [
+          "customer_id",
+          "full_name",
+          "email",
+          "city",
+          "consent_status",
+          "created_at"
+        ]
+      },
+      {
+        "name": "dpdp_clean.orders",
+        "description": "dpdp_clean.orders contains 5 columns.",
+        "columns": [
+          "order_id",
+          "customer_id",
+          "order_total",
+          "order_status",
+          "order_date"
+        ]
+      },
+      {
+        "name": "dpdp_masked.masked_customers",
+        "description": "dpdp_masked.masked_customers contains 6 columns.",
+        "columns": [
+          "customer_id",
+          "customer_alias",
+          "masked_email",
+          "masked_phone",
+          "city",
+          "consent_status"
+        ]
+      },
+      {
+        "name": "dpdp_masked.communication_preferences",
+        "description": "dpdp_masked.communication_preferences contains 4 columns.",
+        "columns": [
+          "preference_id",
+          "customer_id",
+          "channel",
+          "masked_contact"
+        ]
+      },
+      {
+        "name": "dpdp_no_relationships.branch_targets",
+        "description": "dpdp_no_relationships.branch_targets contains 3 columns.",
+        "columns": [
+          "branch_code",
+          "region",
+          "quarterly_target"
+        ]
+      },
+      {
+        "name": "dpdp_no_relationships.product_catalog",
+        "description": "dpdp_no_relationships.product_catalog contains 4 columns.",
+        "columns": [
+          "sku",
+          "product_name",
+          "category",
+          "active_flag"
+        ]
+      },
+      {
+        "name": "dpdp_no_relationships.weather_observations",
+        "description": "dpdp_no_relationships.weather_observations contains 4 columns.",
+        "columns": [
+          "station_code",
+          "observed_on",
+          "temperature_c",
+          "rainfall_mm"
+        ]
+      },
+      {
+        "name": "dpdp_pii_exposure.customer_profiles",
+        "description": "dpdp_pii_exposure.customer_profiles contains 6 columns.",
+        "columns": [
+          "profile_id",
+          "full_name",
+          "email",
+          "phone_number",
+          "address_line",
+          "consent_status"
+        ]
+      },
+      {
+        "name": "dpdp_pii_exposure.support_tickets",
+        "description": "dpdp_pii_exposure.support_tickets contains 4 columns.",
+        "columns": [
+          "ticket_id",
+          "profile_id",
+          "requester_email",
+          "issue_summary"
+        ]
+      },
+      {
+        "name": "dpdp_poor_quality.customer_imports",
+        "description": "dpdp_poor_quality.customer_imports contains 7 columns.",
+        "columns": [
+          "import_id",
+          "full_name",
+          "email",
+          "phone_number",
+          "birth_date",
+          "city",
+          "loaded_at"
+        ]
+      },
+      {
+        "name": "dpdp_poor_quality.payment_imports",
+        "description": "dpdp_poor_quality.payment_imports contains 5 columns.",
+        "columns": [
+          "payment_ref",
+          "customer_email",
+          "amount",
+          "payment_date",
+          "status"
+        ]
+      },
+      {
+        "name": "public.customers",
+        "description": "public.customers contains 4 columns.",
+        "columns": [
+          "customer_id",
+          "customer_name",
+          "email",
+          "created_date"
+        ]
+      },
+      {
+        "name": "public.orders",
+        "description": "public.orders contains 5 columns.",
+        "columns": [
+          "order_id",
+          "customer_id",
+          "order_date",
+          "order_amount",
+          "order_status"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "from_table": "dpdp_clean.orders",
+        "to_table": "dpdp_clean.customers",
+        "type": "explicit",
+        "reason": "Foreign key on ['customer_id'] references ['customer_id']."
+      },
+      {
+        "from_table": "dpdp_masked.communication_preferences",
+        "to_table": "dpdp_masked.masked_customers",
+        "type": "explicit",
+        "reason": "Foreign key on ['customer_id'] references ['customer_id']."
+      },
+      {
+        "from_table": "dpdp_pii_exposure.support_tickets",
+        "to_table": "dpdp_pii_exposure.customer_profiles",
+        "type": "explicit",
+        "reason": "Foreign key on ['profile_id'] references ['profile_id']."
+      }
+    ],
+    "model_type": "transactional",
+    "ownership_observations": [
+      "All scanned tables have an owner from source metadata."
+    ],
+    "inventory_risks": []
+  },
+  "profiling": {
+    "dpdp_clean.customers": {
+      "row_count": 4,
+      "sample_size": 4,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 6,
+      "null_count": 0,
+      "null_count_by_column": {
+        "customer_id": 0,
+        "full_name": 0,
+        "email": 0,
+        "city": 0,
+        "consent_status": 0,
+        "created_at": 0
+      },
+      "null_percentage": {
+        "customer_id": 0.0,
+        "full_name": 0.0,
+        "email": 0.0,
+        "city": 0.0,
+        "consent_status": 0.0,
+        "created_at": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "customer_id": 4,
+        "full_name": 4,
+        "email": 4,
+        "city": 4,
+        "consent_status": 1,
+        "created_at": 4
+      },
+      "data_types": {
+        "customer_id": "int64",
+        "full_name": "object",
+        "email": "object",
+        "city": "object",
+        "consent_status": "object",
+        "created_at": "object"
+      },
+      "numeric_stats": {
+        "customer_id": {
+          "count": 4.0,
+          "mean": 2.5,
+          "std": 1.2909944487358056,
+          "min": 1.0,
+          "25%": 1.75,
+          "50%": 2.5,
+          "75%": 3.25,
+          "max": 4.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "dpdp_clean.orders": {
+      "row_count": 4,
+      "sample_size": 4,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 5,
+      "null_count": 0,
+      "null_count_by_column": {
+        "order_id": 0,
+        "customer_id": 0,
+        "order_total": 0,
+        "order_status": 0,
+        "order_date": 0
+      },
+      "null_percentage": {
+        "order_id": 0.0,
+        "customer_id": 0.0,
+        "order_total": 0.0,
+        "order_status": 0.0,
+        "order_date": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "order_id": 4,
+        "customer_id": 4,
+        "order_total": 4,
+        "order_status": 2,
+        "order_date": 4
+      },
+      "data_types": {
+        "order_id": "int64",
+        "customer_id": "int64",
+        "order_total": "float64",
+        "order_status": "object",
+        "order_date": "object"
+      },
+      "numeric_stats": {
+        "order_id": {
+          "count": 4.0,
+          "mean": 1002.5,
+          "std": 1.2909944487358056,
+          "min": 1001.0,
+          "25%": 1001.75,
+          "50%": 1002.5,
+          "75%": 1003.25,
+          "max": 1004.0
+        },
+        "customer_id": {
+          "count": 4.0,
+          "mean": 2.5,
+          "std": 1.2909944487358056,
+          "min": 1.0,
+          "25%": 1.75,
+          "50%": 2.5,
+          "75%": 3.25,
+          "max": 4.0
+        },
+        "order_total": {
+          "count": 4.0,
+          "mean": 1534.5625,
+          "std": 713.6022577680558,
+          "min": 799.0,
+          "25%": 1174.0,
+          "50%": 1419.875,
+          "75%": 1780.4375,
+          "max": 2499.5
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "dpdp_masked.masked_customers": {
+      "row_count": 4,
+      "sample_size": 4,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 6,
+      "null_count": 0,
+      "null_count_by_column": {
+        "customer_id": 0,
+        "customer_alias": 0,
+        "masked_email": 0,
+        "masked_phone": 0,
+        "city": 0,
+        "consent_status": 0
+      },
+      "null_percentage": {
+        "customer_id": 0.0,
+        "customer_alias": 0.0,
+        "masked_email": 0.0,
+        "masked_phone": 0.0,
+        "city": 0.0,
+        "consent_status": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "customer_id": 4,
+        "customer_alias": 4,
+        "masked_email": 4,
+        "masked_phone": 4,
+        "city": 4,
+        "consent_status": 1
+      },
+      "data_types": {
+        "customer_id": "int64",
+        "customer_alias": "object",
+        "masked_email": "object",
+        "masked_phone": "object",
+        "city": "object",
+        "consent_status": "object"
+      },
+      "numeric_stats": {
+        "customer_id": {
+          "count": 4.0,
+          "mean": 2.5,
+          "std": 1.2909944487358056,
+          "min": 1.0,
+          "25%": 1.75,
+          "50%": 2.5,
+          "75%": 3.25,
+          "max": 4.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "dpdp_masked.communication_preferences": {
+      "row_count": 4,
+      "sample_size": 4,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 4,
+      "null_count": 0,
+      "null_count_by_column": {
+        "preference_id": 0,
+        "customer_id": 0,
+        "channel": 0,
+        "masked_contact": 0
+      },
+      "null_percentage": {
+        "preference_id": 0.0,
+        "customer_id": 0.0,
+        "channel": 0.0,
+        "masked_contact": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "preference_id": 4,
+        "customer_id": 4,
+        "channel": 2,
+        "masked_contact": 4
+      },
+      "data_types": {
+        "preference_id": "int64",
+        "customer_id": "int64",
+        "channel": "object",
+        "masked_contact": "object"
+      },
+      "numeric_stats": {
+        "preference_id": {
+          "count": 4.0,
+          "mean": 702.5,
+          "std": 1.2909944487358056,
+          "min": 701.0,
+          "25%": 701.75,
+          "50%": 702.5,
+          "75%": 703.25,
+          "max": 704.0
+        },
+        "customer_id": {
+          "count": 4.0,
+          "mean": 2.5,
+          "std": 1.2909944487358056,
+          "min": 1.0,
+          "25%": 1.75,
+          "50%": 2.5,
+          "75%": 3.25,
+          "max": 4.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "dpdp_no_relationships.branch_targets": {
+      "row_count": 3,
+      "sample_size": 3,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 3,
+      "null_count": 0,
+      "null_count_by_column": {
+        "branch_code": 0,
+        "region": 0,
+        "quarterly_target": 0
+      },
+      "null_percentage": {
+        "branch_code": 0.0,
+        "region": 0.0,
+        "quarterly_target": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "branch_code": 3,
+        "region": 3,
+        "quarterly_target": 3
+      },
+      "data_types": {
+        "branch_code": "object",
+        "region": "object",
+        "quarterly_target": "float64"
+      },
+      "numeric_stats": {
+        "quarterly_target": {
+          "count": 3.0,
+          "mean": 2133333.3333333335,
+          "std": 351188.4584284246,
+          "min": 1800000.0,
+          "25%": 1950000.0,
+          "50%": 2100000.0,
+          "75%": 2300000.0,
+          "max": 2500000.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "dpdp_no_relationships.product_catalog": {
+      "row_count": 3,
+      "sample_size": 3,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 4,
+      "null_count": 0,
+      "null_count_by_column": {
+        "sku": 0,
+        "product_name": 0,
+        "category": 0,
+        "active_flag": 0
+      },
+      "null_percentage": {
+        "sku": 0.0,
+        "product_name": 0.0,
+        "category": 0.0,
+        "active_flag": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "sku": 3,
+        "product_name": 3,
+        "category": 3,
+        "active_flag": 1
+      },
+      "data_types": {
+        "sku": "object",
+        "product_name": "object",
+        "category": "object",
+        "active_flag": "bool"
+      },
+      "numeric_stats": {
+        "sku": {
+          "count": 3,
+          "unique": 3,
+          "top": "SKU-100",
+          "freq": 1
+        },
+        "product_name": {
+          "count": 3,
+          "unique": 3,
+          "top": "Desk Organizer",
+          "freq": 1
+        },
+        "category": {
+          "count": 3,
+          "unique": 3,
+          "top": "Office",
+          "freq": 1
+        },
+        "active_flag": {
+          "count": 3,
+          "unique": 1,
+          "top": true,
+          "freq": 3
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "dpdp_no_relationships.weather_observations": {
+      "row_count": 3,
+      "sample_size": 3,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 4,
+      "null_count": 0,
+      "null_count_by_column": {
+        "station_code": 0,
+        "observed_on": 0,
+        "temperature_c": 0,
+        "rainfall_mm": 0
+      },
+      "null_percentage": {
+        "station_code": 0.0,
+        "observed_on": 0.0,
+        "temperature_c": 0.0,
+        "rainfall_mm": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "station_code": 3,
+        "observed_on": 1,
+        "temperature_c": 3,
+        "rainfall_mm": 2
+      },
+      "data_types": {
+        "station_code": "object",
+        "observed_on": "object",
+        "temperature_c": "float64",
+        "rainfall_mm": "float64"
+      },
+      "numeric_stats": {
+        "temperature_c": {
+          "count": 3.0,
+          "mean": 31.899999999999995,
+          "std": 3.5763109484495335,
+          "min": 28.1,
+          "25%": 30.25,
+          "50%": 32.4,
+          "75%": 33.8,
+          "max": 35.2
+        },
+        "rainfall_mm": {
+          "count": 3.0,
+          "mean": 1.5,
+          "std": 2.598076211353316,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 2.25,
+          "max": 4.5
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "dpdp_pii_exposure.customer_profiles": {
+      "row_count": 4,
+      "sample_size": 4,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 6,
+      "null_count": 0,
+      "null_count_by_column": {
+        "profile_id": 0,
+        "full_name": 0,
+        "email": 0,
+        "phone_number": 0,
+        "address_line": 0,
+        "consent_status": 0
+      },
+      "null_percentage": {
+        "profile_id": 0.0,
+        "full_name": 0.0,
+        "email": 0.0,
+        "phone_number": 0.0,
+        "address_line": 0.0,
+        "consent_status": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "profile_id": 4,
+        "full_name": 4,
+        "email": 4,
+        "phone_number": 4,
+        "address_line": 4,
+        "consent_status": 1
+      },
+      "data_types": {
+        "profile_id": "int64",
+        "full_name": "object",
+        "email": "object",
+        "phone_number": "object",
+        "address_line": "object",
+        "consent_status": "object"
+      },
+      "numeric_stats": {
+        "profile_id": {
+          "count": 4.0,
+          "mean": 2.5,
+          "std": 1.2909944487358056,
+          "min": 1.0,
+          "25%": 1.75,
+          "50%": 2.5,
+          "75%": 3.25,
+          "max": 4.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "dpdp_pii_exposure.support_tickets": {
+      "row_count": 4,
+      "sample_size": 4,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 4,
+      "null_count": 0,
+      "null_count_by_column": {
+        "ticket_id": 0,
+        "profile_id": 0,
+        "requester_email": 0,
+        "issue_summary": 0
+      },
+      "null_percentage": {
+        "ticket_id": 0.0,
+        "profile_id": 0.0,
+        "requester_email": 0.0,
+        "issue_summary": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "ticket_id": 4,
+        "profile_id": 4,
+        "requester_email": 4,
+        "issue_summary": 4
+      },
+      "data_types": {
+        "ticket_id": "int64",
+        "profile_id": "int64",
+        "requester_email": "object",
+        "issue_summary": "object"
+      },
+      "numeric_stats": {
+        "ticket_id": {
+          "count": 4.0,
+          "mean": 502.5,
+          "std": 1.2909944487358056,
+          "min": 501.0,
+          "25%": 501.75,
+          "50%": 502.5,
+          "75%": 503.25,
+          "max": 504.0
+        },
+        "profile_id": {
+          "count": 4.0,
+          "mean": 2.5,
+          "std": 1.2909944487358056,
+          "min": 1.0,
+          "25%": 1.75,
+          "50%": 2.5,
+          "75%": 3.25,
+          "max": 4.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "dpdp_poor_quality.customer_imports": {
+      "row_count": 6,
+      "sample_size": 6,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 7,
+      "null_count": 11,
+      "null_count_by_column": {
+        "import_id": 0,
+        "full_name": 2,
+        "email": 2,
+        "phone_number": 2,
+        "birth_date": 1,
+        "city": 4,
+        "loaded_at": 0
+      },
+      "null_percentage": {
+        "import_id": 0.0,
+        "full_name": 0.3333333333333333,
+        "email": 0.3333333333333333,
+        "phone_number": 0.3333333333333333,
+        "birth_date": 0.16666666666666666,
+        "city": 0.6666666666666666,
+        "loaded_at": 0.0
+      },
+      "duplicate_count": 1,
+      "duplicate_ratio": 0.1667,
+      "unique_counts": {
+        "import_id": 5,
+        "full_name": 3,
+        "email": 3,
+        "phone_number": 3,
+        "birth_date": 4,
+        "city": 1,
+        "loaded_at": 3
+      },
+      "data_types": {
+        "import_id": "int64",
+        "full_name": "object",
+        "email": "object",
+        "phone_number": "object",
+        "birth_date": "object",
+        "city": "object",
+        "loaded_at": "object"
+      },
+      "numeric_stats": {
+        "import_id": {
+          "count": 6.0,
+          "mean": 2.6666666666666665,
+          "std": 1.632993161855452,
+          "min": 1.0,
+          "25%": 1.25,
+          "50%": 2.5,
+          "75%": 3.75,
+          "max": 5.0
+        }
+      },
+      "high_null_columns": [
+        "full_name",
+        "email",
+        "phone_number",
+        "city"
+      ],
+      "issues": [
+        "email contains invalid email formats"
+      ]
+    },
+    "dpdp_poor_quality.payment_imports": {
+      "row_count": 5,
+      "sample_size": 5,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 5,
+      "null_count": 3,
+      "null_count_by_column": {
+        "payment_ref": 0,
+        "customer_email": 1,
+        "amount": 1,
+        "payment_date": 0,
+        "status": 1
+      },
+      "null_percentage": {
+        "payment_ref": 0.0,
+        "customer_email": 0.2,
+        "amount": 0.2,
+        "payment_date": 0.0,
+        "status": 0.2
+      },
+      "duplicate_count": 1,
+      "duplicate_ratio": 0.2,
+      "unique_counts": {
+        "payment_ref": 4,
+        "customer_email": 3,
+        "amount": 3,
+        "payment_date": 4,
+        "status": 1
+      },
+      "data_types": {
+        "payment_ref": "object",
+        "customer_email": "object",
+        "amount": "float64",
+        "payment_date": "object",
+        "status": "object"
+      },
+      "numeric_stats": {
+        "amount": {
+          "count": 4.0,
+          "mean": 687.75,
+          "std": 632.534781652361,
+          "min": -99.0,
+          "25%": 312.75,
+          "50%": 825.0,
+          "75%": 1200.0,
+          "max": 1200.0
+        }
+      },
+      "high_null_columns": [
+        "customer_email",
+        "amount",
+        "status"
+      ],
+      "issues": [
+        "customer_email contains invalid email formats",
+        "amount contains negative values"
+      ]
+    },
+    "public.customers": {
+      "row_count": 2,
+      "sample_size": 2,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 4,
+      "null_count": 0,
+      "null_count_by_column": {
+        "customer_id": 0,
+        "customer_name": 0,
+        "email": 0,
+        "created_date": 0
+      },
+      "null_percentage": {
+        "customer_id": 0.0,
+        "customer_name": 0.0,
+        "email": 0.0,
+        "created_date": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "customer_id": 2,
+        "customer_name": 2,
+        "email": 2,
+        "created_date": 2
+      },
+      "data_types": {
+        "customer_id": "int64",
+        "customer_name": "object",
+        "email": "object",
+        "created_date": "object"
+      },
+      "numeric_stats": {
+        "customer_id": {
+          "count": 2.0,
+          "mean": 1.5,
+          "std": 0.7071067811865476,
+          "min": 1.0,
+          "25%": 1.25,
+          "50%": 1.5,
+          "75%": 1.75,
+          "max": 2.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "public.orders": {
+      "row_count": 2,
+      "sample_size": 2,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 5,
+      "null_count": 0,
+      "null_count_by_column": {
+        "order_id": 0,
+        "customer_id": 0,
+        "order_date": 0,
+        "order_amount": 0,
+        "order_status": 0
+      },
+      "null_percentage": {
+        "order_id": 0.0,
+        "customer_id": 0.0,
+        "order_date": 0.0,
+        "order_amount": 0.0,
+        "order_status": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "order_id": 2,
+        "customer_id": 2,
+        "order_date": 2,
+        "order_amount": 2,
+        "order_status": 2
+      },
+      "data_types": {
+        "order_id": "int64",
+        "customer_id": "int64",
+        "order_date": "object",
+        "order_amount": "float64",
+        "order_status": "object"
+      },
+      "numeric_stats": {
+        "order_id": {
+          "count": 2.0,
+          "mean": 101.5,
+          "std": 0.7071067811865476,
+          "min": 101.0,
+          "25%": 101.25,
+          "50%": 101.5,
+          "75%": 101.75,
+          "max": 102.0
+        },
+        "customer_id": {
+          "count": 2.0,
+          "mean": 1.5,
+          "std": 0.7071067811865476,
+          "min": 1.0,
+          "25%": 1.25,
+          "50%": 1.5,
+          "75%": 1.75,
+          "max": 2.0
+        },
+        "order_amount": {
+          "count": 2.0,
+          "mean": 400.0,
+          "std": 141.4213562373095,
+          "min": 300.0,
+          "25%": 350.0,
+          "50%": 400.0,
+          "75%": 450.0,
+          "max": 500.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    }
+  },
+  "dq_report": {
+    "summary": "Profiled 13 table(s). Data quality score is 96.68.",
+    "quality_dimensions": {
+      "completeness": "Measured with cell-level null counts and high-null column detection.",
+      "uniqueness": "Measured with duplicate sampled-row counts and ratios.",
+      "consistency": "Measured with reusable column-pattern checks.",
+      "accuracy": "Flagged where domain-like rules identify invalid values.",
+      "integrity": "Supported by source primary key and foreign key metadata."
+    },
+    "table_wise_issues": [
+      {
+        "table": "dpdp_clean.customers",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_clean.orders",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_masked.masked_customers",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_masked.communication_preferences",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_no_relationships.branch_targets",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_no_relationships.product_catalog",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_no_relationships.weather_observations",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_pii_exposure.customer_profiles",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_pii_exposure.support_tickets",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_poor_quality.customer_imports",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_poor_quality.customer_imports",
+        "issue": "full_name has 33.33% null values",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_poor_quality.customer_imports",
+        "issue": "email has 33.33% null values",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_poor_quality.customer_imports",
+        "issue": "phone_number has 33.33% null values",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_poor_quality.customer_imports",
+        "issue": "city has 66.67% null values",
+        "severity": "high"
+      },
+      {
+        "table": "dpdp_poor_quality.customer_imports",
+        "issue": "1 duplicate sampled rows found",
+        "severity": "high"
+      },
+      {
+        "table": "dpdp_poor_quality.customer_imports",
+        "issue": "email contains invalid email formats",
+        "severity": "high"
+      },
+      {
+        "table": "dpdp_poor_quality.payment_imports",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_poor_quality.payment_imports",
+        "issue": "customer_email has 20.0% null values",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_poor_quality.payment_imports",
+        "issue": "amount has 20.0% null values",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_poor_quality.payment_imports",
+        "issue": "status has 20.0% null values",
+        "severity": "medium"
+      },
+      {
+        "table": "dpdp_poor_quality.payment_imports",
+        "issue": "1 duplicate sampled rows found",
+        "severity": "high"
+      },
+      {
+        "table": "dpdp_poor_quality.payment_imports",
+        "issue": "customer_email contains invalid email formats",
+        "severity": "high"
+      },
+      {
+        "table": "dpdp_poor_quality.payment_imports",
+        "issue": "amount contains negative values",
+        "severity": "high"
+      },
+      {
+        "table": "public.customers",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "public.orders",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      }
+    ],
+    "overall_score": 96.68,
+    "recommendations": [
+      "Increase profiling sample size for dpdp_clean.customers before relying on quality conclusions.",
+      "Increase profiling sample size for dpdp_clean.orders before relying on quality conclusions.",
+      "Increase profiling sample size for dpdp_masked.masked_customers before relying on quality conclusions.",
+      "Increase profiling sample size for dpdp_masked.communication_preferences before relying on quality conclusions.",
+      "Increase profiling sample size for dpdp_no_relationships.branch_targets before relying on quality conclusions.",
+      "Increase profiling sample size for dpdp_no_relationships.product_catalog before relying on quality conclusions.",
+      "Increase profiling sample size for dpdp_no_relationships.weather_observations before relying on quality conclusions.",
+      "Increase profiling sample size for dpdp_pii_exposure.customer_profiles before relying on quality conclusions.",
+      "Increase profiling sample size for dpdp_pii_exposure.support_tickets before relying on quality conclusions.",
+      "Increase profiling sample size for dpdp_poor_quality.customer_imports before relying on quality conclusions.",
+      "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.full_name.",
+      "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.email.",
+      "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.phone_number.",
+      "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.city.",
+      "Define or enforce uniqueness rules for dpdp_poor_quality.customer_imports.",
+      "Fix invalid values detected in dpdp_poor_quality.customer_imports: email contains invalid email formats.",
+      "Increase profiling sample size for dpdp_poor_quality.payment_imports before relying on quality conclusions.",
+      "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.customer_email.",
+      "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.amount.",
+      "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.status.",
+      "Define or enforce uniqueness rules for dpdp_poor_quality.payment_imports.",
+      "Fix invalid values detected in dpdp_poor_quality.payment_imports: customer_email contains invalid email formats.",
+      "Fix invalid values detected in dpdp_poor_quality.payment_imports: amount contains negative values.",
+      "Increase profiling sample size for public.customers before relying on quality conclusions.",
+      "Increase profiling sample size for public.orders before relying on quality conclusions."
+    ]
+  },
+  "column_intelligence": {
+    "summary": {
+      "columns_scanned": 63,
+      "pii_columns": 16,
+      "unmasked_pii_columns": 13,
+      "high_risk_columns": 13,
+      "sensitive_columns": 16
+    },
+    "tables": {
+      "dpdp_clean.customers": [
+        {
+          "column": "customer_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "full_name",
+          "data_type": "VARCHAR(120)",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "NAME",
+          "pii_confidence": "medium",
+          "detected_by": "name_hint_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "tokenization",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "4/4 sampled values looked name-like; column hint=True"
+        },
+        {
+          "column": "email",
+          "data_type": "VARCHAR(160)",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "EMAIL",
+          "pii_confidence": "high",
+          "detected_by": "pattern_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "partial_email_mask",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+        },
+        {
+          "column": "city",
+          "data_type": "VARCHAR(80)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "consent_status",
+          "data_type": "VARCHAR(20)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "created_at",
+          "data_type": "DATE",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "dpdp_clean.orders": [
+        {
+          "column": "order_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "customer_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "order_total",
+          "data_type": "NUMERIC(10, 2)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "order_status",
+          "data_type": "VARCHAR(30)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "order_date",
+          "data_type": "DATE",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "dpdp_masked.masked_customers": [
+        {
+          "column": "customer_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "customer_alias",
+          "data_type": "VARCHAR(120)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "masked_email",
+          "data_type": "VARCHAR(160)",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "EMAIL",
+          "pii_confidence": "medium",
+          "detected_by": "pattern_engine",
+          "masking_status": "PARTIALLY_MASKED",
+          "recommended_masking": "NONE",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "0/4 sampled values matched EMAIL; column hint=True"
+        },
+        {
+          "column": "masked_phone",
+          "data_type": "VARCHAR(20)",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "PHONE",
+          "pii_confidence": "medium",
+          "detected_by": "pattern_engine",
+          "masking_status": "PARTIALLY_MASKED",
+          "recommended_masking": "NONE",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "0/4 sampled values matched PHONE; column hint=True"
+        },
+        {
+          "column": "city",
+          "data_type": "VARCHAR(80)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "consent_status",
+          "data_type": "VARCHAR(20)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "dpdp_masked.communication_preferences": [
+        {
+          "column": "preference_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "customer_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "channel",
+          "data_type": "VARCHAR(30)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "masked_contact",
+          "data_type": "VARCHAR(160)",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "PHONE",
+          "pii_confidence": "medium",
+          "detected_by": "pattern_engine",
+          "masking_status": "PARTIALLY_MASKED",
+          "recommended_masking": "NONE",
+          "classification": "Sensitive",
+          "tags": [
+            "PII"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "0/4 sampled values matched PHONE; column hint=True"
+        }
+      ],
+      "dpdp_no_relationships.branch_targets": [
+        {
+          "column": "branch_code",
+          "data_type": "VARCHAR(20)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "region",
+          "data_type": "VARCHAR(80)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "quarterly_target",
+          "data_type": "NUMERIC(12, 2)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "dpdp_no_relationships.product_catalog": [
+        {
+          "column": "sku",
+          "data_type": "VARCHAR(40)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "product_name",
+          "data_type": "VARCHAR(120)",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "NAME",
+          "pii_confidence": "medium",
+          "detected_by": "name_hint_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "tokenization",
+          "classification": "Sensitive",
+          "tags": [
+            "PII"
+          ],
+          "risk": "HIGH",
+          "evidence": "3/3 sampled values looked name-like; column hint=True"
+        },
+        {
+          "column": "category",
+          "data_type": "VARCHAR(80)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "active_flag",
+          "data_type": "BOOLEAN",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "dpdp_no_relationships.weather_observations": [
+        {
+          "column": "station_code",
+          "data_type": "VARCHAR(40)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "observed_on",
+          "data_type": "DATE",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "temperature_c",
+          "data_type": "NUMERIC(5, 2)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "rainfall_mm",
+          "data_type": "NUMERIC(6, 2)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "dpdp_pii_exposure.customer_profiles": [
+        {
+          "column": "profile_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "full_name",
+          "data_type": "VARCHAR(120)",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "NAME",
+          "pii_confidence": "medium",
+          "detected_by": "name_hint_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "tokenization",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "4/4 sampled values looked name-like; column hint=True"
+        },
+        {
+          "column": "email",
+          "data_type": "VARCHAR(160)",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "EMAIL",
+          "pii_confidence": "high",
+          "detected_by": "pattern_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "partial_email_mask",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+        },
+        {
+          "column": "phone_number",
+          "data_type": "VARCHAR(20)",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "PHONE",
+          "pii_confidence": "high",
+          "detected_by": "pattern_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "tokenization",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "4/4 sampled values matched PHONE; column hint=True"
+        },
+        {
+          "column": "address_line",
+          "data_type": "VARCHAR(240)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "consent_status",
+          "data_type": "VARCHAR(20)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "dpdp_pii_exposure.support_tickets": [
+        {
+          "column": "ticket_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "profile_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "requester_email",
+          "data_type": "VARCHAR(160)",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "EMAIL",
+          "pii_confidence": "high",
+          "detected_by": "pattern_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "partial_email_mask",
+          "classification": "Sensitive",
+          "tags": [
+            "PII"
+          ],
+          "risk": "HIGH",
+          "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+        },
+        {
+          "column": "issue_summary",
+          "data_type": "VARCHAR(240)",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "dpdp_poor_quality.customer_imports": [
+        {
+          "column": "import_id",
+          "data_type": "INTEGER",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "full_name",
+          "data_type": "VARCHAR(120)",
+          "nullable": true,
+          "pii_detected": true,
+          "pii_type": "NAME",
+          "pii_confidence": "medium",
+          "detected_by": "name_hint_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "tokenization",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "3/3 sampled values looked name-like; column hint=True"
+        },
+        {
+          "column": "email",
+          "data_type": "VARCHAR(160)",
+          "nullable": true,
+          "pii_detected": true,
+          "pii_type": "EMAIL",
+          "pii_confidence": "high",
+          "detected_by": "pattern_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "partial_email_mask",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "2/3 sampled values matched EMAIL; column hint=True"
+        },
+        {
+          "column": "phone_number",
+          "data_type": "VARCHAR(20)",
+          "nullable": true,
+          "pii_detected": true,
+          "pii_type": "PHONE",
+          "pii_confidence": "high",
+          "detected_by": "pattern_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "tokenization",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "2/3 sampled values matched PHONE; column hint=True"
+        },
+        {
+          "column": "birth_date",
+          "data_type": "VARCHAR(30)",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "city",
+          "data_type": "VARCHAR(80)",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "loaded_at",
+          "data_type": "DATE",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "dpdp_poor_quality.payment_imports": [
+        {
+          "column": "payment_ref",
+          "data_type": "VARCHAR(40)",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Financial"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "customer_email",
+          "data_type": "VARCHAR(160)",
+          "nullable": true,
+          "pii_detected": true,
+          "pii_type": "EMAIL",
+          "pii_confidence": "high",
+          "detected_by": "pattern_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "partial_email_mask",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Financial",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "2/3 sampled values matched EMAIL; column hint=True"
+        },
+        {
+          "column": "amount",
+          "data_type": "NUMERIC(10, 2)",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Financial"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "payment_date",
+          "data_type": "VARCHAR(30)",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Financial"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "status",
+          "data_type": "VARCHAR(30)",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Financial"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "public.customers": [
+        {
+          "column": "customer_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "customer_name",
+          "data_type": "TEXT",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "NAME",
+          "pii_confidence": "medium",
+          "detected_by": "name_hint_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "tokenization",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "2/2 sampled values looked name-like; column hint=True"
+        },
+        {
+          "column": "email",
+          "data_type": "TEXT",
+          "nullable": true,
+          "pii_detected": true,
+          "pii_type": "EMAIL",
+          "pii_confidence": "high",
+          "detected_by": "pattern_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "partial_email_mask",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "2/2 sampled values matched EMAIL; column hint=True"
+        },
+        {
+          "column": "created_date",
+          "data_type": "DATE",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "public.orders": [
+        {
+          "column": "order_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "customer_id",
+          "data_type": "INTEGER",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "order_date",
+          "data_type": "DATE",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "order_amount",
+          "data_type": "NUMERIC",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Financial"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "order_status",
+          "data_type": "TEXT",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ]
+    }
+  },
+  "dpdp_compliance": {
+    "status": "ACTION_REQUIRED",
+    "pii_columns": 16,
+    "unmasked_pii_columns": 13,
+    "high_risk_count": 19,
+    "required_actions": [
+      "Apply masking, tokenization, or access restriction to unmasked PII columns.",
+      "Validate purpose limitation and access controls for sensitive columns.",
+      "Maintain traceability for detected PII and remediation ownership."
+    ]
+  },
+  "data_findings": {
+    "coverage": "Weak",
+    "gaps": [
+      {
+        "type": "profiling",
+        "description": "Insufficient data for reliable profiling",
+        "evidence": "sample_size=4, threshold=30",
+        "owner": "postgres",
+        "severity": "medium"
+      },
+      {
+        "type": "integrity",
+        "description": "dpdp_poor_quality.customer_imports has no primary key in source metadata.",
+        "evidence": "primary_key is empty",
+        "owner": "postgres",
+        "severity": "medium"
+      },
+      {
+        "type": "integrity",
+        "description": "dpdp_poor_quality.payment_imports has no primary key in source metadata.",
+        "evidence": "primary_key is empty",
+        "owner": "postgres",
+        "severity": "medium"
+      },
+      {
+        "type": "quality",
+        "description": "full_name has 33.33% null values",
+        "evidence": "profiling metric exceeded quality threshold",
+        "owner": "postgres",
+        "severity": "medium"
+      },
+      {
+        "type": "quality",
+        "description": "email has 33.33% null values",
+        "evidence": "profiling metric exceeded quality threshold",
+        "owner": "postgres",
+        "severity": "medium"
+      },
+      {
+        "type": "quality",
+        "description": "phone_number has 33.33% null values",
+        "evidence": "profiling metric exceeded quality threshold",
+        "owner": "postgres",
+        "severity": "medium"
+      },
+      {
+        "type": "quality",
+        "description": "city has 66.67% null values",
+        "evidence": "profiling metric exceeded quality threshold",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "1 duplicate sampled rows found",
+        "evidence": "profiling metric exceeded quality threshold",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "email contains invalid email formats",
+        "evidence": "profiling metric exceeded quality threshold",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "customer_email has 20.0% null values",
+        "evidence": "profiling metric exceeded quality threshold",
+        "owner": "postgres",
+        "severity": "medium"
+      },
+      {
+        "type": "quality",
+        "description": "amount has 20.0% null values",
+        "evidence": "profiling metric exceeded quality threshold",
+        "owner": "postgres",
+        "severity": "medium"
+      },
+      {
+        "type": "quality",
+        "description": "status has 20.0% null values",
+        "evidence": "profiling metric exceeded quality threshold",
+        "owner": "postgres",
+        "severity": "medium"
+      },
+      {
+        "type": "quality",
+        "description": "customer_email contains invalid email formats",
+        "evidence": "profiling metric exceeded quality threshold",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "amount contains negative values",
+        "evidence": "profiling metric exceeded quality threshold",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_clean.customers.full_name contains unmasked NAME PII.",
+        "evidence": "4/4 sampled values looked name-like; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_clean.customers.email contains unmasked EMAIL PII.",
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_no_relationships.product_catalog.product_name contains unmasked NAME PII.",
+        "evidence": "3/3 sampled values looked name-like; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_pii_exposure.customer_profiles.full_name contains unmasked NAME PII.",
+        "evidence": "4/4 sampled values looked name-like; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_pii_exposure.customer_profiles.email contains unmasked EMAIL PII.",
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_pii_exposure.customer_profiles.phone_number contains unmasked PHONE PII.",
+        "evidence": "4/4 sampled values matched PHONE; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_pii_exposure.support_tickets.requester_email contains unmasked EMAIL PII.",
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_poor_quality.customer_imports.full_name contains unmasked NAME PII.",
+        "evidence": "3/3 sampled values looked name-like; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_poor_quality.customer_imports.email contains unmasked EMAIL PII.",
+        "evidence": "2/3 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_poor_quality.customer_imports.phone_number contains unmasked PHONE PII.",
+        "evidence": "2/3 sampled values matched PHONE; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_poor_quality.payment_imports.customer_email contains unmasked EMAIL PII.",
+        "evidence": "2/3 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "public.customers.customer_name contains unmasked NAME PII.",
+        "evidence": "2/2 sampled values looked name-like; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "public.customers.email contains unmasked EMAIL PII.",
+        "evidence": "2/2 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      }
+    ],
+    "data_issues": [
+      "dpdp_clean.customers: Insufficient data for reliable profiling",
+      "dpdp_clean.orders: Insufficient data for reliable profiling",
+      "dpdp_masked.masked_customers: Insufficient data for reliable profiling",
+      "dpdp_masked.communication_preferences: Insufficient data for reliable profiling",
+      "dpdp_no_relationships.branch_targets: Insufficient data for reliable profiling",
+      "dpdp_no_relationships.product_catalog: Insufficient data for reliable profiling",
+      "dpdp_no_relationships.weather_observations: Insufficient data for reliable profiling",
+      "dpdp_pii_exposure.customer_profiles: Insufficient data for reliable profiling",
+      "dpdp_pii_exposure.support_tickets: Insufficient data for reliable profiling",
+      "dpdp_poor_quality.customer_imports: Insufficient data for reliable profiling",
+      "dpdp_poor_quality.customer_imports: full_name has 33.33% null values",
+      "dpdp_poor_quality.customer_imports: email has 33.33% null values",
+      "dpdp_poor_quality.customer_imports: phone_number has 33.33% null values",
+      "dpdp_poor_quality.customer_imports: city has 66.67% null values",
+      "dpdp_poor_quality.customer_imports: 1 duplicate sampled rows found",
+      "dpdp_poor_quality.customer_imports: email contains invalid email formats",
+      "dpdp_poor_quality.payment_imports: Insufficient data for reliable profiling",
+      "dpdp_poor_quality.payment_imports: customer_email has 20.0% null values",
+      "dpdp_poor_quality.payment_imports: amount has 20.0% null values",
+      "dpdp_poor_quality.payment_imports: status has 20.0% null values",
+      "dpdp_poor_quality.payment_imports: 1 duplicate sampled rows found",
+      "dpdp_poor_quality.payment_imports: customer_email contains invalid email formats",
+      "dpdp_poor_quality.payment_imports: amount contains negative values",
+      "public.customers: Insufficient data for reliable profiling",
+      "public.orders: Insufficient data for reliable profiling",
+      "dpdp_clean.customers.full_name contains unmasked NAME PII.",
+      "dpdp_clean.customers.email contains unmasked EMAIL PII.",
+      "dpdp_no_relationships.product_catalog.product_name contains unmasked NAME PII.",
+      "dpdp_pii_exposure.customer_profiles.full_name contains unmasked NAME PII.",
+      "dpdp_pii_exposure.customer_profiles.email contains unmasked EMAIL PII.",
+      "dpdp_pii_exposure.customer_profiles.phone_number contains unmasked PHONE PII.",
+      "dpdp_pii_exposure.support_tickets.requester_email contains unmasked EMAIL PII.",
+      "dpdp_poor_quality.customer_imports.full_name contains unmasked NAME PII.",
+      "dpdp_poor_quality.customer_imports.email contains unmasked EMAIL PII.",
+      "dpdp_poor_quality.customer_imports.phone_number contains unmasked PHONE PII.",
+      "dpdp_poor_quality.payment_imports.customer_email contains unmasked EMAIL PII.",
+      "public.customers.customer_name contains unmasked NAME PII.",
+      "public.customers.email contains unmasked EMAIL PII."
+    ],
+    "impact": [
+      "Open metadata, ownership, integrity, or quality findings should be resolved before broad downstream consumption."
+    ],
+    "recommendations": [
+      {
+        "action": "Increase profiling sample size for dpdp_clean.customers before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_clean.orders before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_masked.masked_customers before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_masked.communication_preferences before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_no_relationships.branch_targets before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_no_relationships.product_catalog before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_no_relationships.weather_observations before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_pii_exposure.customer_profiles before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_pii_exposure.support_tickets before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_poor_quality.customer_imports before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.full_name.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.email.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.phone_number.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.city.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Define or enforce uniqueness rules for dpdp_poor_quality.customer_imports.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Fix invalid values detected in dpdp_poor_quality.customer_imports: email contains invalid email formats.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_poor_quality.payment_imports before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.customer_email.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.amount.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.status.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Define or enforce uniqueness rules for dpdp_poor_quality.payment_imports.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Fix invalid values detected in dpdp_poor_quality.payment_imports: customer_email contains invalid email formats.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Fix invalid values detected in dpdp_poor_quality.payment_imports: amount contains negative values.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for public.customers before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for public.orders before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_clean.customers.full_name.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_clean.customers.email.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_no_relationships.product_catalog.product_name.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_pii_exposure.customer_profiles.full_name.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_pii_exposure.customer_profiles.email.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_pii_exposure.customer_profiles.phone_number.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_pii_exposure.support_tickets.requester_email.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_poor_quality.customer_imports.full_name.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_poor_quality.customer_imports.email.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_poor_quality.customer_imports.phone_number.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_poor_quality.payment_imports.customer_email.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to public.customers.customer_name.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to public.customers.email.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      }
+    ]
+  },
+  "raid": {
+    "risks": [
+      {
+        "description": "High severity quality issue in dpdp_poor_quality.customer_imports: city has 66.67% null values",
+        "severity": "high",
+        "evidence": "Data profiling result",
+        "owner": "postgres"
+      },
+      {
+        "description": "High severity quality issue in dpdp_poor_quality.customer_imports: 1 duplicate sampled rows found",
+        "severity": "high",
+        "evidence": "Data profiling result",
+        "owner": "postgres"
+      },
+      {
+        "description": "High severity quality issue in dpdp_poor_quality.customer_imports: email contains invalid email formats",
+        "severity": "high",
+        "evidence": "Data profiling result",
+        "owner": "postgres"
+      },
+      {
+        "description": "High severity quality issue in dpdp_poor_quality.payment_imports: 1 duplicate sampled rows found",
+        "severity": "high",
+        "evidence": "Data profiling result",
+        "owner": "postgres"
+      },
+      {
+        "description": "High severity quality issue in dpdp_poor_quality.payment_imports: customer_email contains invalid email formats",
+        "severity": "high",
+        "evidence": "Data profiling result",
+        "owner": "postgres"
+      },
+      {
+        "description": "High severity quality issue in dpdp_poor_quality.payment_imports: amount contains negative values",
+        "severity": "high",
+        "evidence": "Data profiling result",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_clean.customers.full_name contains unmasked NAME PII.",
+        "severity": "high",
+        "evidence": "4/4 sampled values looked name-like; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_clean.customers.email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_masked.masked_customers.masked_email contains partially masked EMAIL PII.",
+        "severity": "medium",
+        "evidence": "0/4 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_masked.masked_customers.masked_phone contains partially masked PHONE PII.",
+        "severity": "medium",
+        "evidence": "0/4 sampled values matched PHONE; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_masked.communication_preferences.masked_contact contains partially masked PHONE PII.",
+        "severity": "medium",
+        "evidence": "0/4 sampled values matched PHONE; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_no_relationships.product_catalog.product_name contains unmasked NAME PII.",
+        "severity": "high",
+        "evidence": "3/3 sampled values looked name-like; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_pii_exposure.customer_profiles.full_name contains unmasked NAME PII.",
+        "severity": "high",
+        "evidence": "4/4 sampled values looked name-like; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_pii_exposure.customer_profiles.email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_pii_exposure.customer_profiles.phone_number contains unmasked PHONE PII.",
+        "severity": "high",
+        "evidence": "4/4 sampled values matched PHONE; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_pii_exposure.support_tickets.requester_email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_poor_quality.customer_imports.full_name contains unmasked NAME PII.",
+        "severity": "high",
+        "evidence": "3/3 sampled values looked name-like; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_poor_quality.customer_imports.email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "evidence": "2/3 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_poor_quality.customer_imports.phone_number contains unmasked PHONE PII.",
+        "severity": "high",
+        "evidence": "2/3 sampled values matched PHONE; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "dpdp_poor_quality.payment_imports.customer_email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "evidence": "2/3 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "public.customers.customer_name contains unmasked NAME PII.",
+        "severity": "high",
+        "evidence": "2/2 sampled values looked name-like; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "public.customers.email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "evidence": "2/2 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres"
+      }
+    ],
+    "assumptions": [],
+    "issues": [
+      {
+        "type": "data",
+        "description": "Low sample size for dpdp_clean.customers.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for dpdp_clean.customers.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for dpdp_clean.orders.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for dpdp_clean.orders.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for dpdp_masked.masked_customers.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for dpdp_masked.masked_customers.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for dpdp_masked.communication_preferences.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for dpdp_masked.communication_preferences.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for dpdp_no_relationships.branch_targets.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for dpdp_no_relationships.branch_targets.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for dpdp_no_relationships.product_catalog.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for dpdp_no_relationships.product_catalog.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for dpdp_no_relationships.weather_observations.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for dpdp_no_relationships.weather_observations.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for dpdp_pii_exposure.customer_profiles.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for dpdp_pii_exposure.customer_profiles.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for dpdp_pii_exposure.support_tickets.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for dpdp_pii_exposure.support_tickets.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for dpdp_poor_quality.customer_imports.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for dpdp_poor_quality.customer_imports.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for dpdp_poor_quality.payment_imports.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for dpdp_poor_quality.payment_imports.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for public.customers.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for public.customers.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for public.orders.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for public.orders.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "Insufficient data for reliable profiling",
+        "severity": "medium",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "full_name has 33.33% null values",
+        "severity": "medium",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "email has 33.33% null values",
+        "severity": "medium",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "phone_number has 33.33% null values",
+        "severity": "medium",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "city has 66.67% null values",
+        "severity": "high",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "1 duplicate sampled rows found",
+        "severity": "high",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "email contains invalid email formats",
+        "severity": "high",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "customer_email has 20.0% null values",
+        "severity": "medium",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "amount has 20.0% null values",
+        "severity": "medium",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "status has 20.0% null values",
+        "severity": "medium",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "customer_email contains invalid email formats",
+        "severity": "high",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "amount contains negative values",
+        "severity": "high",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_clean.customers.full_name contains unmasked NAME PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_clean.customers.email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_no_relationships.product_catalog.product_name contains unmasked NAME PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_pii_exposure.customer_profiles.full_name contains unmasked NAME PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_pii_exposure.customer_profiles.email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_pii_exposure.customer_profiles.phone_number contains unmasked PHONE PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_pii_exposure.support_tickets.requester_email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_poor_quality.customer_imports.full_name contains unmasked NAME PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_poor_quality.customer_imports.email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_poor_quality.customer_imports.phone_number contains unmasked PHONE PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "dpdp_poor_quality.payment_imports.customer_email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "public.customers.customer_name contains unmasked NAME PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "public.customers.email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      }
+    ],
+    "dependencies": [
+      {
+        "description": "Relationship integrity depends on upstream enforcement of discovered foreign keys.",
+        "dependency_type": "upstream_data"
+      }
+    ],
+    "recommendations": [
+      {
+        "action": "Mask, tokenize, or restrict access to dpdp_clean.customers.full_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to dpdp_clean.customers.email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to dpdp_no_relationships.product_catalog.product_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.customer_profiles.full_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.customer_profiles.email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.customer_profiles.phone_number.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.support_tickets.requester_email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.customer_imports.full_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.customer_imports.email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.customer_imports.phone_number.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.payment_imports.customer_email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to public.customers.customer_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to public.customers.email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_clean.customers before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_clean.orders before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_masked.masked_customers before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_masked.communication_preferences before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_no_relationships.branch_targets before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_no_relationships.product_catalog before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_no_relationships.weather_observations before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_pii_exposure.customer_profiles before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_pii_exposure.support_tickets before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_poor_quality.customer_imports before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.full_name.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.email.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.phone_number.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.city.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Define or enforce uniqueness rules for dpdp_poor_quality.customer_imports.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Fix invalid values detected in dpdp_poor_quality.customer_imports: email contains invalid email formats.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for dpdp_poor_quality.payment_imports before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.customer_email.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.amount.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.status.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Define or enforce uniqueness rules for dpdp_poor_quality.payment_imports.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Fix invalid values detected in dpdp_poor_quality.payment_imports: customer_email contains invalid email formats.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Fix invalid values detected in dpdp_poor_quality.payment_imports: amount contains negative values.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for public.customers before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for public.orders before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_clean.customers.full_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_clean.customers.email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_no_relationships.product_catalog.product_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_pii_exposure.customer_profiles.full_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_pii_exposure.customer_profiles.email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_pii_exposure.customer_profiles.phone_number.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_pii_exposure.support_tickets.requester_email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_poor_quality.customer_imports.full_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_poor_quality.customer_imports.email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_poor_quality.customer_imports.phone_number.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to dpdp_poor_quality.payment_imports.customer_email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to public.customers.customer_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to public.customers.email.",
+        "priority": "high",
+        "owner": "postgres"
+      }
+    ]
+  },
+  "relationship_inference": [
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.customers",
+      "from_column": "consent_status",
+      "to_table": "dpdp_masked.masked_customers",
+      "to_column": "consent_status",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.customers",
+      "from_column": "consent_status",
+      "to_table": "dpdp_pii_exposure.customer_profiles",
+      "to_column": "consent_status",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.customers",
+      "from_column": "customer_id",
+      "to_table": "dpdp_clean.orders",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.customers",
+      "from_column": "customer_id",
+      "to_table": "dpdp_masked.masked_customers",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.customers",
+      "from_column": "customer_id",
+      "to_table": "dpdp_masked.communication_preferences",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.customers",
+      "from_column": "customer_id",
+      "to_table": "public.customers",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.customers",
+      "from_column": "customer_id",
+      "to_table": "public.orders",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.orders",
+      "from_column": "customer_id",
+      "to_table": "dpdp_masked.masked_customers",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.orders",
+      "from_column": "customer_id",
+      "to_table": "dpdp_masked.communication_preferences",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.orders",
+      "from_column": "customer_id",
+      "to_table": "public.customers",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.orders",
+      "from_column": "customer_id",
+      "to_table": "public.orders",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_masked.communication_preferences",
+      "from_column": "customer_id",
+      "to_table": "public.customers",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_masked.communication_preferences",
+      "from_column": "customer_id",
+      "to_table": "public.orders",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_masked.masked_customers",
+      "from_column": "consent_status",
+      "to_table": "dpdp_pii_exposure.customer_profiles",
+      "to_column": "consent_status",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_masked.masked_customers",
+      "from_column": "customer_id",
+      "to_table": "dpdp_masked.communication_preferences",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_masked.masked_customers",
+      "from_column": "customer_id",
+      "to_table": "public.customers",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_masked.masked_customers",
+      "from_column": "customer_id",
+      "to_table": "public.orders",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_pii_exposure.customer_profiles",
+      "from_column": "profile_id",
+      "to_table": "dpdp_pii_exposure.support_tickets",
+      "to_column": "profile_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "public.customers",
+      "from_column": "customer_id",
+      "to_table": "public.orders",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.customers",
+      "from_column": "city",
+      "to_table": "dpdp_masked.masked_customers",
+      "to_column": "city",
+      "confidence": 0.9,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_clean.orders",
+      "from_column": "order_status",
+      "to_table": "public.orders",
+      "to_column": "order_status",
+      "confidence": 0.9,
+      "method": "name_match + type_match + value_overlap"
+    },
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "dpdp_pii_exposure.customer_profiles",
+      "from_column": "phone_number",
+      "to_table": "dpdp_poor_quality.customer_imports",
+      "to_column": "phone_number",
+      "confidence": 0.82,
+      "method": "name_match + type_match + value_overlap"
+    }
+  ],
+  "ai_insights": [
+    {
+      "type": "risk_pattern",
+      "insight": "Customer PII exists in multiple columns without masking, increasing exposure risk.",
+      "severity": "high"
+    },
+    {
+      "type": "control_gap",
+      "insight": "Partial masking is present in 3 sensitive column(s), which may still allow re-identification.",
+      "severity": "medium"
+    },
+    {
+      "type": "data_quality",
+      "insight": "Low sample size reduces confidence in profiling and scoring.",
+      "severity": "medium"
+    },
+    {
+      "type": "risk_pattern",
+      "insight": "19 high-severity RAID risks were identified, indicating elevated governance exposure.",
+      "severity": "high"
+    },
+    {
+      "type": "lineage_signal",
+      "insight": "Inferred relationships across 22 column pair(s) suggest shared identifiers that should be validated for lineage and access control.",
+      "severity": "medium"
+    }
+  ],
+  "traceability": [
+    {
+      "table": "dpdp_clean.customers",
+      "column": "customer_id",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_clean.customers",
+      "column": "full_name",
+      "detected_by": "name_hint_engine",
+      "pii_type": "NAME",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_clean.customers",
+      "column": "email",
+      "detected_by": "pattern_engine",
+      "pii_type": "EMAIL",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_clean.customers",
+      "column": "city",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_clean.customers",
+      "column": "consent_status",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_clean.customers",
+      "column": "created_at",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_clean.orders",
+      "column": "customer_id",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_masked.masked_customers",
+      "column": "customer_id",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_masked.masked_customers",
+      "column": "customer_alias",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_masked.masked_customers",
+      "column": "masked_email",
+      "detected_by": "pattern_engine",
+      "pii_type": "EMAIL",
+      "classification": "Sensitive",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_masked.masked_customers",
+      "column": "masked_phone",
+      "detected_by": "pattern_engine",
+      "pii_type": "PHONE",
+      "classification": "Sensitive",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_masked.masked_customers",
+      "column": "city",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_masked.masked_customers",
+      "column": "consent_status",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_masked.communication_preferences",
+      "column": "customer_id",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_masked.communication_preferences",
+      "column": "masked_contact",
+      "detected_by": "pattern_engine",
+      "pii_type": "PHONE",
+      "classification": "Sensitive",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_no_relationships.product_catalog",
+      "column": "product_name",
+      "detected_by": "name_hint_engine",
+      "pii_type": "NAME",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_pii_exposure.customer_profiles",
+      "column": "profile_id",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_pii_exposure.customer_profiles",
+      "column": "full_name",
+      "detected_by": "name_hint_engine",
+      "pii_type": "NAME",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_pii_exposure.customer_profiles",
+      "column": "email",
+      "detected_by": "pattern_engine",
+      "pii_type": "EMAIL",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_pii_exposure.customer_profiles",
+      "column": "phone_number",
+      "detected_by": "pattern_engine",
+      "pii_type": "PHONE",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_pii_exposure.customer_profiles",
+      "column": "address_line",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_pii_exposure.customer_profiles",
+      "column": "consent_status",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_pii_exposure.support_tickets",
+      "column": "requester_email",
+      "detected_by": "pattern_engine",
+      "pii_type": "EMAIL",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.customer_imports",
+      "column": "import_id",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.customer_imports",
+      "column": "full_name",
+      "detected_by": "name_hint_engine",
+      "pii_type": "NAME",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.customer_imports",
+      "column": "email",
+      "detected_by": "pattern_engine",
+      "pii_type": "EMAIL",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.customer_imports",
+      "column": "phone_number",
+      "detected_by": "pattern_engine",
+      "pii_type": "PHONE",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.customer_imports",
+      "column": "birth_date",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.customer_imports",
+      "column": "city",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.customer_imports",
+      "column": "loaded_at",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.payment_imports",
+      "column": "payment_ref",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.payment_imports",
+      "column": "customer_email",
+      "detected_by": "pattern_engine",
+      "pii_type": "EMAIL",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.payment_imports",
+      "column": "amount",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.payment_imports",
+      "column": "payment_date",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "dpdp_poor_quality.payment_imports",
+      "column": "status",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "public.customers",
+      "column": "customer_id",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "public.customers",
+      "column": "customer_name",
+      "detected_by": "name_hint_engine",
+      "pii_type": "NAME",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "public.customers",
+      "column": "email",
+      "detected_by": "pattern_engine",
+      "pii_type": "EMAIL",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "public.customers",
+      "column": "created_date",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "public.orders",
+      "column": "customer_id",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    },
+    {
+      "table": "public.orders",
+      "column": "order_amount",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "dd541620-da91-4c80-ae5f-75d55b7705dd"
+    }
+  ],
+  "recommendations": [
+    {
+      "action": "Increase profiling sample size for dpdp_clean.customers before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for dpdp_clean.orders before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for dpdp_masked.masked_customers before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for dpdp_masked.communication_preferences before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for dpdp_no_relationships.branch_targets before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for dpdp_no_relationships.product_catalog before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for dpdp_no_relationships.weather_observations before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for dpdp_pii_exposure.customer_profiles before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for dpdp_pii_exposure.support_tickets before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for dpdp_poor_quality.customer_imports before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.full_name.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.email.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.phone_number.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Review completeness rules and upstream capture for dpdp_poor_quality.customer_imports.city.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Define or enforce uniqueness rules for dpdp_poor_quality.customer_imports.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Fix invalid values detected in dpdp_poor_quality.customer_imports: email contains invalid email formats.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for dpdp_poor_quality.payment_imports before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.customer_email.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.amount.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Review completeness rules and upstream capture for dpdp_poor_quality.payment_imports.status.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Define or enforce uniqueness rules for dpdp_poor_quality.payment_imports.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Fix invalid values detected in dpdp_poor_quality.payment_imports: customer_email contains invalid email formats.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Fix invalid values detected in dpdp_poor_quality.payment_imports: amount contains negative values.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for public.customers before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for public.orders before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Apply masking or tokenization to dpdp_clean.customers.full_name.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to dpdp_clean.customers.email.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to dpdp_no_relationships.product_catalog.product_name.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to dpdp_pii_exposure.customer_profiles.full_name.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to dpdp_pii_exposure.customer_profiles.email.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to dpdp_pii_exposure.customer_profiles.phone_number.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to dpdp_pii_exposure.support_tickets.requester_email.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to dpdp_poor_quality.customer_imports.full_name.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to dpdp_poor_quality.customer_imports.email.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to dpdp_poor_quality.customer_imports.phone_number.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to dpdp_poor_quality.payment_imports.customer_email.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to public.customers.customer_name.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to public.customers.email.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to dpdp_clean.customers.full_name.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to dpdp_clean.customers.email.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to dpdp_no_relationships.product_catalog.product_name.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.customer_profiles.full_name.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.customer_profiles.email.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.customer_profiles.phone_number.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.support_tickets.requester_email.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.customer_imports.full_name.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.customer_imports.email.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.customer_imports.phone_number.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.payment_imports.customer_email.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to public.customers.customer_name.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to public.customers.email.",
+      "priority": "high",
+      "owner": "postgres"
+    }
+  ],
+  "changes": {
+    "new_tables": [
+      "dpdp_no_relationships.branch_targets",
+      "dpdp_poor_quality.customer_imports",
+      "dpdp_no_relationships.weather_observations",
+      "dpdp_poor_quality.payment_imports",
+      "dpdp_masked.masked_customers",
+      "dpdp_pii_exposure.customer_profiles",
+      "dpdp_pii_exposure.support_tickets",
+      "dpdp_clean.customers",
+      "dpdp_masked.communication_preferences",
+      "dpdp_no_relationships.product_catalog",
+      "dpdp_clean.orders"
+    ],
+    "removed_tables": [],
+    "score_change": {
+      "previous": 54.0,
+      "current": 16.68
+    }
+  }
+}

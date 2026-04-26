@@ -1,0 +1,129 @@
+{
+  "run_id": "ef5f2a0f-fb9d-407a-9616-118310adc351",
+  "timestamp": "2026-04-26T05:55:48.970157",
+  "data": {
+    "source_inventory": {
+      "source_type": "postgresql",
+      "database": "Scan_db",
+      "tables": [
+        {
+          "schema": "public",
+          "table": "customers",
+          "qualified_name": "public.customers",
+          "owner": "postgres",
+          "columns": [
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "customer_name",
+              "type": "TEXT",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "email",
+              "type": "TEXT",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "created_date",
+              "type": "DATE",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "customer_id"
+          ],
+          "foreign_keys": [],
+          "indexes": [
+            {
+              "name": "customers_email_key",
+              "columns": [
+                "email"
+              ],
+              "unique": true
+            }
+          ]
+        },
+        {
+          "schema": "public",
+          "table": "orders",
+          "qualified_name": "public.orders",
+          "owner": "postgres",
+          "columns": [
+            {
+              "name": "order_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_date",
+              "type": "DATE",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_amount",
+              "type": "NUMERIC",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_status",
+              "type": "TEXT",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "order_id"
+          ],
+          "foreign_keys": [],
+          "indexes": []
+        }
+      ]
+    },
+    "schema": {
+      "public.customers": [
+        "customer_id",
+        "customer_name",
+        "email",
+        "created_date"
+      ],
+      "public.orders": [
+        "order_id",
+        "customer_id",
+        "order_date",
+        "order_amount",
+        "order_status"
+      ]
+    },
+    "scores": {
+      "quality_score": 100.0,
+      "risk_penalty": 0,
+      "final_score": 100.0
+    }
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "run_id": "9c3bc876-9762-44ef-a957-312b8c3f9414",
+  "timestamp": "2026-04-26T06:20:46.937398",
+  "data": {
+    "source_inventory": {
+      "source_type": "postgresql",
+      "database": "Scan_db",
+      "tables": [
+        {
+          "schema": "public",
+          "table": "customers",
+          "qualified_name": "public.customers",
+          "owner": "postgres",
+          "columns": [
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "customer_name",
+              "type": "TEXT",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "email",
+              "type": "TEXT",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "created_date",
+              "type": "DATE",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "customer_id"
+          ],
+          "foreign_keys": [],
+          "indexes": [
+            {
+              "name": "customers_email_key",
+              "columns": [
+                "email"
+              ],
+              "unique": true
+            }
+          ]
+        },
+        {
+          "schema": "public",
+          "table": "orders",
+          "qualified_name": "public.orders",
+          "owner": "postgres",
+          "columns": [
+            {
+              "name": "order_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_date",
+              "type": "DATE",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_amount",
+              "type": "NUMERIC",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_status",
+              "type": "TEXT",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "order_id"
+          ],
+          "foreign_keys": [],
+          "indexes": []
+        }
+      ]
+    },
+    "schema": {
+      "public.customers": [
+        "customer_id",
+        "customer_name",
+        "email",
+        "created_date"
+      ],
+      "public.orders": [
+        "order_id",
+        "customer_id",
+        "order_date",
+        "order_amount",
+        "order_status"
+      ]
+    },
+    "column_intelligence": {
+      "summary": {
+        "columns_scanned": 9,
+        "pii_columns": 2,
+        "unmasked_pii_columns": 2,
+        "high_risk_columns": 2,
+        "sensitive_columns": 2
+      },
+      "tables": {
+        "public.customers": [
+          {
+            "column": "customer_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern or column hint matched"
+          },
+          {
+            "column": "customer_name",
+            "data_type": "TEXT",
+            "nullable": false,
+            "pii_detected": true,
+            "pii_type": "NAME",
+            "pii_confidence": "medium",
+            "detected_by": "name_hint_engine",
+            "masking_status": "NOT_MASKED",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data"
+            ],
+            "risk": "HIGH",
+            "evidence": "2/2 sampled values looked name-like; column hint=True"
+          },
+          {
+            "column": "email",
+            "data_type": "TEXT",
+            "nullable": true,
+            "pii_detected": true,
+            "pii_type": "EMAIL",
+            "pii_confidence": "high",
+            "detected_by": "pattern_engine",
+            "masking_status": "NOT_MASKED",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data"
+            ],
+            "risk": "HIGH",
+            "evidence": "2/2 sampled values matched EMAIL; column hint=True"
+          },
+          {
+            "column": "created_date",
+            "data_type": "DATE",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern or column hint matched"
+          }
+        ],
+        "public.orders": [
+          {
+            "column": "order_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "classification": "Public",
+            "tags": [
+              "Public"
+            ],
+            "risk": "LOW",
+            "evidence": "No PII pattern or column hint matched"
+          },
+          {
+            "column": "customer_id",
+            "data_type": "INTEGER",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern or column hint matched"
+          },
+          {
+            "column": "order_date",
+            "data_type": "DATE",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "classification": "Public",
+            "tags": [
+              "Public"
+            ],
+            "risk": "LOW",
+            "evidence": "No PII pattern or column hint matched"
+          },
+          {
+            "column": "order_amount",
+            "data_type": "NUMERIC",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "classification": "Confidential",
+            "tags": [
+              "Financial"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern or column hint matched"
+          },
+          {
+            "column": "order_status",
+            "data_type": "TEXT",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "classification": "Public",
+            "tags": [
+              "Public"
+            ],
+            "risk": "LOW",
+            "evidence": "No PII pattern or column hint matched"
+          }
+        ]
+      }
+    },
+    "scores": {
+      "quality_score": 100.0,
+      "risk_penalty": 46,
+      "final_score": 54.0,
+      "score_drivers": [
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "public.customers.customer_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "public.customers.email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        }
+      ],
+      "score_components": {
+        "data_quality": 100.0,
+        "metadata_penalty": 0,
+        "pii_masking_penalty": 30,
+        "sample_sufficiency_penalty": 16,
+        "findings_penalty": 0
+      }
+    }
+  }
+}

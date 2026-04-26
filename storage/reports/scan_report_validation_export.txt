@@ -1,0 +1,24 @@
+DATA GOVERNANCE REPORT
+======================
+
+EXECUTIVE SUMMARY
+This scan identified unmasked personal data in customer tables, posing a high compliance risk under DPDP. Immediate remediation is required before further data usage.
+
+RISK OVERVIEW
+- High compliance risk: Apply masking or tokenization to protect sensitive data
+
+PII EXPOSURE
+- public.customers.customer_name: Unprotected sensitive data (High compliance risk)
+- public.customers.email: Unprotected sensitive data (High compliance risk)
+
+DATA QUALITY
+Profiled 2 table(s). Data quality score is 100.0.
+
+AI INSIGHTS
+- Apply masking or tokenization to protect sensitive data
+- Increase sample coverage and resolve profiling limitations
+- Inferred relationships across 1 column pair(s) suggest shared identifiers that should be validated for lineage and access control.
+
+RECOMMENDATIONS
+- Increase sample coverage and resolve profiling limitations
+- Apply masking or tokenization to protect sensitive data

@@ -1,0 +1,835 @@
+{
+  "overview": {
+    "summary": "DPDP-aware data discovery, profiling, quality, and RAID report",
+    "run_id": "37a37571-deae-459e-a95a-78e60009274c",
+    "scores": {
+      "quality_score": 100.0,
+      "risk_penalty": 46,
+      "final_score": 54.0,
+      "score_drivers": [
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "public.customers.customer_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "public.customers.email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        }
+      ],
+      "score_components": {
+        "data_quality": 100.0,
+        "metadata_penalty": 0,
+        "pii_masking_penalty": 30,
+        "sample_sufficiency_penalty": 16,
+        "findings_penalty": 0
+      }
+    }
+  },
+  "ingestion": {
+    "source_type": "postgresql",
+    "database": "Scan_db",
+    "tables_scanned": [
+      "public.customers",
+      "public.orders"
+    ],
+    "num_tables": 2,
+    "owners": [
+      "postgres"
+    ],
+    "rows_sampled": {
+      "public.customers": 2,
+      "public.orders": 2
+    }
+  },
+  "workflow": [
+    "source_inventory",
+    "profiling",
+    "pii_detection",
+    "classification",
+    "data_quality",
+    "data_findings",
+    "raid",
+    "aggregator"
+  ],
+  "source_inventory": {
+    "source_type": "postgresql",
+    "database": "Scan_db",
+    "tables": [
+      {
+        "schema": "public",
+        "table": "customers",
+        "qualified_name": "public.customers",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "customer_name",
+            "type": "TEXT",
+            "nullable": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "email",
+            "type": "TEXT",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "created_date",
+            "type": "DATE",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "customer_id"
+        ],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "name": "customers_email_key",
+            "columns": [
+              "email"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "schema": "public",
+        "table": "orders",
+        "qualified_name": "public.orders",
+        "owner": "postgres",
+        "columns": [
+          {
+            "name": "order_id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "name": "customer_id",
+            "type": "INTEGER",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_date",
+            "type": "DATE",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_amount",
+            "type": "NUMERIC",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "name": "order_status",
+            "type": "TEXT",
+            "nullable": true,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "primary_key": [
+          "order_id"
+        ],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ]
+  },
+  "schema_analysis": {
+    "tables": [
+      {
+        "name": "public.customers",
+        "description": "public.customers contains 4 columns.",
+        "columns": [
+          "customer_id",
+          "customer_name",
+          "email",
+          "created_date"
+        ]
+      },
+      {
+        "name": "public.orders",
+        "description": "public.orders contains 5 columns.",
+        "columns": [
+          "order_id",
+          "customer_id",
+          "order_date",
+          "order_amount",
+          "order_status"
+        ]
+      }
+    ],
+    "relationships": [],
+    "model_type": "transactional",
+    "ownership_observations": [
+      "All scanned tables have an owner from source metadata."
+    ],
+    "inventory_risks": []
+  },
+  "profiling": {
+    "public.customers": {
+      "row_count": 2,
+      "sample_size": 2,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 4,
+      "null_count": 0,
+      "null_count_by_column": {
+        "customer_id": 0,
+        "customer_name": 0,
+        "email": 0,
+        "created_date": 0
+      },
+      "null_percentage": {
+        "customer_id": 0.0,
+        "customer_name": 0.0,
+        "email": 0.0,
+        "created_date": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "customer_id": 2,
+        "customer_name": 2,
+        "email": 2,
+        "created_date": 2
+      },
+      "data_types": {
+        "customer_id": "int64",
+        "customer_name": "object",
+        "email": "object",
+        "created_date": "object"
+      },
+      "numeric_stats": {
+        "customer_id": {
+          "count": 2.0,
+          "mean": 1.5,
+          "std": 0.7071067811865476,
+          "min": 1.0,
+          "25%": 1.25,
+          "50%": 1.5,
+          "75%": 1.75,
+          "max": 2.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    },
+    "public.orders": {
+      "row_count": 2,
+      "sample_size": 2,
+      "sample_sufficiency": {
+        "status": "INSUFFICIENT",
+        "threshold": 30,
+        "message": "Insufficient data for reliable profiling"
+      },
+      "column_count": 5,
+      "null_count": 0,
+      "null_count_by_column": {
+        "order_id": 0,
+        "customer_id": 0,
+        "order_date": 0,
+        "order_amount": 0,
+        "order_status": 0
+      },
+      "null_percentage": {
+        "order_id": 0.0,
+        "customer_id": 0.0,
+        "order_date": 0.0,
+        "order_amount": 0.0,
+        "order_status": 0.0
+      },
+      "duplicate_count": 0,
+      "duplicate_ratio": 0.0,
+      "unique_counts": {
+        "order_id": 2,
+        "customer_id": 2,
+        "order_date": 2,
+        "order_amount": 2,
+        "order_status": 2
+      },
+      "data_types": {
+        "order_id": "int64",
+        "customer_id": "int64",
+        "order_date": "object",
+        "order_amount": "float64",
+        "order_status": "object"
+      },
+      "numeric_stats": {
+        "order_id": {
+          "count": 2.0,
+          "mean": 101.5,
+          "std": 0.7071067811865476,
+          "min": 101.0,
+          "25%": 101.25,
+          "50%": 101.5,
+          "75%": 101.75,
+          "max": 102.0
+        },
+        "customer_id": {
+          "count": 2.0,
+          "mean": 1.5,
+          "std": 0.7071067811865476,
+          "min": 1.0,
+          "25%": 1.25,
+          "50%": 1.5,
+          "75%": 1.75,
+          "max": 2.0
+        },
+        "order_amount": {
+          "count": 2.0,
+          "mean": 400.0,
+          "std": 141.4213562373095,
+          "min": 300.0,
+          "25%": 350.0,
+          "50%": 400.0,
+          "75%": 450.0,
+          "max": 500.0
+        }
+      },
+      "high_null_columns": [],
+      "issues": []
+    }
+  },
+  "dq_report": {
+    "summary": "Profiled 2 table(s). Data quality score is 100.0.",
+    "quality_dimensions": {
+      "completeness": "Measured with cell-level null counts and high-null column detection.",
+      "uniqueness": "Measured with duplicate sampled-row counts and ratios.",
+      "consistency": "Measured with reusable column-pattern checks.",
+      "accuracy": "Flagged where domain-like rules identify invalid values.",
+      "integrity": "Supported by source primary key and foreign key metadata."
+    },
+    "table_wise_issues": [
+      {
+        "table": "public.customers",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      },
+      {
+        "table": "public.orders",
+        "issue": "Insufficient data for reliable profiling",
+        "severity": "medium"
+      }
+    ],
+    "overall_score": 100.0,
+    "recommendations": [
+      "Increase profiling sample size for public.customers before relying on quality conclusions.",
+      "Increase profiling sample size for public.orders before relying on quality conclusions."
+    ]
+  },
+  "column_intelligence": {
+    "summary": {
+      "columns_scanned": 9,
+      "pii_columns": 2,
+      "unmasked_pii_columns": 2,
+      "high_risk_columns": 2,
+      "sensitive_columns": 2
+    },
+    "tables": {
+      "public.customers": [
+        {
+          "column": "customer_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "customer_name",
+          "data_type": "TEXT",
+          "nullable": false,
+          "pii_detected": true,
+          "pii_type": "NAME",
+          "pii_confidence": "medium",
+          "detected_by": "name_hint_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "tokenization",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "2/2 sampled values looked name-like; column hint=True"
+        },
+        {
+          "column": "email",
+          "data_type": "TEXT",
+          "nullable": true,
+          "pii_detected": true,
+          "pii_type": "EMAIL",
+          "pii_confidence": "high",
+          "detected_by": "pattern_engine",
+          "masking_status": "NOT_MASKED",
+          "recommended_masking": "partial_email_mask",
+          "classification": "Sensitive",
+          "tags": [
+            "PII",
+            "Customer Data"
+          ],
+          "risk": "HIGH",
+          "evidence": "2/2 sampled values matched EMAIL; column hint=True"
+        },
+        {
+          "column": "created_date",
+          "data_type": "DATE",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ],
+      "public.orders": [
+        {
+          "column": "order_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "customer_id",
+          "data_type": "INTEGER",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Customer Data"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "order_date",
+          "data_type": "DATE",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "order_amount",
+          "data_type": "NUMERIC",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Confidential",
+          "tags": [
+            "Financial"
+          ],
+          "risk": "MEDIUM",
+          "evidence": "No PII pattern or column hint matched"
+        },
+        {
+          "column": "order_status",
+          "data_type": "TEXT",
+          "nullable": true,
+          "pii_detected": false,
+          "pii_type": null,
+          "pii_confidence": "none",
+          "detected_by": null,
+          "masking_status": "NOT_APPLICABLE",
+          "recommended_masking": "NONE",
+          "classification": "Public",
+          "tags": [
+            "Public"
+          ],
+          "risk": "LOW",
+          "evidence": "No PII pattern or column hint matched"
+        }
+      ]
+    }
+  },
+  "dpdp_compliance": {
+    "status": "ACTION_REQUIRED",
+    "pii_columns": 2,
+    "unmasked_pii_columns": 2,
+    "high_risk_count": 2,
+    "required_actions": [
+      "Apply masking, tokenization, or access restriction to unmasked PII columns.",
+      "Validate purpose limitation and access controls for sensitive columns.",
+      "Maintain traceability for detected PII and remediation ownership."
+    ]
+  },
+  "data_findings": {
+    "coverage": "Weak",
+    "gaps": [
+      {
+        "type": "profiling",
+        "description": "Insufficient data for reliable profiling",
+        "evidence": "sample_size=2, threshold=30",
+        "owner": "postgres",
+        "severity": "medium"
+      },
+      {
+        "type": "quality",
+        "description": "public.customers.customer_name contains unmasked NAME PII.",
+        "evidence": "2/2 sampled values looked name-like; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      },
+      {
+        "type": "quality",
+        "description": "public.customers.email contains unmasked EMAIL PII.",
+        "evidence": "2/2 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres",
+        "severity": "high"
+      }
+    ],
+    "data_issues": [
+      "public.customers: Insufficient data for reliable profiling",
+      "public.orders: Insufficient data for reliable profiling",
+      "public.customers.customer_name contains unmasked NAME PII.",
+      "public.customers.email contains unmasked EMAIL PII."
+    ],
+    "impact": [
+      "Open metadata, ownership, integrity, or quality findings should be resolved before broad downstream consumption."
+    ],
+    "recommendations": [
+      {
+        "action": "Increase profiling sample size for public.customers before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for public.orders before relying on quality conclusions.",
+        "type": "data_fix",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Apply masking or tokenization to public.customers.customer_name.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to public.customers.email.",
+        "type": "data_fix",
+        "priority": "high",
+        "owner": "postgres"
+      }
+    ]
+  },
+  "raid": {
+    "risks": [
+      {
+        "description": "public.customers.customer_name contains unmasked NAME PII.",
+        "severity": "high",
+        "evidence": "2/2 sampled values looked name-like; column hint=True",
+        "owner": "postgres"
+      },
+      {
+        "description": "public.customers.email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "evidence": "2/2 sampled values matched EMAIL; column hint=True",
+        "owner": "postgres"
+      }
+    ],
+    "assumptions": [
+      {
+        "description": "No explicit relationships were found in source metadata.",
+        "validation_needed": "Confirm whether joins are enforced outside the database."
+      }
+    ],
+    "issues": [
+      {
+        "type": "data",
+        "description": "Low sample size for public.customers.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for public.customers.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "data",
+        "description": "Low sample size for public.orders.",
+        "severity": "medium",
+        "impact": "Profiling confidence is reduced and rare data quality defects may be missed.",
+        "owner": "postgres"
+      },
+      {
+        "type": "metadata",
+        "description": "Primary key is not defined for public.orders.",
+        "severity": "medium",
+        "impact": "Uniqueness and downstream joins may be ambiguous.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "Insufficient data for reliable profiling",
+        "severity": "medium",
+        "impact": "May reduce reliability of reporting, analytics, or downstream processing.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "public.customers.customer_name contains unmasked NAME PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      },
+      {
+        "type": "quality",
+        "description": "public.customers.email contains unmasked EMAIL PII.",
+        "severity": "high",
+        "impact": "Potential DPDP non-compliance and personal data exposure.",
+        "owner": "postgres"
+      }
+    ],
+    "dependencies": [],
+    "recommendations": [
+      {
+        "action": "Mask, tokenize, or restrict access to public.customers.customer_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Mask, tokenize, or restrict access to public.customers.email.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Increase profiling sample size for public.customers before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Increase profiling sample size for public.orders before relying on quality conclusions.",
+        "priority": "medium",
+        "owner": "data owner"
+      },
+      {
+        "action": "Apply masking or tokenization to public.customers.customer_name.",
+        "priority": "high",
+        "owner": "postgres"
+      },
+      {
+        "action": "Apply masking or tokenization to public.customers.email.",
+        "priority": "high",
+        "owner": "postgres"
+      }
+    ]
+  },
+  "relationship_inference": [
+    {
+      "type": "foreign_key_candidate",
+      "from_table": "public.customers",
+      "from_column": "customer_id",
+      "to_table": "public.orders",
+      "to_column": "customer_id",
+      "confidence": 0.99,
+      "method": "name_match + type_match + value_overlap"
+    }
+  ],
+  "ai_insights": [
+    {
+      "type": "risk_pattern",
+      "insight": "Customer PII exists in multiple columns without masking, increasing exposure risk.",
+      "severity": "high"
+    },
+    {
+      "type": "data_quality",
+      "insight": "Low sample size reduces confidence in profiling and scoring.",
+      "severity": "medium"
+    },
+    {
+      "type": "lineage_signal",
+      "insight": "Inferred relationships across 1 column pair(s) suggest shared identifiers that should be validated for lineage and access control.",
+      "severity": "medium"
+    }
+  ],
+  "traceability": [
+    {
+      "table": "public.customers",
+      "column": "customer_id",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "37a37571-deae-459e-a95a-78e60009274c"
+    },
+    {
+      "table": "public.customers",
+      "column": "customer_name",
+      "detected_by": "name_hint_engine",
+      "pii_type": "NAME",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "37a37571-deae-459e-a95a-78e60009274c"
+    },
+    {
+      "table": "public.customers",
+      "column": "email",
+      "detected_by": "pattern_engine",
+      "pii_type": "EMAIL",
+      "classification": "Sensitive",
+      "risk": "HIGH",
+      "scan_run_id": "37a37571-deae-459e-a95a-78e60009274c"
+    },
+    {
+      "table": "public.customers",
+      "column": "created_date",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "37a37571-deae-459e-a95a-78e60009274c"
+    },
+    {
+      "table": "public.orders",
+      "column": "customer_id",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "37a37571-deae-459e-a95a-78e60009274c"
+    },
+    {
+      "table": "public.orders",
+      "column": "order_amount",
+      "detected_by": "classification_engine",
+      "pii_type": null,
+      "classification": "Confidential",
+      "risk": "MEDIUM",
+      "scan_run_id": "37a37571-deae-459e-a95a-78e60009274c"
+    }
+  ],
+  "recommendations": [
+    {
+      "action": "Increase profiling sample size for public.customers before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Increase profiling sample size for public.orders before relying on quality conclusions.",
+      "type": "data_fix",
+      "priority": "medium",
+      "owner": "data owner"
+    },
+    {
+      "action": "Apply masking or tokenization to public.customers.customer_name.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Apply masking or tokenization to public.customers.email.",
+      "type": "data_fix",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to public.customers.customer_name.",
+      "priority": "high",
+      "owner": "postgres"
+    },
+    {
+      "action": "Mask, tokenize, or restrict access to public.customers.email.",
+      "priority": "high",
+      "owner": "postgres"
+    }
+  ],
+  "changes": {
+    "new_tables": [],
+    "removed_tables": [],
+    "score_change": {
+      "previous": 54.0,
+      "current": 54.0
+    }
+  }
+}
