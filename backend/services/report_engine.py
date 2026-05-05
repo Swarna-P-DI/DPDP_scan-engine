@@ -18,6 +18,8 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.platypus import Image, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
+from backend.services.clustered_heatmap import metadata_from_pii_findings, pii_source_matrix, plot_clustered_heatmap
+
 try:
     from docx import Document
 except ImportError:  # pragma: no cover
@@ -300,6 +302,10 @@ def _chart_path(job_id: str, name: str) -> str:
     return os.path.join(ASSET_DIR, f"{job_id}_{name}.png")
 
 
+def _interactive_chart_path(job_id: str, name: str) -> str:
+    return os.path.join(ASSET_DIR, f"{job_id}_{name}.html")
+
+
 def generate_visuals(context: Dict[str, Any]) -> Dict[str, str]:
     risk_counts = Counter(item.get("risk", "Low compliance risk") for item in context["risks"])
     pii_counts = Counter(item.get("masking", "Masking not applicable") for item in context["pii_findings"])
@@ -384,6 +390,22 @@ def generate_visuals(context: Dict[str, Any]) -> Dict[str, str]:
         "#7fb3bd",
     )
     visuals["coverage"] = coverage_path
+
+    similarity_path = _interactive_chart_path(context["job_id"], "similarity_heatmap")
+    plot_clustered_heatmap(
+        pii_source_matrix(context["pii_findings"]),
+        similarity_path,
+        title="Data Similarity Heatmap",
+        metadata=metadata_from_pii_findings(context["pii_findings"]),
+        dataset_name=str(context.get("database") or context.get("job_id") or "Scan dataset"),
+        method="average",
+        metric="euclidean",
+        cmap="YlOrRd",
+        figsize=(10, 8),
+        standard_scale=1,
+        linewidths=0.6,
+    )
+    visuals["similarity_heatmap"] = similarity_path
     return visuals
 
 

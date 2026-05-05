@@ -1,0 +1,7 @@
+Document: synthetic employee memo
+Storage flags: access_controlled=true; publicly_exposed=false; encrypted=false
+
+Employee Priya Menon has Aadhaar 456789012345 in an unmasked payroll extract.
+Employee Masked Employee has Aadhaar XXXX-XXXX-2345 in a masked payroll extract.
+Encrypted placeholder: U1lOVEhFVElDX0FBREhBQVJfVE9LRU5fMDAx
+

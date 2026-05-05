@@ -1,0 +1,31 @@
+{
+  "bucket": "synthetic-public-kyc-bucket",
+  "publicly_exposed": true,
+  "encrypted": false,
+  "objects": [
+    {
+      "key": "kyc/2026/identity_batch_001.json",
+      "records": [
+        {
+          "name": "Ravi Kumar",
+          "aadhaar": "234567890123",
+          "pan": "ABCDE1234F",
+          "ifsc_code": "HDFC0001234"
+        },
+        {
+          "name": "Meera Shah",
+          "aadhaar": "XXXX-XXXX-0123",
+          "pan": "PQRSX9876L",
+          "ifsc_code": "ICIC0005678"
+        },
+        {
+          "name": "Invalid Aadhaar Case",
+          "aadhaar": "123456789123",
+          "pan": "BADPAN1234",
+          "ifsc_code": "BADFSC00123"
+        }
+      ]
+    }
+  ]
+}
+

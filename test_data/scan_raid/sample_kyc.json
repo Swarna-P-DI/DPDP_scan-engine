@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Ravi Kumar",
+    "aadhaar": "234567890123",
+    "pan": "ABCDE1234F",
+    "email": "ravi@example.com"
+  },
+  {
+    "name": "Meera Shah",
+    "aadhaar": "2345 6789 O123",
+    "phone": "9123456789"
+  }
+]

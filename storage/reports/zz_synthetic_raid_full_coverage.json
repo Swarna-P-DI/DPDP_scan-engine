@@ -1,0 +1,273 @@
+{
+  "overview": {
+    "summary": "Synthetic full-coverage Scan + RAID report for deterministic UI and API validation.",
+    "run_id": "synthetic-raid-full-coverage-001",
+    "created_at": "2026-05-04T00:00:00Z"
+  },
+  "source_inventory": {
+    "source_type": "multi-source-synthetic",
+    "database": "synthetic_discovery_environment",
+    "tables": [
+      {
+        "schema": "synthetic_raid",
+        "table": "users",
+        "qualified_name": "synthetic_raid.users",
+        "source_type": "postgresql",
+        "dataset_owner": "Synthetic Data Office",
+        "data_steward": "Synthetic Security",
+        "ownership_status": "resolved",
+        "access_controlled": true,
+        "publicly_exposed": false,
+        "columns": [
+          {"name": "id", "type": "integer", "nullable": false, "primary_key": true},
+          {"name": "name", "type": "text", "nullable": false},
+          {"name": "email", "type": "text", "nullable": false},
+          {"name": "phone", "type": "text", "nullable": false},
+          {"name": "aadhaar", "type": "text", "nullable": true},
+          {"name": "pan", "type": "text", "nullable": true},
+          {"name": "created_at", "type": "timestamp", "nullable": false}
+        ],
+        "primary_key": ["id"],
+        "foreign_keys": [],
+        "indexes": [{"name": "users_pkey", "columns": ["id"], "unique": true}]
+      },
+      {
+        "schema": "synthetic_raid",
+        "table": "bank_accounts",
+        "qualified_name": "synthetic_raid.bank_accounts",
+        "source_type": "postgresql",
+        "dataset_owner": "Synthetic Finance",
+        "data_steward": "Synthetic Security",
+        "ownership_status": "resolved",
+        "access_controlled": true,
+        "publicly_exposed": false,
+        "columns": [
+          {"name": "account_id", "type": "integer", "nullable": false, "primary_key": true},
+          {"name": "user_id", "type": "integer", "nullable": false},
+          {"name": "ifsc_code", "type": "text", "nullable": false},
+          {"name": "account_number", "type": "text", "nullable": false},
+          {"name": "balance", "type": "numeric", "nullable": false}
+        ],
+        "primary_key": ["account_id"],
+        "foreign_keys": [{"columns": ["user_id"], "referred_schema": "synthetic_raid", "referred_table": "users", "referred_columns": ["id"]}],
+        "indexes": [{"name": "bank_accounts_pkey", "columns": ["account_id"], "unique": true}]
+      },
+      {
+        "schema": "synthetic_raid",
+        "table": "employees",
+        "qualified_name": "synthetic_raid.employees",
+        "source_type": "postgresql",
+        "dataset_owner": "Synthetic HR",
+        "data_steward": "Synthetic Security",
+        "ownership_status": "resolved",
+        "access_controlled": true,
+        "publicly_exposed": false,
+        "columns": [
+          {"name": "emp_id", "type": "integer", "nullable": false, "primary_key": true},
+          {"name": "name", "type": "text", "nullable": false},
+          {"name": "aadhaar", "type": "text", "nullable": false},
+          {"name": "salary", "type": "numeric", "nullable": false}
+        ],
+        "primary_key": ["emp_id"],
+        "foreign_keys": [],
+        "indexes": [{"name": "employees_pkey", "columns": ["emp_id"], "unique": true}]
+      },
+      {
+        "schema": "synthetic_mongo",
+        "table": "customer_profiles",
+        "qualified_name": "synthetic_mongo.customer_profiles",
+        "source_type": "mongodb",
+        "dataset_owner": "Synthetic CRM",
+        "data_steward": "Synthetic Security",
+        "ownership_status": "resolved",
+        "access_controlled": true,
+        "publicly_exposed": false,
+        "columns": [
+          {"name": "identifiers.aadhaar", "type": "string", "nullable": true},
+          {"name": "identifiers.pan", "type": "string", "nullable": true},
+          {"name": "contacts.email", "type": "array.string", "nullable": true},
+          {"name": "contacts.phone", "type": "array.string", "nullable": true}
+        ],
+        "primary_key": ["_id"],
+        "foreign_keys": [],
+        "indexes": [{"name": "_id_", "columns": ["_id"], "unique": true}]
+      },
+      {
+        "schema": "s3",
+        "table": "synthetic-public-kyc-bucket",
+        "qualified_name": "s3.synthetic-public-kyc-bucket",
+        "source_type": "s3",
+        "dataset_owner": "Synthetic Data Lake",
+        "data_steward": "Synthetic Security",
+        "ownership_status": "resolved",
+        "access_controlled": false,
+        "publicly_exposed": true,
+        "columns": [
+          {"name": "records.aadhaar", "type": "json.string", "nullable": true},
+          {"name": "records.pan", "type": "json.string", "nullable": true},
+          {"name": "records.ifsc_code", "type": "json.string", "nullable": true}
+        ],
+        "primary_key": [],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "schema": "documents",
+        "table": "employee_plaintext_memo",
+        "qualified_name": "documents.employee_plaintext_memo",
+        "source_type": "document",
+        "dataset_owner": "Synthetic HR",
+        "data_steward": "Synthetic Security",
+        "ownership_status": "resolved",
+        "access_controlled": true,
+        "publicly_exposed": false,
+        "columns": [
+          {"name": "document_text", "type": "text", "nullable": true}
+        ],
+        "primary_key": [],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "schema": "vault",
+        "table": "encrypted_identity_tokens",
+        "qualified_name": "vault.encrypted_identity_tokens",
+        "source_type": "token_vault",
+        "dataset_owner": "Synthetic Security",
+        "data_steward": "Synthetic Security",
+        "ownership_status": "resolved",
+        "access_controlled": true,
+        "publicly_exposed": false,
+        "columns": [
+          {"name": "aadhaar_token", "type": "text", "nullable": false}
+        ],
+        "primary_key": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ]
+  },
+  "profiling": {
+    "synthetic_raid.users": {"row_count": 5, "sample_size": 5, "column_count": 7, "sample_sufficiency": {"status": "LOW_SAMPLE", "message": "Synthetic small sample for deterministic tests."}},
+    "synthetic_raid.bank_accounts": {"row_count": 5, "sample_size": 5, "column_count": 5, "sample_sufficiency": {"status": "LOW_SAMPLE", "message": "Synthetic small sample for deterministic tests."}},
+    "synthetic_raid.employees": {"row_count": 4, "sample_size": 4, "column_count": 4, "sample_sufficiency": {"status": "LOW_SAMPLE", "message": "Synthetic small sample for deterministic tests."}},
+    "synthetic_mongo.customer_profiles": {"row_count": 3, "sample_size": 3, "column_count": 4, "sample_sufficiency": {"status": "LOW_SAMPLE", "message": "Nested MongoDB fixture."}},
+    "s3.synthetic-public-kyc-bucket": {"row_count": 3, "sample_size": 3, "column_count": 3, "sample_sufficiency": {"status": "LOW_SAMPLE", "message": "Public S3 fixture."}},
+    "documents.employee_plaintext_memo": {"row_count": 1, "sample_size": 1, "column_count": 1, "sample_sufficiency": {"status": "LOW_SAMPLE", "message": "Unstructured text fixture."}},
+    "vault.encrypted_identity_tokens": {"row_count": 1, "sample_size": 1, "column_count": 1, "sample_sufficiency": {"status": "CONTROLLED", "message": "Encrypted token fixture."}}
+  },
+  "column_intelligence": {
+    "summary": {
+      "columns_scanned": 25,
+      "pii_columns": 14,
+      "unmasked_pii_columns": 9,
+      "high_risk_columns": 9,
+      "sensitive_columns": 14
+    },
+    "tables": {
+      "synthetic_raid.users": [
+        {"column": "name", "data_type": "text", "pii_detected": true, "pii_type": "NAME", "confidence_score": 0.82, "detected_by": "semantic", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "NAME"], "risk": "MEDIUM", "evidence": "Column name matched NAME semantic hint."},
+        {"column": "email", "data_type": "text", "pii_detected": true, "pii_type": "EMAIL", "confidence_score": 0.9, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "EMAIL"], "risk": "HIGH", "evidence": "Synthetic email values matched regex."},
+        {"column": "phone", "data_type": "text", "pii_detected": true, "pii_type": "PHONE", "confidence_score": 0.9, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "PHONE"], "risk": "HIGH", "evidence": "Synthetic phone values matched regex."},
+        {"column": "aadhaar", "data_type": "text", "pii_detected": true, "pii_type": "AADHAAR", "value_hash": "37d053938ebd9eb1ed448a00e96d7ae2b16f41ff132657c2ee433d0f07d09a22", "confidence_score": 0.9, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "AADHAAR"], "risk": "HIGH", "evidence": "Mix of unmasked, masked, invalid, and encrypted-like values."},
+        {"column": "pan", "data_type": "text", "pii_detected": true, "pii_type": "PAN", "confidence_score": 0.9, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "PAN"], "risk": "HIGH", "evidence": "Synthetic PAN values matched regex."}
+      ],
+      "synthetic_raid.bank_accounts": [
+        {"column": "ifsc_code", "data_type": "text", "pii_detected": true, "pii_type": "IFSC", "confidence_score": 0.96, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "IFSC"], "risk": "HIGH", "evidence": "IFSC values matched bank-code format."},
+        {"column": "account_number", "data_type": "text", "pii_detected": true, "pii_type": "FINANCIAL", "confidence_score": 0.9, "detected_by": "regex", "masking_status": "PARTIALLY_MASKED", "classification": "Sensitive", "tags": ["PII", "FINANCIAL"], "risk": "MEDIUM", "evidence": "Mixed account number masking."}
+      ],
+      "synthetic_raid.employees": [
+        {"column": "name", "data_type": "text", "pii_detected": true, "pii_type": "NAME", "confidence_score": 0.8, "detected_by": "semantic", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "NAME"], "risk": "MEDIUM", "evidence": "Employee names are personal data."},
+        {"column": "aadhaar", "data_type": "text", "pii_detected": true, "pii_type": "AADHAAR", "confidence_score": 0.9, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "AADHAAR"], "risk": "HIGH", "evidence": "Unmasked Aadhaar in employee payroll extract."}
+      ],
+      "synthetic_mongo.customer_profiles": [
+        {"column": "identifiers.aadhaar", "data_type": "string", "pii_detected": true, "pii_type": "AADHAAR", "value_hash": "37d053938ebd9eb1ed448a00e96d7ae2b16f41ff132657c2ee433d0f07d09a22", "confidence_score": 0.9, "detected_by": "regex", "masking_status": "UNKNOWN", "classification": "Sensitive", "tags": ["PII", "AADHAAR"], "risk": "HIGH", "evidence": "Nested identifier with missing masking flag."},
+        {"column": "identifiers.pan", "data_type": "string", "pii_detected": true, "pii_type": "PAN", "confidence_score": 0.9, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "PAN"], "risk": "HIGH", "evidence": "Nested PAN identifier."},
+        {"column": "contacts.email", "data_type": "array.string", "pii_detected": true, "pii_type": "EMAIL", "confidence_score": 0.9, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "EMAIL"], "risk": "HIGH", "evidence": "Email values inside contacts array."}
+      ],
+      "s3.synthetic-public-kyc-bucket": [
+        {"column": "records.aadhaar", "data_type": "json.string", "pii_detected": true, "pii_type": "AADHAAR", "value_hash": "37d053938ebd9eb1ed448a00e96d7ae2b16f41ff132657c2ee433d0f07d09a22", "confidence_score": 0.9, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "AADHAAR"], "risk": "HIGH", "evidence": "Unmasked Aadhaar in public S3-like object."},
+        {"column": "records.pan", "data_type": "json.string", "pii_detected": true, "pii_type": "PAN", "confidence_score": 0.9, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "PAN"], "risk": "HIGH", "evidence": "PAN in public S3-like object."},
+        {"column": "records.ifsc_code", "data_type": "json.string", "pii_detected": true, "pii_type": "IFSC", "confidence_score": 0.96, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "IFSC"], "risk": "HIGH", "evidence": "IFSC in public S3-like object."}
+      ],
+      "documents.employee_plaintext_memo": [
+        {"column": "document_text", "data_type": "text", "pii_detected": true, "pii_type": "AADHAAR", "confidence_score": 0.88, "detected_by": "regex", "masking_status": "NOT_MASKED", "classification": "Sensitive", "tags": ["PII", "AADHAAR"], "risk": "HIGH", "evidence": "Unstructured text contains unmasked Aadhaar."}
+      ],
+      "vault.encrypted_identity_tokens": [
+        {"column": "aadhaar_token", "data_type": "text", "pii_detected": true, "pii_type": "AADHAAR", "confidence_score": 0.92, "detected_by": "semantic", "masking_status": "MASKED", "encrypted": true, "classification": "Sensitive", "tags": ["PII", "AADHAAR", "TOKENIZED"], "risk": "LOW", "evidence": "Encrypted-like Aadhaar token under access-controlled vault."}
+      ]
+    }
+  },
+  "dpdp_compliance": {
+    "status": "ACTION_REQUIRED",
+    "pii_columns": 14,
+    "unmasked_pii_columns": 9,
+    "high_risk_count": 3,
+    "required_actions": [
+      "Apply masking, tokenization, or access restriction to unmasked PII columns.",
+      "Validate purpose limitation and access controls for sensitive columns.",
+      "Maintain traceability for detected PII and remediation ownership."
+    ]
+  },
+  "gap_analysis": {
+    "gaps": [
+      {"type": "privacy", "description": "synthetic_raid.employees.aadhaar contains unmasked Aadhaar.", "severity": "high", "owner": "Synthetic HR", "table": "synthetic_raid.employees", "field": "aadhaar", "evidence": "Column intelligence risk=HIGH."},
+      {"type": "security", "description": "s3.synthetic-public-kyc-bucket is publicly exposed and contains Aadhaar.", "severity": "high", "owner": "Synthetic Data Lake", "table": "s3.synthetic-public-kyc-bucket", "field": "records.aadhaar", "evidence": "publicly_exposed=true and encrypted=false."},
+      {"type": "metadata", "description": "synthetic_mongo.customer_profiles has missing masking flags on nested Aadhaar.", "severity": "medium", "owner": "Synthetic CRM", "table": "synthetic_mongo.customer_profiles", "field": "identifiers.aadhaar", "evidence": "masking_status=UNKNOWN."}
+    ],
+    "recommendations": [
+      {"action": "Tokenize employee Aadhaar before downstream use.", "priority": "high", "owner": "Synthetic HR"},
+      {"action": "Remove public exposure from synthetic S3 bucket.", "priority": "high", "owner": "Synthetic Data Lake"},
+      {"action": "Add explicit masking metadata for MongoDB nested identifiers.", "priority": "medium", "owner": "Synthetic CRM"}
+    ]
+  },
+  "raid": {
+    "context": {
+      "run_scope": "synthetic full coverage across PostgreSQL, MongoDB, S3-like storage, and documents",
+      "risk_count": 3,
+      "issue_count": 3
+    },
+    "risks": [
+      {"description": "Unmasked Aadhaar stored in synthetic_raid.employees.aadhaar.", "severity": "high", "owner": "Synthetic HR", "table": "synthetic_raid.employees", "column": "aadhaar", "evidence": "Unmasked Aadhaar -> HIGH."},
+      {"description": "Public S3-like object exposes Aadhaar, PAN, and IFSC.", "severity": "high", "owner": "Synthetic Data Lake", "table": "s3.synthetic-public-kyc-bucket", "column": "records.aadhaar", "evidence": "publicly_exposed=true; encrypted=false."},
+      {"description": "Same Aadhaar appears across PostgreSQL, MongoDB, and S3-like storage.", "severity": "medium", "owner": "Synthetic Data Office", "table": "multiple", "column": "aadhaar", "evidence": "Shared synthetic hash across multiple sources."}
+    ],
+    "issues": [
+      {"description": "No encryption confirmed for unmasked Aadhaar in employee memo.", "severity": "high", "owner": "Synthetic HR", "table": "documents.employee_plaintext_memo", "column": "document_text"},
+      {"description": "Missing masking flags on MongoDB nested identifiers.", "severity": "medium", "owner": "Synthetic CRM", "table": "synthetic_mongo.customer_profiles", "column": "identifiers.aadhaar"},
+      {"description": "Invalid Aadhaar and invalid PAN fixtures should not be treated as confirmed valid identities.", "severity": "low", "owner": "Synthetic QA", "table": "synthetic_raid.users", "column": "aadhaar"}
+    ],
+    "assumptions": [
+      {"description": "Connector metadata is authoritative for access_controlled and publicly_exposed flags.", "validation_needed": "Confirm with source owners during integration testing."},
+      {"description": "Encrypted-like token values represent encryption for deterministic tests only.", "validation_needed": "Replace with real KMS metadata in production connectors."}
+    ],
+    "dependencies": [
+      {"description": "Depends on connector scan output for PostgreSQL, MongoDB, S3, and document sources.", "owner": "Platform Connectors"},
+      {"description": "Depends on masking/tokenization service for remediation.", "owner": "Security Engineering"}
+    ],
+    "recommendations": [
+      {"action": "Mask or tokenize synthetic_raid.employees.aadhaar.", "priority": "high", "owner": "Synthetic HR"},
+      {"action": "Disable public exposure and enable encryption on s3.synthetic-public-kyc-bucket.", "priority": "high", "owner": "Synthetic Data Lake"},
+      {"action": "Add explicit masking metadata to synthetic_mongo.customer_profiles identifiers.", "priority": "medium", "owner": "Synthetic CRM"}
+    ]
+  },
+  "relationship_inference": [
+    {"from_table": "synthetic_raid.bank_accounts", "to_table": "synthetic_raid.users", "field": "user_id", "method": "foreign_key"},
+    {"from_table": "synthetic_mongo.customer_profiles", "to_table": "synthetic_raid.users", "field": "identifiers.aadhaar", "method": "shared_identifier_hash"}
+  ],
+  "scores": {
+    "quality_score": 82.0,
+    "risk_penalty": 45.0,
+    "final_score": 37.0
+  },
+  "workflow": [
+    "source_inventory",
+    "profiling",
+    "pii_detection",
+    "classification",
+    "risk_engine",
+    "raid",
+    "compliance",
+    "report"
+  ]
+}

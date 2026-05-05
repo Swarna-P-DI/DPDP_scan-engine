@@ -1,0 +1,4 @@
+name,id_number,pan,email,phone,notes
+Ravi Kumar,234567890123,ABCDE1234F,ravi@example.com,9876543210,Primary KYC record
+Meera Shah,2345 6789 O123,BCDEF2345G,meera@example.com,9123456789,OCR spacing in Aadhaar
+Arun Rao,,,,,No sensitive identifiers supplied

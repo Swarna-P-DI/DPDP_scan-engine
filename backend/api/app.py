@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
+from app.api.router import router as scan_raid_router
 from backend.api.job_manager import get_result, get_status, start_job
 from backend.main import graph
 from backend.services.monitoring import configure_scheduler, load_scan_history
@@ -31,6 +32,7 @@ app.add_middleware(
 )
 
 app.mount("/storage", StaticFiles(directory="storage"), name="storage")
+app.include_router(scan_raid_router)
 
 
 class ScheduleRequest(BaseModel):

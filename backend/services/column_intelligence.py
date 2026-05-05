@@ -14,7 +14,7 @@ def recommend_masking(pii_type, masking_status, data_type):
         return "partial_email_mask"
     if pii_type == "NAME":
         return "tokenization"
-    if pii_type in {"PHONE", "AADHAAR", "PAN"}:
+    if pii_type in {"PHONE", "AADHAAR", "PAN", "IFSC"}:
         return "hash" if any(
             token in lowered_type
             for token in ("int", "numeric", "decimal", "float", "double", "real")
