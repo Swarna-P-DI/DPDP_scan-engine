@@ -1,49 +1,10 @@
 import logging
 
-from backend.config import ENABLE_LLM_SYNTHESIS
 from backend.services.scan_evidence import (
     build_data_findings_and_raid,
-    compact_profiling,
-    compact_source_inventory,
 )
-from backend.utils.parser import safe_json_parse
 
 logger = logging.getLogger(__name__)
-
-
-def _llm_synthesis(state, findings, raid):
-    from backend.utils.llm import invoke_llm
-
-    prompt = f"""
-You are a Senior Data Governance Analyst.
-
-Refine the deterministic data findings and RAID using only the compact evidence.
-Do not add facts that are not supported by the evidence.
-Return ONLY valid JSON with keys data_findings and raid.
-
-Current Data Findings:
-{findings}
-
-Current RAID:
-{raid}
-
-Source Inventory:
-{compact_source_inventory(state["source_inventory"])}
-
-Schema Analysis:
-{state.get("schema_analysis")}
-
-Profiling Evidence:
-{compact_profiling(state["profiling"])}
-
-Data Quality Report:
-{state.get("dq_report")}
-"""
-
-    parsed = safe_json_parse(invoke_llm(prompt))
-    if not isinstance(parsed, dict) or parsed.get("error"):
-        return findings, raid
-    return parsed.get("data_findings", findings), parsed.get("raid", raid)
 
 
 def gap_analysis_agent(state):
@@ -79,8 +40,5 @@ def gap_analysis_agent(state):
             "owner": "Data Engineering / Data Steward",
             "reason": violation.get("description"),
         })
-
-    if ENABLE_LLM_SYNTHESIS:
-        findings, raid = _llm_synthesis(state, findings, raid)
 
     return {"gap_analysis": findings}

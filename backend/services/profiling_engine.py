@@ -10,6 +10,7 @@ PATTERN_RULES = {
     "phone": re.compile(r"^(?:\+?91[-\s]?)?[6-9]\d{9}$"),
     "aadhaar": re.compile(r"^\d{4}[\s-]?\d{4}[\s-]?\d{4}$"),
     "pan": re.compile(r"^[A-Z]{5}\d{4}[A-Z]$"),
+    "ifsc": re.compile(r"^[A-Z]{4}0[A-Z0-9]{6}$"),
     "date_iso": re.compile(r"^\d{4}-\d{2}-\d{2}$"),
     "masked": re.compile(r".*[*xX#]{2,}.*"),
 }

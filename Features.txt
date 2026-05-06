@@ -1,0 +1,113 @@
+**Scan + RAID Agent Features**
+
+Existing system coverage plus new RAID layer now includes:
+
+- Backend platform scan from existing connectors/metadata inventory, no file upload required
+- PostgreSQL metadata/source inventory extraction
+- Table, column, primary key, foreign key, index, owner, steward metadata capture
+- Structured profiling and data quality checks
+- Document/unstructured scan path already present in backend workflow
+- PII detection for:
+  - Aadhaar
+  - PAN
+  - IFSC
+  - Email
+  - Phone
+  - Financial-like values
+  - Name-like fields
+- Aadhaar regex/fuzzy detection in upload scanner, with checksum metadata
+- PAN and IFSC format validation
+- Masking detection
+- Hashed/tokenized PII location index
+- No raw sensitive values stored in the PII index
+- PII index fields:
+  - `pii_type`
+  - `value_hash`
+  - `source_id`
+  - `source_type`
+  - `location`
+  - `masked`
+  - `encrypted`
+  - `timestamp`
+- PII summary by type, source, and exposure
+- Data intelligence response:
+  - what PII exists
+  - where it exists
+  - how it is protected or exposed
+- Federated PII search endpoint and UI
+- Query parsing for terms like `Aadhaar`, `PAN`, `IFSC`, `Name + Aadhaar`
+- Cross-source grouped search results
+- Result ranking
+- Source vs PII heatmap
+- Risk scoring:
+  - unmasked/high-risk identifiers = high
+  - masked = medium
+  - encrypted = low
+- DPDP compliance report per source
+- Compliance checks for:
+  - masked status
+  - encrypted status
+  - access control flag
+  - public exposure flag
+- Compliance output:
+  - `COMPLIANT`
+  - `RISK`
+  - `VIOLATION`
+- RAID generation:
+  - Risks
+  - Assumptions
+  - Issues
+  - Dependencies
+  - Recommendations
+- RAID derived from scan outputs, metadata, PII index, profiling, and compliance results
+- Structured event logging
+- Trace events for scan execution, PII detection, query execution, and report hydration
+- Deterministic `summarize_logs(prompt)` interface
+- Consolidated backend report JSON
+- API endpoints:
+  - `GET /scan`
+  - `GET /report`
+  - `GET /raid`
+  - `GET /raid_summary`
+  - `GET /heatmap`
+  - `GET /compliance_report`
+  - `POST /search_pii`
+  - `GET /logs`
+  - `POST /summarize_logs`
+- Frontend UI now shows:
+  - Core RAID Intelligence
+  - PII index
+  - Federated search
+  - Compliance
+  - Heatmap
+  - RAID register
+  - Logs
+  - Log summary
+  - Full JSON report
+- No dependency on Sensei/chatbot/LLM for core logic
+- Rule-based deterministic backend intelligence
+
+**Is It Complete?**
+
+Mostly complete for the requested **core Scan + RAID Agent capability**.
+
+What is complete:
+- Deterministic RAID intelligence layer
+- PII detection/classification integration
+- PII index
+- Compliance engine
+- Search
+- Heatmap
+- Logs/traces
+- Reports
+- UI visibility for all major outputs
+- No-upload workflow using existing scan outputs
+
+Still partially implemented or dependent on existing platform data:
+- Native connectors for S3, MongoDB, Salesforce, SharePoint are not implemented in this repo. The RAID layer can consume their metadata/scan outputs if the existing platform provides them.
+- Encryption, access-control, and public-exposure checks rely on metadata/control flags from connectors. If connectors do not provide those flags, the system can only mark them as unknown/risk using defaults.
+- Search over actual raw identity values is limited when only metadata-derived scan outputs are available. This is intentional because raw PII is not stored.
+- Aadhaar checksum is implemented in the newer app scanner path; older backend column detector still uses regex/profile patterns for Aadhaar classification.
+- Persistent PII index storage is currently in memory/hydrated from latest reports, not a database-backed index.
+
+So: the RAID Agent functionality is implemented and usable end to end, but full enterprise completeness depends on connector metadata quality and adding persistent storage for the PII index.

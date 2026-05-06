@@ -1,0 +1,87 @@
+{
+  "description": "Synthetic hashed PII index seed. Raw PII is intentionally not stored here.",
+  "generated_at": "2026-05-04T00:00:00Z",
+  "pii_index": [
+    {
+      "pii_type": "aadhaar",
+      "value_hash": "37d053938ebd9eb1ed448a00e96d7ae2b16f41ff132657c2ee433d0f07d09a22",
+      "source_id": "synthetic_raid.users",
+      "source_type": "postgresql",
+      "location": "table=synthetic_raid.users;column=aadhaar;row=1",
+      "masked": false,
+      "encrypted": false,
+      "timestamp": "2026-05-04T00:00:00Z"
+    },
+    {
+      "pii_type": "aadhaar",
+      "value_hash": "37d053938ebd9eb1ed448a00e96d7ae2b16f41ff132657c2ee433d0f07d09a22",
+      "source_id": "synthetic_mongo.customer_profiles",
+      "source_type": "mongodb",
+      "location": "collection=customer_profiles;document=cust-001;path=identifiers.aadhaar",
+      "masked": false,
+      "encrypted": false,
+      "timestamp": "2026-05-04T00:00:00Z"
+    },
+    {
+      "pii_type": "aadhaar",
+      "value_hash": "37d053938ebd9eb1ed448a00e96d7ae2b16f41ff132657c2ee433d0f07d09a22",
+      "source_id": "s3://synthetic-public-kyc-bucket/kyc/2026/identity_batch_001.json",
+      "source_type": "s3",
+      "location": "object=kyc/2026/identity_batch_001.json;records[0].aadhaar",
+      "masked": false,
+      "encrypted": false,
+      "timestamp": "2026-05-04T00:00:00Z"
+    },
+    {
+      "pii_type": "aadhaar",
+      "value_hash": "a8bf33a23bf024b6fb7b9fc19b92f76f170e9f83048427dd4cb485e641a44c60",
+      "source_id": "synthetic_raid.users",
+      "source_type": "postgresql",
+      "location": "table=synthetic_raid.users;column=aadhaar;row=2",
+      "masked": true,
+      "encrypted": false,
+      "timestamp": "2026-05-04T00:00:00Z"
+    },
+    {
+      "pii_type": "aadhaar",
+      "value_hash": "59db1d072f271f96e27a6765576e6dd2271cd0ba979068787668e7ff14a674f7",
+      "source_id": "synthetic_mongo.customer_profiles",
+      "source_type": "mongodb",
+      "location": "collection=customer_profiles;document=cust-003;path=identifiers.aadhaar",
+      "masked": false,
+      "encrypted": false,
+      "timestamp": "2026-05-04T00:00:00Z"
+    },
+    {
+      "pii_type": "aadhaar",
+      "value_hash": "b14d6660069a16a474e9ac9eb4c6ac50ae7edd34c2cd1e89fc1c082fdca6abd2",
+      "source_id": "synthetic_raid.employees",
+      "source_type": "postgresql",
+      "location": "table=synthetic_raid.employees;column=aadhaar;row=502",
+      "masked": false,
+      "encrypted": false,
+      "timestamp": "2026-05-04T00:00:00Z"
+    },
+    {
+      "pii_type": "pan",
+      "value_hash": "267ef1658ef4fbeb4d33cc3d7a6864e48f3e204e94b218281a5c29f49185001e",
+      "source_id": "synthetic_raid.users",
+      "source_type": "postgresql",
+      "location": "table=synthetic_raid.users;column=pan;row=1",
+      "masked": false,
+      "encrypted": false,
+      "timestamp": "2026-05-04T00:00:00Z"
+    },
+    {
+      "pii_type": "ifsc",
+      "value_hash": "1e3f5f65bda35071e49e345e065ba575129cc135a1c30cff341fb391cced7b69",
+      "source_id": "synthetic_raid.bank_accounts",
+      "source_type": "postgresql",
+      "location": "table=synthetic_raid.bank_accounts;column=ifsc_code;row=1001",
+      "masked": false,
+      "encrypted": false,
+      "timestamp": "2026-05-04T00:00:00Z"
+    }
+  ]
+}
+

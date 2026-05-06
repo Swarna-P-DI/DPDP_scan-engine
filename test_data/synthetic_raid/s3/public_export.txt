@@ -1,0 +1,8 @@
+Object: s3://synthetic-public-kyc-bucket/exports/plaintext_export_001.txt
+Flags: publicly_exposed=true; encrypted=false; access_controlled=false
+
+Name: Ravi Kumar, Aadhaar: 2345 6789 0123, PAN: ABCDE1234F
+Name: Priya Menon, Aadhaar: 4567 8901 2345, IFSC: SBIN0001111
+Noise: invoice 2026-04-01, reference 0000-1111-2222, not all numbers are PII.
+Masked example: Aadhaar XXXX-XXXX-0123 should be treated as protected or partially protected.
+

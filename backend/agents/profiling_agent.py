@@ -30,6 +30,16 @@ def validate_rules(df):
     return issues
 
 
+def _sample_records(df):
+    records = []
+    for row in df.head(500).to_dict(orient="records"):
+        records.append({
+            key: None if pd.isna(value) else str(value)
+            for key, value in row.items()
+        })
+    return records
+
+
 def profiling_agent(state):
     logger.info("Profiling Agent")
 
@@ -82,6 +92,7 @@ def profiling_agent(state):
             "numeric_stats": df.describe().to_dict() if not df.empty else {},
             "column_profiles": column_profiles,
             "high_null_columns": high_null_columns,
+            "sample_records": _sample_records(df),
             "sample_values": sample_values,
             "issues": issues
         }

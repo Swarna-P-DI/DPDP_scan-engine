@@ -1,0 +1,18 @@
+Document: synthetic onboarding notes
+
+Name: Ravi Kumar, Aadhaar: 2345 6789 0123
+PAN: ABCDE1234F
+
+OCR-like messy text:
+Aadhaar 2345 6789 O123 appears with an OCR letter O in the final block.
+P A N: A B C D E - 1 2 3 4 - F
+
+Partially masked values:
+Name: Meera Shah, Aadhaar: XXXX-XXXX-0123, PAN: PQRSX9876L
+
+Ambiguity case:
+Name: Ravi Kumar, Aadhaar: 3456 7890 1234
+
+Invalid control:
+Aadhaar: 1234 5678 9123 starts with 1 and should be useful for false-positive testing.
+

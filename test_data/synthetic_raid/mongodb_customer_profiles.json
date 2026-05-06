@@ -1,0 +1,71 @@
+{
+  "database": "synthetic_mongo",
+  "collection": "customer_profiles",
+  "documents": [
+    {
+      "_id": "cust-001",
+      "name": "Ravi Kumar",
+      "identifiers": {
+        "aadhaar": "234567890123",
+        "pan": "ABCDE1234F"
+      },
+      "contacts": [
+        {
+          "type": "primary",
+          "email": "ravi.kumar.synthetic@example.test",
+          "phone": "9876543210"
+        },
+        {
+          "type": "backup",
+          "email": "ravi.backup.synthetic@example.test",
+          "phone": "XXXXXX3210"
+        }
+      ],
+      "source_controls": {
+        "access_controlled": true,
+        "publicly_exposed": false,
+        "encrypted": false
+      }
+    },
+    {
+      "_id": "cust-002",
+      "name": "Meera Shah",
+      "identifiers": {
+        "aadhaar": "XXXX-XXXX-0123",
+        "pan": "PQRSX9876L"
+      },
+      "contacts": [
+        {
+          "type": "primary",
+          "email": "meera.shah.synthetic@example.test",
+          "phone": "9123456780"
+        }
+      ],
+      "source_controls": {
+        "access_controlled": true,
+        "publicly_exposed": false,
+        "encrypted": false
+      }
+    },
+    {
+      "_id": "cust-003",
+      "name": "Ravi Kumar",
+      "identifiers": {
+        "aadhaar": "345678901234",
+        "pan": "LMNOP4321Q"
+      },
+      "contacts": [
+        {
+          "type": "primary",
+          "email": "ravi.alt.synthetic@example.test",
+          "phone": "9988776655"
+        }
+      ],
+      "notes": [
+        "Same name as cust-001 but different Aadhaar to validate ambiguity handling.",
+        "No explicit masking flag on nested identifiers to test fallback behavior."
+      ]
+    }
+  ]
+}
+

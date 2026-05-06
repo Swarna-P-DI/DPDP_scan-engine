@@ -1,0 +1,3593 @@
+{
+  "run_id": "49212f3a-c1cd-4a3b-99d9-3fb017b05e28",
+  "timestamp": "2026-05-04T10:43:02.091098",
+  "data": {
+    "source_inventory": {
+      "source_type": "postgresql",
+      "database": "Scan_db",
+      "tables": [
+        {
+          "schema": "dpdp_clean",
+          "table": "customers",
+          "qualified_name": "dpdp_clean.customers",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "full_name",
+              "type": "VARCHAR(120)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "email",
+              "type": "VARCHAR(160)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "city",
+              "type": "VARCHAR(80)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "consent_status",
+              "type": "VARCHAR(20)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "created_at",
+              "type": "DATE",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "customer_id"
+          ],
+          "foreign_keys": [],
+          "indexes": [
+            {
+              "name": "customers_email_key",
+              "columns": [
+                "email"
+              ],
+              "unique": true
+            }
+          ]
+        },
+        {
+          "schema": "dpdp_clean",
+          "table": "orders",
+          "qualified_name": "dpdp_clean.orders",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "order_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_total",
+              "type": "NUMERIC(10, 2)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_status",
+              "type": "VARCHAR(30)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_date",
+              "type": "DATE",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "order_id"
+          ],
+          "foreign_keys": [
+            {
+              "columns": [
+                "customer_id"
+              ],
+              "referred_schema": "dpdp_clean",
+              "referred_table": "customers",
+              "referred_columns": [
+                "customer_id"
+              ]
+            }
+          ],
+          "indexes": []
+        },
+        {
+          "schema": "dpdp_masked",
+          "table": "masked_customers",
+          "qualified_name": "dpdp_masked.masked_customers",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "customer_alias",
+              "type": "VARCHAR(120)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "masked_email",
+              "type": "VARCHAR(160)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "masked_phone",
+              "type": "VARCHAR(20)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "city",
+              "type": "VARCHAR(80)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "consent_status",
+              "type": "VARCHAR(20)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "customer_id"
+          ],
+          "foreign_keys": [],
+          "indexes": []
+        },
+        {
+          "schema": "dpdp_masked",
+          "table": "communication_preferences",
+          "qualified_name": "dpdp_masked.communication_preferences",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "preference_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "channel",
+              "type": "VARCHAR(30)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "masked_contact",
+              "type": "VARCHAR(160)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "preference_id"
+          ],
+          "foreign_keys": [
+            {
+              "columns": [
+                "customer_id"
+              ],
+              "referred_schema": "dpdp_masked",
+              "referred_table": "masked_customers",
+              "referred_columns": [
+                "customer_id"
+              ]
+            }
+          ],
+          "indexes": []
+        },
+        {
+          "schema": "dpdp_no_relationships",
+          "table": "branch_targets",
+          "qualified_name": "dpdp_no_relationships.branch_targets",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "branch_code",
+              "type": "VARCHAR(20)",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "region",
+              "type": "VARCHAR(80)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "quarterly_target",
+              "type": "NUMERIC(12, 2)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "branch_code"
+          ],
+          "foreign_keys": [],
+          "indexes": []
+        },
+        {
+          "schema": "dpdp_no_relationships",
+          "table": "product_catalog",
+          "qualified_name": "dpdp_no_relationships.product_catalog",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "sku",
+              "type": "VARCHAR(40)",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "product_name",
+              "type": "VARCHAR(120)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "category",
+              "type": "VARCHAR(80)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "active_flag",
+              "type": "BOOLEAN",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "sku"
+          ],
+          "foreign_keys": [],
+          "indexes": []
+        },
+        {
+          "schema": "dpdp_no_relationships",
+          "table": "weather_observations",
+          "qualified_name": "dpdp_no_relationships.weather_observations",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "station_code",
+              "type": "VARCHAR(40)",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "observed_on",
+              "type": "DATE",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "temperature_c",
+              "type": "NUMERIC(5, 2)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "rainfall_mm",
+              "type": "NUMERIC(6, 2)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "station_code"
+          ],
+          "foreign_keys": [],
+          "indexes": []
+        },
+        {
+          "schema": "dpdp_pii_exposure",
+          "table": "customer_profiles",
+          "qualified_name": "dpdp_pii_exposure.customer_profiles",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "profile_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "full_name",
+              "type": "VARCHAR(120)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "email",
+              "type": "VARCHAR(160)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "phone_number",
+              "type": "VARCHAR(20)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "address_line",
+              "type": "VARCHAR(240)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "consent_status",
+              "type": "VARCHAR(20)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "profile_id"
+          ],
+          "foreign_keys": [],
+          "indexes": []
+        },
+        {
+          "schema": "dpdp_pii_exposure",
+          "table": "support_tickets",
+          "qualified_name": "dpdp_pii_exposure.support_tickets",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "ticket_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "profile_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "requester_email",
+              "type": "VARCHAR(160)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "issue_summary",
+              "type": "VARCHAR(240)",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "ticket_id"
+          ],
+          "foreign_keys": [
+            {
+              "columns": [
+                "profile_id"
+              ],
+              "referred_schema": "dpdp_pii_exposure",
+              "referred_table": "customer_profiles",
+              "referred_columns": [
+                "profile_id"
+              ]
+            }
+          ],
+          "indexes": []
+        },
+        {
+          "schema": "dpdp_poor_quality",
+          "table": "customer_imports",
+          "qualified_name": "dpdp_poor_quality.customer_imports",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "import_id",
+              "type": "INTEGER",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "full_name",
+              "type": "VARCHAR(120)",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "email",
+              "type": "VARCHAR(160)",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "phone_number",
+              "type": "VARCHAR(20)",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "birth_date",
+              "type": "VARCHAR(30)",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "city",
+              "type": "VARCHAR(80)",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "loaded_at",
+              "type": "DATE",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [],
+          "foreign_keys": [],
+          "indexes": []
+        },
+        {
+          "schema": "dpdp_poor_quality",
+          "table": "payment_imports",
+          "qualified_name": "dpdp_poor_quality.payment_imports",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "payment_ref",
+              "type": "VARCHAR(40)",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "customer_email",
+              "type": "VARCHAR(160)",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "amount",
+              "type": "NUMERIC(10, 2)",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "payment_date",
+              "type": "VARCHAR(30)",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "status",
+              "type": "VARCHAR(30)",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [],
+          "foreign_keys": [],
+          "indexes": []
+        },
+        {
+          "schema": "public",
+          "table": "customers",
+          "qualified_name": "public.customers",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "customer_name",
+              "type": "TEXT",
+              "nullable": false,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "email",
+              "type": "TEXT",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "created_date",
+              "type": "DATE",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "customer_id"
+          ],
+          "foreign_keys": [],
+          "indexes": [
+            {
+              "name": "customers_email_key",
+              "columns": [
+                "email"
+              ],
+              "unique": true
+            }
+          ]
+        },
+        {
+          "schema": "public",
+          "table": "orders",
+          "qualified_name": "public.orders",
+          "owner": "postgres",
+          "dataset_owner": "postgres",
+          "data_steward": "Data Engineering / Data Steward",
+          "ownership_status": "missing",
+          "columns": [
+            {
+              "name": "order_id",
+              "type": "INTEGER",
+              "nullable": false,
+              "default": null,
+              "primary_key": true
+            },
+            {
+              "name": "customer_id",
+              "type": "INTEGER",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_date",
+              "type": "DATE",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_amount",
+              "type": "NUMERIC",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            },
+            {
+              "name": "order_status",
+              "type": "TEXT",
+              "nullable": true,
+              "default": null,
+              "primary_key": false
+            }
+          ],
+          "primary_key": [
+            "order_id"
+          ],
+          "foreign_keys": [],
+          "indexes": []
+        }
+      ]
+    },
+    "schema": {
+      "dpdp_clean.customers": [
+        "customer_id",
+        "full_name",
+        "email",
+        "city",
+        "consent_status",
+        "created_at"
+      ],
+      "dpdp_clean.orders": [
+        "order_id",
+        "customer_id",
+        "order_total",
+        "order_status",
+        "order_date"
+      ],
+      "dpdp_masked.masked_customers": [
+        "customer_id",
+        "customer_alias",
+        "masked_email",
+        "masked_phone",
+        "city",
+        "consent_status"
+      ],
+      "dpdp_masked.communication_preferences": [
+        "preference_id",
+        "customer_id",
+        "channel",
+        "masked_contact"
+      ],
+      "dpdp_no_relationships.branch_targets": [
+        "branch_code",
+        "region",
+        "quarterly_target"
+      ],
+      "dpdp_no_relationships.product_catalog": [
+        "sku",
+        "product_name",
+        "category",
+        "active_flag"
+      ],
+      "dpdp_no_relationships.weather_observations": [
+        "station_code",
+        "observed_on",
+        "temperature_c",
+        "rainfall_mm"
+      ],
+      "dpdp_pii_exposure.customer_profiles": [
+        "profile_id",
+        "full_name",
+        "email",
+        "phone_number",
+        "address_line",
+        "consent_status"
+      ],
+      "dpdp_pii_exposure.support_tickets": [
+        "ticket_id",
+        "profile_id",
+        "requester_email",
+        "issue_summary"
+      ],
+      "dpdp_poor_quality.customer_imports": [
+        "import_id",
+        "full_name",
+        "email",
+        "phone_number",
+        "birth_date",
+        "city",
+        "loaded_at"
+      ],
+      "dpdp_poor_quality.payment_imports": [
+        "payment_ref",
+        "customer_email",
+        "amount",
+        "payment_date",
+        "status"
+      ],
+      "public.customers": [
+        "customer_id",
+        "customer_name",
+        "email",
+        "created_date"
+      ],
+      "public.orders": [
+        "order_id",
+        "customer_id",
+        "order_date",
+        "order_amount",
+        "order_status"
+      ]
+    },
+    "column_intelligence": {
+      "summary": {
+        "columns_scanned": 63,
+        "pii_columns": 14,
+        "unmasked_pii_columns": 13,
+        "high_risk_columns": 13,
+        "sensitive_columns": 14
+      },
+      "tables": {
+        "dpdp_clean.customers": [
+          {
+            "column": "customer_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "full_name",
+            "data_type": "VARCHAR(120)",
+            "nullable": false,
+            "pii_detected": true,
+            "pii_type": "NAME",
+            "pii_confidence": "high",
+            "confidence_score": 1.0,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "semantic"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "semantic",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "tokenization",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "HIGH",
+            "evidence": "4/4 sampled values looked name-like; column hint=True"
+          },
+          {
+            "column": "email",
+            "data_type": "VARCHAR(160)",
+            "nullable": false,
+            "pii_detected": true,
+            "pii_type": "EMAIL",
+            "pii_confidence": "high",
+            "confidence_score": 0.9,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "regex"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "regex",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "partial_email_mask",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "HIGH",
+            "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+          },
+          {
+            "column": "city",
+            "data_type": "VARCHAR(80)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "consent_status",
+            "data_type": "VARCHAR(20)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "created_at",
+            "data_type": "DATE",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:datetime"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ],
+        "dpdp_clean.orders": [
+          {
+            "column": "order_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "customer_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "order_total",
+            "data_type": "NUMERIC(10, 2)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "order_status",
+            "data_type": "VARCHAR(30)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "order_date",
+            "data_type": "DATE",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:datetime"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ],
+        "dpdp_masked.masked_customers": [
+          {
+            "column": "customer_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "customer_alias",
+            "data_type": "VARCHAR(120)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "masked_email",
+            "data_type": "VARCHAR(160)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": "EMAIL",
+            "pii_confidence": "medium",
+            "confidence_score": 0.7,
+            "sensitivity_level": "medium",
+            "detection_sources": [
+              "semantic"
+            ],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": "semantic",
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "Column name matched EMAIL semantic hint."
+          },
+          {
+            "column": "masked_phone",
+            "data_type": "VARCHAR(20)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": "PHONE",
+            "pii_confidence": "medium",
+            "confidence_score": 0.7,
+            "sensitivity_level": "medium",
+            "detection_sources": [
+              "semantic"
+            ],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": "semantic",
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "Column name matched PHONE semantic hint."
+          },
+          {
+            "column": "city",
+            "data_type": "VARCHAR(80)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "consent_status",
+            "data_type": "VARCHAR(20)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ],
+        "dpdp_masked.communication_preferences": [
+          {
+            "column": "preference_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "customer_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "channel",
+            "data_type": "VARCHAR(30)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "masked_contact",
+            "data_type": "VARCHAR(160)",
+            "nullable": false,
+            "pii_detected": true,
+            "pii_type": "EMAIL",
+            "pii_confidence": "high",
+            "confidence_score": 0.9,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "regex",
+              "semantic"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "profiling_pattern",
+            "masking_status": "PARTIALLY_MASKED",
+            "recommended_masking": "NONE",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "Profiling pattern email matched sampled values."
+          }
+        ],
+        "dpdp_no_relationships.branch_targets": [
+          {
+            "column": "branch_code",
+            "data_type": "VARCHAR(20)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": "IFSC",
+            "pii_confidence": "medium",
+            "confidence_score": 0.7,
+            "sensitivity_level": "medium",
+            "detection_sources": [
+              "semantic"
+            ],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": "semantic",
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Identifier",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "Column name matched IFSC semantic hint."
+          },
+          {
+            "column": "region",
+            "data_type": "VARCHAR(80)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "quarterly_target",
+            "data_type": "NUMERIC(12, 2)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ],
+        "dpdp_no_relationships.product_catalog": [
+          {
+            "column": "sku",
+            "data_type": "VARCHAR(40)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "product_name",
+            "data_type": "VARCHAR(120)",
+            "nullable": false,
+            "pii_detected": true,
+            "pii_type": "NAME",
+            "pii_confidence": "high",
+            "confidence_score": 1.0,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "semantic"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "semantic",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "tokenization",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Type:text"
+            ],
+            "risk": "HIGH",
+            "evidence": "3/3 sampled values looked name-like; column hint=True"
+          },
+          {
+            "column": "category",
+            "data_type": "VARCHAR(80)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "active_flag",
+            "data_type": "BOOLEAN",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:boolean"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ],
+        "dpdp_no_relationships.weather_observations": [
+          {
+            "column": "station_code",
+            "data_type": "VARCHAR(40)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Identifier",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "observed_on",
+            "data_type": "DATE",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:datetime"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "temperature_c",
+            "data_type": "NUMERIC(5, 2)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "rainfall_mm",
+            "data_type": "NUMERIC(6, 2)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ],
+        "dpdp_pii_exposure.customer_profiles": [
+          {
+            "column": "profile_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "full_name",
+            "data_type": "VARCHAR(120)",
+            "nullable": false,
+            "pii_detected": true,
+            "pii_type": "NAME",
+            "pii_confidence": "high",
+            "confidence_score": 1.0,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "semantic"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "semantic",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "tokenization",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "HIGH",
+            "evidence": "4/4 sampled values looked name-like; column hint=True"
+          },
+          {
+            "column": "email",
+            "data_type": "VARCHAR(160)",
+            "nullable": false,
+            "pii_detected": true,
+            "pii_type": "EMAIL",
+            "pii_confidence": "high",
+            "confidence_score": 0.9,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "regex"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "regex",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "partial_email_mask",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "HIGH",
+            "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+          },
+          {
+            "column": "phone_number",
+            "data_type": "VARCHAR(20)",
+            "nullable": false,
+            "pii_detected": true,
+            "pii_type": "FINANCIAL",
+            "pii_confidence": "high",
+            "confidence_score": 0.9,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "regex"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "regex",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "redact",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data",
+              "Type:numeric"
+            ],
+            "risk": "HIGH",
+            "evidence": "4/4 sampled values matched FINANCIAL; column hint=False"
+          },
+          {
+            "column": "address_line",
+            "data_type": "VARCHAR(240)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "consent_status",
+            "data_type": "VARCHAR(20)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ],
+        "dpdp_pii_exposure.support_tickets": [
+          {
+            "column": "ticket_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "profile_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "requester_email",
+            "data_type": "VARCHAR(160)",
+            "nullable": false,
+            "pii_detected": true,
+            "pii_type": "EMAIL",
+            "pii_confidence": "high",
+            "confidence_score": 0.9,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "regex"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "regex",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "partial_email_mask",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Type:text"
+            ],
+            "risk": "HIGH",
+            "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+          },
+          {
+            "column": "issue_summary",
+            "data_type": "VARCHAR(240)",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ],
+        "dpdp_poor_quality.customer_imports": [
+          {
+            "column": "import_id",
+            "data_type": "INTEGER",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "full_name",
+            "data_type": "VARCHAR(120)",
+            "nullable": true,
+            "pii_detected": true,
+            "pii_type": "NAME",
+            "pii_confidence": "high",
+            "confidence_score": 1.0,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "semantic"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "semantic",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "tokenization",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "HIGH",
+            "evidence": "3/3 sampled values looked name-like; column hint=True"
+          },
+          {
+            "column": "email",
+            "data_type": "VARCHAR(160)",
+            "nullable": true,
+            "pii_detected": true,
+            "pii_type": "EMAIL",
+            "pii_confidence": "high",
+            "confidence_score": 0.9,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "regex"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "regex",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "partial_email_mask",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "HIGH",
+            "evidence": "2/3 sampled values matched EMAIL; column hint=True"
+          },
+          {
+            "column": "phone_number",
+            "data_type": "VARCHAR(20)",
+            "nullable": true,
+            "pii_detected": true,
+            "pii_type": "FINANCIAL",
+            "pii_confidence": "high",
+            "confidence_score": 0.9,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "regex"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "regex",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "redact",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data",
+              "Type:numeric"
+            ],
+            "risk": "HIGH",
+            "evidence": "2/3 sampled values matched FINANCIAL; column hint=False"
+          },
+          {
+            "column": "birth_date",
+            "data_type": "VARCHAR(30)",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "city",
+            "data_type": "VARCHAR(80)",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "loaded_at",
+            "data_type": "DATE",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:datetime"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ],
+        "dpdp_poor_quality.payment_imports": [
+          {
+            "column": "payment_ref",
+            "data_type": "VARCHAR(40)",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": "FINANCIAL",
+            "pii_confidence": "medium",
+            "confidence_score": 0.7,
+            "sensitivity_level": "medium",
+            "detection_sources": [
+              "semantic"
+            ],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": "semantic",
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Financial",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "Column name matched FINANCIAL semantic hint."
+          },
+          {
+            "column": "customer_email",
+            "data_type": "VARCHAR(160)",
+            "nullable": true,
+            "pii_detected": true,
+            "pii_type": "EMAIL",
+            "pii_confidence": "high",
+            "confidence_score": 0.9,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "regex"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "regex",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "partial_email_mask",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Financial",
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "HIGH",
+            "evidence": "2/3 sampled values matched EMAIL; column hint=True"
+          },
+          {
+            "column": "amount",
+            "data_type": "NUMERIC(10, 2)",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Financial",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "payment_date",
+            "data_type": "VARCHAR(30)",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": "FINANCIAL",
+            "pii_confidence": "medium",
+            "confidence_score": 0.7,
+            "sensitivity_level": "medium",
+            "detection_sources": [
+              "semantic"
+            ],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": "semantic",
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Financial",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "Column name matched FINANCIAL semantic hint."
+          },
+          {
+            "column": "status",
+            "data_type": "VARCHAR(30)",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Financial",
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ],
+        "public.customers": [
+          {
+            "column": "customer_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "customer_name",
+            "data_type": "TEXT",
+            "nullable": false,
+            "pii_detected": true,
+            "pii_type": "NAME",
+            "pii_confidence": "high",
+            "confidence_score": 1.0,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "semantic"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "semantic",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "tokenization",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "HIGH",
+            "evidence": "2/2 sampled values looked name-like; column hint=True"
+          },
+          {
+            "column": "email",
+            "data_type": "TEXT",
+            "nullable": true,
+            "pii_detected": true,
+            "pii_type": "EMAIL",
+            "pii_confidence": "high",
+            "confidence_score": 0.9,
+            "sensitivity_level": "high",
+            "detection_sources": [
+              "regex"
+            ],
+            "final_decision": true,
+            "language": "en",
+            "detected_by": "regex",
+            "masking_status": "NOT_MASKED",
+            "recommended_masking": "partial_email_mask",
+            "classification": "Sensitive",
+            "tags": [
+              "PII",
+              "Customer Data",
+              "Type:text"
+            ],
+            "risk": "HIGH",
+            "evidence": "2/2 sampled values matched EMAIL; column hint=True"
+          },
+          {
+            "column": "created_date",
+            "data_type": "DATE",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Type:datetime"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ],
+        "public.orders": [
+          {
+            "column": "order_id",
+            "data_type": "INTEGER",
+            "nullable": false,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "customer_id",
+            "data_type": "INTEGER",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Customer Data",
+              "Identifier",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "order_date",
+            "data_type": "DATE",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:datetime"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "order_amount",
+            "data_type": "NUMERIC",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Financial",
+              "Type:numeric"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          },
+          {
+            "column": "order_status",
+            "data_type": "TEXT",
+            "nullable": true,
+            "pii_detected": false,
+            "pii_type": null,
+            "pii_confidence": "none",
+            "confidence_score": 0.0,
+            "sensitivity_level": "medium",
+            "detection_sources": [],
+            "final_decision": false,
+            "language": "en",
+            "detected_by": null,
+            "masking_status": "NOT_APPLICABLE",
+            "recommended_masking": "NONE",
+            "classification": "Confidential",
+            "tags": [
+              "Type:text"
+            ],
+            "risk": "MEDIUM",
+            "evidence": "No PII pattern, semantic hint, or profile pattern matched"
+          }
+        ]
+      }
+    },
+    "scores": {
+      "quality_score": 96.68,
+      "risk_penalty": 80,
+      "final_score": 16.68,
+      "score_drivers": [
+        {
+          "factor": "metadata_completeness",
+          "severity": "medium",
+          "penalty": 5,
+          "detail": "dpdp_poor_quality.customer_imports has no primary key"
+        },
+        {
+          "factor": "metadata_completeness",
+          "severity": "medium",
+          "penalty": 5,
+          "detail": "dpdp_poor_quality.payment_imports has no primary key"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_clean.customers.full_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_clean.customers.email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "dpdp_masked.communication_preferences.masked_contact is EMAIL with masking_status=PARTIALLY_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_no_relationships.product_catalog.product_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_pii_exposure.customer_profiles.full_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_pii_exposure.customer_profiles.email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_pii_exposure.customer_profiles.phone_number is FINANCIAL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_pii_exposure.support_tickets.requester_email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_poor_quality.customer_imports.full_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_poor_quality.customer_imports.email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_poor_quality.customer_imports.phone_number is FINANCIAL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "dpdp_poor_quality.payment_imports.customer_email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "public.customers.customer_name is NAME with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "pii_masking",
+          "severity": "high",
+          "penalty": 15,
+          "detail": "public.customers.email is EMAIL with masking_status=NOT_MASKED"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "sample_sufficiency",
+          "severity": "medium",
+          "penalty": 8,
+          "detail": "Insufficient data for reliable profiling"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "full_name has 33.33% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "email has 33.33% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "phone_number has 33.33% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "city has 66.67% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "1 duplicate sampled rows found"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "email contains invalid email formats"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "customer_email has 20.0% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "amount has 20.0% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "medium",
+          "penalty": 2,
+          "detail": "status has 20.0% null values"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "1 duplicate sampled rows found"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "customer_email contains invalid email formats"
+        },
+        {
+          "factor": "data_findings",
+          "severity": "high",
+          "penalty": 5,
+          "detail": "amount contains negative values"
+        }
+      ],
+      "score_components": {
+        "data_quality": 96.68,
+        "metadata_penalty": 10,
+        "pii_masking_penalty": 203,
+        "sample_sufficiency_penalty": 104,
+        "findings_penalty": 42
+      }
+    },
+    "risks": [
+      {
+        "id": "RISK-04F2179253",
+        "source_issue_id": null,
+        "description": "dpdp_clean.customers.email contains not masked EMAIL data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_clean.customers",
+            "column": "email"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-8E54915055",
+        "source_issue_id": null,
+        "description": "dpdp_clean.customers.email contains unmasked EMAIL PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_clean.customers",
+            "column": "email"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-7151C42698",
+        "source_issue_id": null,
+        "description": "dpdp_clean.customers.full_name contains not masked NAME data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_clean.customers",
+            "column": "full_name"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values looked name-like; column hint=True"
+      },
+      {
+        "id": "RISK-F80CC24DCE",
+        "source_issue_id": null,
+        "description": "dpdp_clean.customers.full_name contains unmasked NAME PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_clean.customers",
+            "column": "full_name"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values looked name-like; column hint=True"
+      },
+      {
+        "id": "RISK-2F16203530",
+        "source_issue_id": null,
+        "description": "dpdp_no_relationships.product_catalog.product_name contains not masked NAME data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_no_relationships.product_catalog",
+            "column": "product_name"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "3/3 sampled values looked name-like; column hint=True"
+      },
+      {
+        "id": "RISK-B83CD1861B",
+        "source_issue_id": null,
+        "description": "dpdp_no_relationships.product_catalog.product_name contains unmasked NAME PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_no_relationships.product_catalog",
+            "column": "product_name"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "3/3 sampled values looked name-like; column hint=True"
+      },
+      {
+        "id": "RISK-3381B75A81",
+        "source_issue_id": null,
+        "description": "dpdp_pii_exposure.customer_profiles.email contains not masked EMAIL data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_pii_exposure.customer_profiles",
+            "column": "email"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-862AE168C6",
+        "source_issue_id": null,
+        "description": "dpdp_pii_exposure.customer_profiles.email contains unmasked EMAIL PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_pii_exposure.customer_profiles",
+            "column": "email"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-62C4BF6031",
+        "source_issue_id": null,
+        "description": "dpdp_pii_exposure.customer_profiles.full_name contains not masked NAME data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_pii_exposure.customer_profiles",
+            "column": "full_name"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values looked name-like; column hint=True"
+      },
+      {
+        "id": "RISK-55BD45AFD8",
+        "source_issue_id": null,
+        "description": "dpdp_pii_exposure.customer_profiles.full_name contains unmasked NAME PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_pii_exposure.customer_profiles",
+            "column": "full_name"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values looked name-like; column hint=True"
+      },
+      {
+        "id": "RISK-38549B8BB8",
+        "source_issue_id": null,
+        "description": "dpdp_pii_exposure.customer_profiles.phone_number contains not masked FINANCIAL data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_pii_exposure.customer_profiles",
+            "column": "phone_number"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values matched FINANCIAL; column hint=False"
+      },
+      {
+        "id": "RISK-F673F0878D",
+        "source_issue_id": null,
+        "description": "dpdp_pii_exposure.customer_profiles.phone_number contains unmasked FINANCIAL PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_pii_exposure.customer_profiles",
+            "column": "phone_number"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values matched FINANCIAL; column hint=False"
+      },
+      {
+        "id": "RISK-7D148B968E",
+        "source_issue_id": null,
+        "description": "dpdp_pii_exposure.support_tickets.requester_email contains not masked EMAIL data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_pii_exposure.support_tickets",
+            "column": "requester_email"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-F969F30DF2",
+        "source_issue_id": null,
+        "description": "dpdp_pii_exposure.support_tickets.requester_email contains unmasked EMAIL PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_pii_exposure.support_tickets",
+            "column": "requester_email"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "4/4 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-1D1393817D",
+        "source_issue_id": null,
+        "description": "dpdp_poor_quality.customer_imports.email contains not masked EMAIL data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_poor_quality.customer_imports",
+            "column": "email"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "2/3 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-F4D70624A9",
+        "source_issue_id": null,
+        "description": "dpdp_poor_quality.customer_imports.email contains unmasked EMAIL PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_poor_quality.customer_imports",
+            "column": "email"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "2/3 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-8E18A676A9",
+        "source_issue_id": null,
+        "description": "dpdp_poor_quality.customer_imports.full_name contains not masked NAME data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_poor_quality.customer_imports",
+            "column": "full_name"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "3/3 sampled values looked name-like; column hint=True"
+      },
+      {
+        "id": "RISK-056B0405B6",
+        "source_issue_id": null,
+        "description": "dpdp_poor_quality.customer_imports.full_name contains unmasked NAME PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_poor_quality.customer_imports",
+            "column": "full_name"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "3/3 sampled values looked name-like; column hint=True"
+      },
+      {
+        "id": "RISK-711A5DED2C",
+        "source_issue_id": null,
+        "description": "dpdp_poor_quality.customer_imports.phone_number contains not masked FINANCIAL data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_poor_quality.customer_imports",
+            "column": "phone_number"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "2/3 sampled values matched FINANCIAL; column hint=False"
+      },
+      {
+        "id": "RISK-91629475E8",
+        "source_issue_id": null,
+        "description": "dpdp_poor_quality.customer_imports.phone_number contains unmasked FINANCIAL PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_poor_quality.customer_imports",
+            "column": "phone_number"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "2/3 sampled values matched FINANCIAL; column hint=False"
+      },
+      {
+        "id": "RISK-1665D01A69",
+        "source_issue_id": null,
+        "description": "dpdp_poor_quality.payment_imports.customer_email contains not masked EMAIL data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_poor_quality.payment_imports",
+            "column": "customer_email"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "2/3 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-6561A8F4A1",
+        "source_issue_id": null,
+        "description": "dpdp_poor_quality.payment_imports.customer_email contains unmasked EMAIL PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "dpdp_poor_quality.payment_imports",
+            "column": "customer_email"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "2/3 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-F4C41EA760",
+        "source_issue_id": null,
+        "description": "public.customers.customer_name contains not masked NAME data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "public.customers",
+            "column": "customer_name"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "2/2 sampled values looked name-like; column hint=True"
+      },
+      {
+        "id": "RISK-E3C24F3A35",
+        "source_issue_id": null,
+        "description": "public.customers.customer_name contains unmasked NAME PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "public.customers",
+            "column": "customer_name"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "2/2 sampled values looked name-like; column hint=True"
+      },
+      {
+        "id": "RISK-8B22C3F060",
+        "source_issue_id": null,
+        "description": "public.customers.email contains not masked EMAIL data.",
+        "severity": "critical",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "public.customers",
+            "column": "email"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "2/2 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-4CFB0CD1FD",
+        "source_issue_id": null,
+        "description": "public.customers.email contains unmasked EMAIL PII.",
+        "severity": "critical",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 10.0,
+        "priority": "CRITICAL",
+        "affected_columns": [
+          {
+            "table": "public.customers",
+            "column": "email"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "2/2 sampled values matched EMAIL; column hint=True"
+      },
+      {
+        "id": "RISK-4DC55D0802",
+        "source_issue_id": null,
+        "description": "customer_email contains invalid email formats",
+        "severity": "high",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 7.0,
+        "priority": "HIGH",
+        "affected_columns": [],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "profiling metric exceeded quality threshold"
+      },
+      {
+        "id": "RISK-001B3EF05C",
+        "source_issue_id": null,
+        "description": "email contains invalid email formats",
+        "severity": "high",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "high",
+        "risk_score": 7.0,
+        "priority": "HIGH",
+        "affected_columns": [],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "profiling metric exceeded quality threshold"
+      },
+      {
+        "id": "RISK-3AEB382D95",
+        "source_issue_id": null,
+        "description": "dpdp_masked.communication_preferences.masked_contact contains partially masked EMAIL data.",
+        "severity": "high",
+        "impact": [
+          "compliance",
+          "security"
+        ],
+        "likelihood": "medium",
+        "risk_score": 4.55,
+        "priority": "MEDIUM",
+        "affected_columns": [
+          {
+            "table": "dpdp_masked.communication_preferences",
+            "column": "masked_contact"
+          }
+        ],
+        "owner": "Data Engineering / Data Steward",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "Profiling pattern email matched sampled values."
+      },
+      {
+        "id": "RISK-79BCE10E82",
+        "source_issue_id": null,
+        "description": "1 duplicate sampled rows found",
+        "severity": "high",
+        "impact": [
+          "business"
+        ],
+        "likelihood": "medium",
+        "risk_score": 3.18,
+        "priority": "MEDIUM",
+        "affected_columns": [],
+        "owner": "postgres",
+        "compliance_mapping": [],
+        "evidence": "profiling metric exceeded quality threshold"
+      },
+      {
+        "id": "RISK-EC91FDBB3D",
+        "source_issue_id": null,
+        "description": "amount contains negative values",
+        "severity": "high",
+        "impact": [
+          "business"
+        ],
+        "likelihood": "medium",
+        "risk_score": 3.18,
+        "priority": "MEDIUM",
+        "affected_columns": [],
+        "owner": "postgres",
+        "compliance_mapping": [],
+        "evidence": "profiling metric exceeded quality threshold"
+      },
+      {
+        "id": "RISK-27B5D00D2C",
+        "source_issue_id": null,
+        "description": "city has 66.67% null values",
+        "severity": "high",
+        "impact": [
+          "business"
+        ],
+        "likelihood": "medium",
+        "risk_score": 3.18,
+        "priority": "MEDIUM",
+        "affected_columns": [
+          {
+            "table": "66",
+            "column": "67%"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [],
+        "evidence": "profiling metric exceeded quality threshold"
+      },
+      {
+        "id": "RISK-550AE8957E",
+        "source_issue_id": null,
+        "description": "customer_email has 20.0% null values",
+        "severity": "medium",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "medium",
+        "risk_score": 2.6,
+        "priority": "MEDIUM",
+        "affected_columns": [
+          {
+            "table": "20",
+            "column": "0%"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "profiling metric exceeded quality threshold"
+      },
+      {
+        "id": "RISK-E8034B78D7",
+        "source_issue_id": null,
+        "description": "dpdp_poor_quality.customer_imports has no primary key in source metadata.",
+        "severity": "medium",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "medium",
+        "risk_score": 2.6,
+        "priority": "MEDIUM",
+        "affected_columns": [
+          {
+            "table": "dpdp_poor_quality",
+            "column": "customer_imports"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [],
+        "evidence": "primary_key is empty"
+      },
+      {
+        "id": "RISK-4F4A133A6C",
+        "source_issue_id": null,
+        "description": "dpdp_poor_quality.payment_imports has no primary key in source metadata.",
+        "severity": "medium",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "medium",
+        "risk_score": 2.6,
+        "priority": "MEDIUM",
+        "affected_columns": [
+          {
+            "table": "dpdp_poor_quality",
+            "column": "payment_imports"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [],
+        "evidence": "primary_key is empty"
+      },
+      {
+        "id": "RISK-D7F8EF918B",
+        "source_issue_id": null,
+        "description": "email has 33.33% null values",
+        "severity": "medium",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "medium",
+        "risk_score": 2.6,
+        "priority": "MEDIUM",
+        "affected_columns": [
+          {
+            "table": "33",
+            "column": "33%"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "profiling metric exceeded quality threshold"
+      },
+      {
+        "id": "RISK-11E6F2CAA3",
+        "source_issue_id": null,
+        "description": "phone_number has 33.33% null values",
+        "severity": "medium",
+        "impact": [
+          "business",
+          "compliance",
+          "security"
+        ],
+        "likelihood": "medium",
+        "risk_score": 2.6,
+        "priority": "MEDIUM",
+        "affected_columns": [
+          {
+            "table": "33",
+            "column": "33%"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [
+          "DPDP",
+          "GDPR"
+        ],
+        "evidence": "profiling metric exceeded quality threshold"
+      },
+      {
+        "id": "RISK-E690A2A969",
+        "source_issue_id": null,
+        "description": "Insufficient data for reliable profiling",
+        "severity": "medium",
+        "impact": [
+          "business"
+        ],
+        "likelihood": "medium",
+        "risk_score": 1.82,
+        "priority": "LOW",
+        "affected_columns": [],
+        "owner": "postgres",
+        "compliance_mapping": [],
+        "evidence": "sample_size=4, threshold=30"
+      },
+      {
+        "id": "RISK-1F3FE25384",
+        "source_issue_id": null,
+        "description": "Insufficient data for reliable profiling",
+        "severity": "medium",
+        "impact": [
+          "business"
+        ],
+        "likelihood": "medium",
+        "risk_score": 1.82,
+        "priority": "LOW",
+        "affected_columns": [],
+        "owner": "postgres",
+        "compliance_mapping": [],
+        "evidence": "profiling metric exceeded quality threshold"
+      },
+      {
+        "id": "RISK-1834387E3A",
+        "source_issue_id": null,
+        "description": "amount has 20.0% null values",
+        "severity": "medium",
+        "impact": [
+          "business"
+        ],
+        "likelihood": "medium",
+        "risk_score": 1.82,
+        "priority": "LOW",
+        "affected_columns": [
+          {
+            "table": "20",
+            "column": "0%"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [],
+        "evidence": "profiling metric exceeded quality threshold"
+      },
+      {
+        "id": "RISK-58E8E52A35",
+        "source_issue_id": null,
+        "description": "full_name has 33.33% null values",
+        "severity": "medium",
+        "impact": [
+          "business"
+        ],
+        "likelihood": "medium",
+        "risk_score": 1.82,
+        "priority": "LOW",
+        "affected_columns": [
+          {
+            "table": "33",
+            "column": "33%"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [],
+        "evidence": "profiling metric exceeded quality threshold"
+      },
+      {
+        "id": "RISK-4396DAD3E9",
+        "source_issue_id": null,
+        "description": "status has 20.0% null values",
+        "severity": "medium",
+        "impact": [
+          "business"
+        ],
+        "likelihood": "medium",
+        "risk_score": 1.82,
+        "priority": "LOW",
+        "affected_columns": [
+          {
+            "table": "20",
+            "column": "0%"
+          }
+        ],
+        "owner": "postgres",
+        "compliance_mapping": [],
+        "evidence": "profiling metric exceeded quality threshold"
+      }
+    ],
+    "issues_count": 27,
+    "document_alignment": []
+  }
+}

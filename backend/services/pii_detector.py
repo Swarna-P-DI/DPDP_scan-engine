@@ -2,14 +2,12 @@ import re
 from functools import lru_cache
 from typing import Any, Dict, Iterable, List, Tuple
 
-from backend.config import ENABLE_LLM_SYNTHESIS
-
-
 PII_PATTERNS = {
     "EMAIL": re.compile(r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"),
     "PHONE": re.compile(r"^(?:\+?91[-\s]?)?[6-9]\d{9}$"),
     "AADHAAR": re.compile(r"^\d{4}[\s-]?\d{4}[\s-]?\d{4}$"),
     "PAN": re.compile(r"^[A-Z]{5}\d{4}[A-Z]$"),
+    "IFSC": re.compile(r"^[A-Z]{4}0[A-Z0-9]{6}$"),
     "FINANCIAL": re.compile(r"^(?:\d{9,18}|\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4})$"),
 }
 
@@ -18,6 +16,7 @@ COLUMN_HINTS = {
     "PHONE": ("phone", "mobile", "contact", "telephone", "msisdn"),
     "AADHAAR": ("aadhaar", "aadhar", "uidai"),
     "PAN": ("pan", "tax_id"),
+    "IFSC": ("ifsc", "bank_code", "branch_code"),
     "FINANCIAL": ("account", "bank", "card", "iban", "ifsc", "salary", "payment", "balance"),
     "NAME": ("name", "first_name", "last_name", "customer_name", "full_name"),
 }
@@ -25,6 +24,7 @@ COLUMN_HINTS = {
 SENSITIVITY = {
     "AADHAAR": "high",
     "PAN": "high",
+    "IFSC": "high",
     "FINANCIAL": "high",
     "EMAIL": "high",
     "PHONE": "high",
@@ -34,7 +34,6 @@ SENSITIVITY = {
 DECISION_THRESHOLD = 0.75
 REGEX_CONFIDENCE = 0.9
 SEMANTIC_CONFIDENCE = 0.7
-LLM_CONFIDENCE = 0.6
 
 NON_ENGLISH_RANGES = (
     ("\u0900", "\u097f", "hi"),
@@ -71,42 +70,6 @@ def _cache_key(column_name: str, values: Iterable[Any], profiling: Dict[str, Any
     patterns = tuple(sorted(str(item.get("pattern")) for item in (profiling or {}).get("patterns", [])))
     sample = tuple(_normalize(value).lower() for value in list(values)[:50])
     return str(column_name or "").lower(), sample, patterns
-
-
-def _llm_fallback(column_name: str, values: List[Any]) -> Dict[str, Any] | None:
-    if not ENABLE_LLM_SYNTHESIS:
-        return None
-    try:
-        from backend.utils.llm import invoke_llm
-        from backend.utils.parser import safe_json_parse
-    except Exception:
-        return None
-
-    prompt = {
-        "task": "Classify whether a database column contains personal or sensitive data.",
-        "column_name": column_name,
-        "sample_values": [str(value) for value in values[:10]],
-        "allowed_pii_types": ["EMAIL", "PHONE", "AADHAAR", "PAN", "FINANCIAL", "NAME", "NONE"],
-        "return_json": {
-            "pii_detected": "boolean",
-            "pii_type": "string",
-            "reason": "string",
-        },
-    }
-    parsed = safe_json_parse(invoke_llm(str(prompt)))
-    if not isinstance(parsed, dict) or parsed.get("error") or not parsed.get("pii_detected"):
-        return None
-    pii_type = str(parsed.get("pii_type") or "NAME").upper()
-    if pii_type == "NONE":
-        return None
-    return {
-        "pii_type": pii_type if pii_type in SENSITIVITY else "NAME",
-        "sensitivity": SENSITIVITY.get(pii_type, "medium"),
-        "confidence_score": LLM_CONFIDENCE,
-        "detected_by": "llm_fallback",
-        "detection_source": "llm",
-        "evidence": parsed.get("reason", "LLM fallback classified this column as sensitive."),
-    }
 
 
 @lru_cache(maxsize=2048)
@@ -160,6 +123,7 @@ def _detect_pii_cached(column_name: str, values: Tuple[str, ...], profile_patter
             "phone": "PHONE",
             "aadhaar": "AADHAAR",
             "pan": "PAN",
+            "ifsc": "IFSC",
         }.get(pattern_name)
         if mapped and not any(item["pii_type"] == mapped for item in detected):
             detected.append({
@@ -170,12 +134,6 @@ def _detect_pii_cached(column_name: str, values: Tuple[str, ...], profile_patter
                 "detection_source": "regex",
                 "evidence": f"Profiling pattern {pattern_name} matched sampled values.",
             })
-
-    best_score = max([item["confidence_score"] for item in detected], default=0)
-    if best_score < DECISION_THRESHOLD:
-        llm_result = _llm_fallback(column_name, list(usable_values))
-        if llm_result:
-            detected.append(llm_result)
 
     if not detected:
         return {
@@ -191,7 +149,7 @@ def _detect_pii_cached(column_name: str, values: Tuple[str, ...], profile_patter
             "evidence": "No PII pattern, semantic hint, or profile pattern matched",
         }
 
-    priority = {"AADHAAR": 6, "PAN": 5, "FINANCIAL": 4, "EMAIL": 3, "PHONE": 2, "NAME": 1}
+    priority = {"AADHAAR": 7, "PAN": 6, "IFSC": 5, "FINANCIAL": 4, "EMAIL": 3, "PHONE": 2, "NAME": 1}
     best = sorted(detected, key=lambda item: (priority[item["pii_type"]], item["confidence_score"]), reverse=True)[0]
     confidence = "high" if best["confidence_score"] >= 0.8 else "medium" if best["confidence_score"] >= 0.5 else "low"
     final_decision = best["confidence_score"] >= DECISION_THRESHOLD

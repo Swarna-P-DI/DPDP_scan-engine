@@ -5,378 +5,486 @@
       "risk_id": "RISK-04F2179253",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-04F2179253",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-E5DA78F508",
       "risk_id": "RISK-8E54915055",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to dpdp_clean.customers.email",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-CCE4115B5D",
       "risk_id": "RISK-7151C42698",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-7151C42698",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-FC6842F615",
       "risk_id": "RISK-F80CC24DCE",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to dpdp_clean.customers.full_name",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-ED16FF4B46",
       "risk_id": "RISK-2F16203530",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-2F16203530",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-599848D1B6",
       "risk_id": "RISK-B83CD1861B",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to dpdp_no_relationships.product_catalog.product_name",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-039BF0298B",
       "risk_id": "RISK-3381B75A81",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-3381B75A81",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-67E1C4631F",
       "risk_id": "RISK-862AE168C6",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.customer_profiles.email",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-53BF4EFC4B",
       "risk_id": "RISK-62C4BF6031",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-62C4BF6031",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-6A98F64864",
       "risk_id": "RISK-55BD45AFD8",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.customer_profiles.full_name",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-88CAEA11AD",
       "risk_id": "RISK-38549B8BB8",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-38549B8BB8",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-547FBACDA1",
       "risk_id": "RISK-F673F0878D",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.customer_profiles.phone_number",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-F75A4501C0",
       "risk_id": "RISK-7D148B968E",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-7D148B968E",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-6156370720",
       "risk_id": "RISK-F969F30DF2",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to dpdp_pii_exposure.support_tickets.requester_email",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-026E4B34FE",
       "risk_id": "RISK-1D1393817D",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-1D1393817D",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-FE04B22941",
       "risk_id": "RISK-F4D70624A9",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.customer_imports.email",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-84B9DB4895",
       "risk_id": "RISK-8E18A676A9",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-8E18A676A9",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-F1BE1207E1",
       "risk_id": "RISK-056B0405B6",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.customer_imports.full_name",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-562295E772",
       "risk_id": "RISK-711A5DED2C",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-711A5DED2C",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-86EC6621FA",
       "risk_id": "RISK-91629475E8",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.customer_imports.phone_number",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-D1553093AD",
       "risk_id": "RISK-1665D01A69",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-1665D01A69",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-2F8A8C12E1",
       "risk_id": "RISK-6561A8F4A1",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to dpdp_poor_quality.payment_imports.customer_email",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-7E1513A67E",
       "risk_id": "RISK-F4C41EA760",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-F4C41EA760",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-E57EF7ED18",
       "risk_id": "RISK-E3C24F3A35",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to public.customers.customer_name",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-750081E6D7",
       "risk_id": "RISK-8B22C3F060",
       "owner": "Data Engineering / Data Steward",
       "action": "Review and remediate risk RISK-8B22C3F060",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-7939C8C84E",
       "risk_id": "RISK-4CFB0CD1FD",
       "owner": "postgres",
       "action": "Mask, tokenize, or restrict access to public.customers.email",
-      "due_date": "2026-04-30",
+      "due_date": "2026-05-09",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-AE9CA13688",
       "risk_id": "RISK-4DC55D0802",
       "owner": "postgres",
       "action": "Add validation and fix invalid values for affected dataset",
-      "due_date": "2026-05-04",
+      "due_date": "2026-05-13",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-C1033C6A97",
       "risk_id": "RISK-001B3EF05C",
       "owner": "postgres",
       "action": "Add validation and fix invalid values for affected dataset",
-      "due_date": "2026-05-04",
+      "due_date": "2026-05-13",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-F9615238C0",
       "risk_id": "RISK-3AEB382D95",
       "owner": "Data Engineering / Data Steward",
       "action": "Validate masking strength for dpdp_masked.communication_preferences.masked_contact",
-      "due_date": "2026-05-04",
+      "due_date": "2026-05-13",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-4A8A6667D2",
       "risk_id": "RISK-79BCE10E82",
       "owner": "postgres",
       "action": "Resolve duplicates and enforce uniqueness for affected dataset",
-      "due_date": "2026-05-04",
+      "due_date": "2026-05-13",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-316B5F802A",
       "risk_id": "RISK-EC91FDBB3D",
       "owner": "postgres",
       "action": "Review and remediate risk RISK-EC91FDBB3D",
-      "due_date": "2026-05-04",
+      "due_date": "2026-05-13",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-B07A00DC84",
       "risk_id": "RISK-27B5D00D2C",
       "owner": "postgres",
       "action": "Define completeness rule and remediate nulls for 66.67%",
-      "due_date": "2026-05-04",
+      "due_date": "2026-05-13",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-CCE237D3E9",
       "risk_id": "RISK-550AE8957E",
       "owner": "postgres",
       "action": "Define completeness rule and remediate nulls for 20.0%",
-      "due_date": "2026-05-18",
+      "due_date": "2026-05-27",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-E1BEDCE319",
       "risk_id": "RISK-E8034B78D7",
       "owner": "postgres",
       "action": "Review and remediate risk RISK-E8034B78D7",
-      "due_date": "2026-05-18",
+      "due_date": "2026-05-27",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-E90B21EBD9",
       "risk_id": "RISK-4F4A133A6C",
       "owner": "postgres",
       "action": "Review and remediate risk RISK-4F4A133A6C",
-      "due_date": "2026-05-18",
+      "due_date": "2026-05-27",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-569F248875",
       "risk_id": "RISK-D7F8EF918B",
       "owner": "postgres",
       "action": "Define completeness rule and remediate nulls for 33.33%",
-      "due_date": "2026-05-18",
+      "due_date": "2026-05-27",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-7F3B0F1B86",
       "risk_id": "RISK-11E6F2CAA3",
       "owner": "postgres",
       "action": "Define completeness rule and remediate nulls for 33.33%",
-      "due_date": "2026-05-18",
+      "due_date": "2026-05-27",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-D65DF321E0",
       "risk_id": "RISK-E690A2A969",
       "owner": "postgres",
       "action": "Review and remediate risk RISK-E690A2A969",
-      "due_date": "2026-05-18",
+      "due_date": "2026-05-27",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-A687C6DC9F",
       "risk_id": "RISK-1F3FE25384",
       "owner": "postgres",
       "action": "Review and remediate risk RISK-1F3FE25384",
-      "due_date": "2026-05-18",
+      "due_date": "2026-05-27",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-BFB52B6C8C",
       "risk_id": "RISK-1834387E3A",
       "owner": "postgres",
       "action": "Define completeness rule and remediate nulls for 20.0%",
-      "due_date": "2026-05-18",
+      "due_date": "2026-05-27",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-AB3AB390EC",
       "risk_id": "RISK-58E8E52A35",
       "owner": "postgres",
       "action": "Define completeness rule and remediate nulls for 33.33%",
-      "due_date": "2026-05-18",
+      "due_date": "2026-05-27",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
     },
     {
       "task_id": "TASK-82596ED812",
       "risk_id": "RISK-4396DAD3E9",
       "owner": "postgres",
       "action": "Define completeness rule and remediate nulls for 20.0%",
-      "due_date": "2026-05-18",
+      "due_date": "2026-05-27",
       "status": "OPEN",
-      "updated_at": "2026-04-27T05:13:48.368364"
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-7F2F0DD63D",
+      "risk_id": "RISK-EF3C20FB72",
+      "owner": "Data Engineering / Data Steward",
+      "action": "Review and remediate risk RISK-EF3C20FB72",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-27C1B503AF",
+      "risk_id": "RISK-9BC7D45E55",
+      "owner": "postgres",
+      "action": "Mask, tokenize, or restrict access to public.bank_accounts.account_number",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-905B890698",
+      "risk_id": "RISK-8267472B78",
+      "owner": "Data Engineering / Data Steward",
+      "action": "Review and remediate risk RISK-8267472B78",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-800433AEA5",
+      "risk_id": "RISK-1DB415BD50",
+      "owner": "postgres",
+      "action": "Mask, tokenize, or restrict access to public.employee_records.aadhaar",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-F7A7C39513",
+      "risk_id": "RISK-3015FF0EB5",
+      "owner": "Data Engineering / Data Steward",
+      "action": "Review and remediate risk RISK-3015FF0EB5",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-A73D0211D7",
+      "risk_id": "RISK-F27F8D0849",
+      "owner": "postgres",
+      "action": "Mask, tokenize, or restrict access to public.employee_records.emp_name",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-23FFA06DE3",
+      "risk_id": "RISK-37B2E8EB19",
+      "owner": "Data Engineering / Data Steward",
+      "action": "Review and remediate risk RISK-37B2E8EB19",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-4B59ED187D",
+      "risk_id": "RISK-F7DE0729FA",
+      "owner": "postgres",
+      "action": "Mask, tokenize, or restrict access to public.kyc_profiles.aadhaar",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-E4E0980E40",
+      "risk_id": "RISK-C650FF05C0",
+      "owner": "Data Engineering / Data Steward",
+      "action": "Review and remediate risk RISK-C650FF05C0",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-E84FDA8FBD",
+      "risk_id": "RISK-71B7E518A4",
+      "owner": "postgres",
+      "action": "Mask, tokenize, or restrict access to public.kyc_profiles.full_name",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-CAE1A2B63D",
+      "risk_id": "RISK-7E60CA17AF",
+      "owner": "Data Engineering / Data Steward",
+      "action": "Review and remediate risk RISK-7E60CA17AF",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
+    },
+    {
+      "task_id": "TASK-2A7B708B55",
+      "risk_id": "RISK-73D669F628",
+      "owner": "postgres",
+      "action": "Mask, tokenize, or restrict access to public.kyc_profiles.phone",
+      "due_date": "2026-05-09",
+      "status": "OPEN",
+      "updated_at": "2026-05-06T07:05:57.540852"
     }
   ]
 }
